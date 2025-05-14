@@ -107,6 +107,7 @@ const Header = () => {
         <button 
           className="lg:hidden text-light_gray_text"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
         >
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -115,8 +116,8 @@ const Header = () => {
       {/* Mobile Menu */}
       <div 
         className={cn(
-          "lg:hidden bg-deep_purple absolute w-full transition-all duration-300 overflow-hidden", 
-          mobileMenuOpen ? "max-h-screen" : "max-h-0"
+          "lg:hidden fixed top-[73px] left-0 w-full bg-deep_purple shadow-lg z-50 transition-all duration-300", 
+          mobileMenuOpen ? "max-h-[calc(100vh-73px)] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0"
         )}
       >
         <div className="container-custom py-4">
@@ -126,7 +127,7 @@ const Header = () => {
                 <>
                   <button 
                     onClick={() => toggleDropdown(link.title)}
-                    className="w-full flex justify-between items-center text-left py-2"
+                    className="w-full flex justify-between items-center text-left py-3 px-2 text-lg border-b border-medium_purple/30"
                   >
                     {link.title}
                     <ChevronDown 
@@ -147,7 +148,7 @@ const Header = () => {
                       <Link
                         key={child.title}
                         to={child.path}
-                        className="block py-1 hover:text-bright_magenta"
+                        className="block py-2 px-2 hover:text-bright_magenta"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {child.title}
@@ -158,7 +159,7 @@ const Header = () => {
               ) : (
                 <Link
                   to={link.path}
-                  className="block py-2 hover:text-bright_magenta"
+                  className="block py-3 px-2 text-lg border-b border-medium_purple/30 hover:text-bright_magenta"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.title}
@@ -166,17 +167,17 @@ const Header = () => {
               )}
             </div>
           ))}
-          <div className="flex flex-col gap-2 mt-6 mb-2">
+          <div className="flex flex-col gap-3 mt-6 mb-4">
             <Link 
               to="/login" 
-              className="block w-full text-center py-2 border border-light_gray_text/50 rounded-md hover:border-bright_magenta hover:text-bright_magenta transition-colors"
+              className="block w-full text-center py-3 border border-light_gray_text/50 rounded-md hover:border-bright_magenta hover:text-bright_magenta transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Login
             </Link>
             <Link 
               to="/signup" 
-              className="btn-primary w-full text-center"
+              className="btn-primary w-full text-center py-3"
               onClick={() => setMobileMenuOpen(false)}
             >
               Start Creating
