@@ -37,15 +37,15 @@ const Benefits = () => {
   ];
 
   return (
-    <section className="py-20 bg-near_black relative">
+    <section className="section-padding bg-near_black relative">
       {/* Decorative element */}
       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-tech_green/5 blur-3xl"></div>
       
       <div className="container-custom relative z-10">
-        <h2 className="text-center mb-4">
+        <h2 className="section-header">
           Why <span className="text-bright_magenta">XEUR.AI</span> is a Game Changer
         </h2>
-        <p className="text-center text-light_gray_text/80 max-w-2xl mx-auto mb-16">
+        <p className="section-subheader">
           Our revolutionary platform removes all barriers to game creation, enabling anyone to bring their visions to life.
         </p>
 
@@ -53,7 +53,7 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="bg-near_black/70 backdrop-blur-sm border border-tech_green/20 p-6 rounded-lg card-hover"
+              className="brand-card bg-near_black/70 backdrop-blur-sm border-tech_green/20"
             >
               <div className="bg-tech_green/10 p-3 rounded-full w-fit mb-4">
                 {benefit.icon}

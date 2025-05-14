@@ -1,0 +1,17 @@
+
+/* Brand consistent button styles */
+.btn-primary {
+  @apply bg-bright_magenta hover:bg-opacity-90 transition-all text-white font-semibold py-3 px-6 rounded-md;
+}
+
+.btn-secondary {
+  @apply bg-transparent border-2 border-white hover:bg-white/10 transition-all text-white font-semibold py-3 px-6 rounded-md;
+}
+
+.btn-tertiary {
+  @apply bg-tech_green hover:bg-opacity-90 transition-all text-white font-semibold py-3 px-6 rounded-md;
+}
+
+.btn-outline {
+  @apply border-2 border-bright_magenta text-bright_magenta hover:bg-bright_magenta/10 transition-all font-semibold py-3 px-6 rounded-md;
+}

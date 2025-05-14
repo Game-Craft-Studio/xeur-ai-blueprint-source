@@ -1,6 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap');
+@import "./styles/buttons.css";
 
 @tailwind base;
 @tailwind components;
@@ -61,19 +62,23 @@
   }
   
   h1 {
-    @apply text-4xl md:text-5xl lg:text-6xl;
+    @apply text-4xl md:text-5xl lg:text-6xl leading-tight;
   }
   
   h2 {
-    @apply text-3xl md:text-4xl;
+    @apply text-3xl md:text-4xl leading-tight;
   }
   
   h3 {
-    @apply text-2xl md:text-3xl;
+    @apply text-2xl md:text-3xl leading-tight;
   }
   
   h4 {
-    @apply text-xl md:text-2xl;
+    @apply text-xl md:text-2xl leading-tight;
+  }
+
+  p {
+    @apply leading-relaxed;
   }
 }
 
@@ -82,13 +87,7 @@
     @apply container px-4 md:px-6 lg:px-8 mx-auto;
   }
   
-  .btn-primary {
-    @apply bg-bright_magenta hover:bg-opacity-90 transition-all text-white font-semibold py-3 px-6 rounded-md;
-  }
-  
-  .btn-secondary {
-    @apply bg-transparent border-2 border-white hover:bg-white/10 transition-all text-white font-semibold py-3 px-6 rounded-md;
-  }
+  /* Button styles moved to buttons.css */
   
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-bright_magenta to-tech_green;
@@ -104,6 +103,25 @@
 
   .highlight {
     @apply text-bright_magenta font-bold;
+  }
+
+  /* Standardized section spacing */
+  .section-padding {
+    @apply py-16 md:py-20;
+  }
+
+  /* Consistent card styling */
+  .brand-card {
+    @apply bg-medium_purple/30 border border-light_purple/30 rounded-lg p-6 card-hover;
+  }
+
+  /* Standard section header */
+  .section-header {
+    @apply text-center mb-4 md:mb-6;
+  }
+
+  .section-subheader {
+    @apply text-center text-light_gray_text/80 max-w-2xl mx-auto mb-12 md:mb-16;
   }
 }
 
