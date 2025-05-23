@@ -95,10 +95,10 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="/login" className="text-light_gray_text hover:text-bright_magenta transition-colors">
+          {/* <Link href="/login" className="text-light_gray_text hover:text-bright_magenta transition-colors">
             Login
-          </Link>
-          <Link href="/signup" className="btn-primary">
+          </Link> */}
+          <Link href="/contact" className="btn-primary">
             Start Creating
           </Link>
         </div>
