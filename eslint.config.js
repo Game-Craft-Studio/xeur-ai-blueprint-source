@@ -3,7 +3,7 @@ import globals from "globals";
 import reactHooks from "eslint-plugin-react-hooks";
 import reactRefresh from "eslint-plugin-react-refresh";
 import tseslint from "typescript-eslint";
-import next from "@next/eslint-plugin-next"; // Add Next.js plugin
+import next from "@next/eslint-plugin-next";
 
 export default tseslint.config(
   { ignores: ["dist"] },
@@ -11,23 +11,23 @@ export default tseslint.config(
     extends: [
       js.configs.recommended,
       ...tseslint.configs.recommended,
-      "plugin:@next/next/recommended", // Add Next.js recommended rules
+      "plugin:@next/next/recommended",
     ],
     files: ["**/*.{ts,tsx}"],
     languageOptions: {
-      ecmaVersion: 2022, // Updated to 2022 (supports modern JS)
+      ecmaVersion: 2022,
       globals: {
         ...globals.browser,
-        React: "readonly", // Explicitly define React global
+        React: "readonly",
       },
       parserOptions: {
-        project: "./tsconfig.json", // Link to tsconfig
+        project: "./tsconfig.json",
       },
     },
     plugins: {
       "react-hooks": reactHooks,
       "react-refresh": reactRefresh,
-      "@next/next": next, // Register Next.js plugin
+      "@next/next": next,
     },
     rules: {
       ...reactHooks.configs.recommended.rules,
@@ -36,8 +36,8 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
       "@typescript-eslint/no-unused-vars": "off",
-      "@typescript-eslint/no-empty-interface": "warn", // Handle empty interfaces
-      "@next/next/no-html-link-for-pages": "error", // Next.js-specific rule
+      "@typescript-eslint/no-empty-interface": "warn",
+      "@next/next/no-html-link-for-pages": "error",
     },
   }
 );

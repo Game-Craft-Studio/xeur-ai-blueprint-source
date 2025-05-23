@@ -1,7 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
-
+import Link from "next/link";
 const FinalCTA = () => {
   return (
     <section className="py-16 bg-gradient-to-r from-deep_purple to-bright_magenta relative overflow-hidden">
@@ -16,7 +15,7 @@ const FinalCTA = () => {
             Join the creative revolution and build the game of your dreams in minutes, not months.
           </p>
           
-          <Link to="/signup" className="btn-primary bg-white text-bright_magenta hover:bg-white/90 px-10 py-4 text-lg">
+          <Link href="/signup" className="btn-primary bg-white text-bright_magenta hover:bg-white/90 px-10 py-4 text-lg">
             Sign Up & Start Creating
           </Link>
         </div>

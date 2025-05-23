@@ -2,7 +2,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const About = () => {
   const teamMembers = [
@@ -202,10 +202,10 @@ const About = () => {
             we'd love to connect with you.
           </p>
           <div className="flex flex-wrap gap-4 justify-center">
-            <Link to="/signup" className="btn-primary">
+            <Link href="/signup" className="btn-primary">
               Start Creating
             </Link>
-            <Link to="/contact" className="btn-secondary">
+            <Link href="/contact" className="btn-secondary">
               Contact Us
             </Link>
           </div>

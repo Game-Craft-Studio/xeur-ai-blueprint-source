@@ -1,0 +1,23 @@
+{
+  "/About": "pages/About.html",
+  "/Blog": "pages/Blog.html",
+  "/BlogPost": "pages/BlogPost.html",
+  "/Contact": "pages/Contact.html",
+  "/CookiePolicy": "pages/CookiePolicy.html",
+  "/Index": "pages/Index.html",
+  "/NotFound": "pages/NotFound.html",
+  "/_app": "pages/_app.js",
+  "/Platform": "pages/Platform.html",
+  "/Pricing": "pages/Pricing.html",
+  "/PrivacyPolicy": "pages/PrivacyPolicy.html",
+  "/TermsOfService": "pages/TermsOfService.html",
+  "/UseCases": "pages/UseCases.html",
+  "/login": "pages/login.html",
+  "/_error": "pages/_error.js",
+  "/signup": "pages/signup.html",
+  "/use-cases/AspiringCreators": "pages/use-cases/AspiringCreators.html",
+  "/use-cases/ContentInfluencers": "pages/use-cases/ContentInfluencers.html",
+  "/use-cases/IndieDevelopers": "pages/use-cases/IndieDevelopers.html",
+  "/_document": "pages/_document.js",
+  "/404": "pages/404.html"
+}

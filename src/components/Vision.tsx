@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Vision = () => {
   return (
@@ -32,7 +32,7 @@ const Vision = () => {
             </p>
           </div>
           
-          <Link to="/about" className="btn-secondary">
+          <Link href="/about" className="btn-secondary">
             Explore Our Full Vision
           </Link>
         </div>

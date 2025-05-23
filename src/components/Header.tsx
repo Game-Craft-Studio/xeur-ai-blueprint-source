@@ -1,6 +1,6 @@
 
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <header className="fixed w-full top-0 z-50 bg-near_black/90 backdrop-blur-md border-b border-medium_purple/30">
       <div className="container-custom flex justify-between items-center py-4">
-        <Link to="/" className="flex items-center">
+        <Link href="/" className="flex items-center">
           <div className="text-2xl font-bold text-light_gray_text">
             <span className="text-bright_magenta">XEUR</span>.AI
           </div>
@@ -70,7 +70,7 @@ const Header = () => {
                   <ChevronDown size={18} />
                 </div>
               ) : (
-                <Link to={link.path} className="nav-link">
+                <Link href={link.path} className="nav-link">
                   {link.title}
                 </Link>
               )}
@@ -81,7 +81,7 @@ const Header = () => {
                     {link.children.map((child) => (
                       <Link
                         key={child.title}
-                        to={child.path}
+                        href={child.path}
                         className="block px-4 py-3 hover:bg-deep_purple transition-colors"
                       >
                         {child.title}
@@ -95,10 +95,10 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Link to="/login" className="text-light_gray_text hover:text-bright_magenta transition-colors">
+          <Link href="/login" className="text-light_gray_text hover:text-bright_magenta transition-colors">
             Login
           </Link>
-          <Link to="/signup" className="btn-primary">
+          <Link href="/signup" className="btn-primary">
             Start Creating
           </Link>
         </div>
@@ -147,7 +147,7 @@ const Header = () => {
                     {link.children.map((child) => (
                       <Link
                         key={child.title}
-                        to={child.path}
+                        href={child.path}
                         className="block py-2 px-2 hover:text-bright_magenta"
                         onClick={() => setMobileMenuOpen(false)}
                       >
@@ -158,7 +158,7 @@ const Header = () => {
                 </>
               ) : (
                 <Link
-                  to={link.path}
+                  href={link.path}
                   className="block py-3 px-2 text-lg border-b border-medium_purple/30 hover:text-bright_magenta"
                   onClick={() => setMobileMenuOpen(false)}
                 >
@@ -169,14 +169,14 @@ const Header = () => {
           ))}
           <div className="flex flex-col gap-3 mt-6 mb-4">
             <Link 
-              to="/login" 
+              href="/login" 
               className="block w-full text-center py-3 border border-light_gray_text/50 rounded-md hover:border-bright_magenta hover:text-bright_magenta transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Login
             </Link>
             <Link 
-              to="/signup" 
+              href="/signup" 
               className="btn-primary w-full text-center py-3"
               onClick={() => setMobileMenuOpen(false)}
             >

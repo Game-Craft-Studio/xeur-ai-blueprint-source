@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 import { Eye, EyeOff, Mail, Lock, Sparkles } from "lucide-react";
 
 export default function LoginPage() {
@@ -69,7 +69,7 @@ export default function LoginPage() {
                   Password
                 </Label>
                 <Link 
-                  to="/forgot-password" 
+                  href="/forgot-password" 
                   className="text-sm text-pink-300 hover:text-pink-200 hover:underline transition-colors"
                 >
                   Forgot password?
@@ -124,7 +124,7 @@ export default function LoginPage() {
           {/* Sign Up Link */}
           <div className="text-center">
             <Link 
-              to="/signup" 
+              href="/signup" 
               className="inline-flex items-center justify-center w-full h-12 px-4 text-sm font-medium text-white bg-purple-500/30 border border-purple-400/50 rounded-lg hover:bg-purple-400/40 hover:border-purple-300/60 transition-all duration-200"
             >
               Create New Account

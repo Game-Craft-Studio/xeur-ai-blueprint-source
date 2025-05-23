@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -25,10 +25,10 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to="/signup" className="btn-primary text-center">
+            <Link href="/signup" className="btn-primary text-center">
               Start Creating Now
             </Link>
-            <Link to="/demo" className="btn-secondary text-center">
+            <Link href="/demo" className="btn-secondary text-center">
               Watch Demo
             </Link>
           </div>

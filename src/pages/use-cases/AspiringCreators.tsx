@@ -1,8 +1,7 @@
 
-import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Check, XCircle } from "lucide-react";
 
 const AspiringCreators = () => {
@@ -61,10 +60,10 @@ const AspiringCreators = () => {
               It's time to bring your imagination to life.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link to="/signup" className="btn-primary">
+              <Link href="/signup" className="btn-primary">
                 Start Creating Now
               </Link>
-              <Link to="#how-it-works" className="btn-secondary">
+              <Link href="#how-it-works" className="btn-secondary">
                 See How It Works
               </Link>
             </div>
@@ -142,7 +141,7 @@ const AspiringCreators = () => {
           </div>
           
           <div className="mt-16 text-center">
-            <Link to="/signup" className="btn-primary">
+            <Link href="/signup" className="btn-primary">
               Start Your Creator Journey
             </Link>
           </div>

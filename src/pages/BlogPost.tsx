@@ -2,13 +2,14 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link, useParams } from "react-router-dom";
+import Link from "next/link";
 import { CalendarDays, User, Clock, Tag, ArrowLeft, Share2, Bookmark, Heart, Facebook, Twitter, Linkedin } from "lucide-react";
+import { useRouter } from "next/router";
 
 const BlogPost = () => {
   // In a real implementation, this would fetch the blog post data based on the slug
-  const { slug } = useParams();
-  
+  const { slug } = useRouter().query;
+
   // Sample data - in a real implementation, this would come from an API or CMS
   const post = {
     title: "The Future of Game Creation: AI as Your Co-Creator",
@@ -98,7 +99,7 @@ const BlogPost = () => {
       <article className="pt-24 pb-16">
         <div className="container-custom max-w-4xl mx-auto">
           {/* Back to blog link */}
-          <Link to="/blog" className="inline-flex items-center gap-2 text-light_gray_text/70 hover:text-bright_magenta transition-colors mb-6">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-light_gray_text/70 hover:text-bright_magenta transition-colors mb-6">
             <ArrowLeft size={16} />
             <span>Back to all posts</span>
           </Link>
@@ -106,7 +107,7 @@ const BlogPost = () => {
           {/* Post Header */}
           <div className="mb-8">
             <div className="flex items-center gap-2 text-sm mb-4">
-              <Link to={`/blog?category=${post.category}`} className="bg-medium_purple/50 text-bright_magenta px-3 py-1 rounded-md text-sm">
+              <Link href={`/blog?category=${post.category}`} className="bg-medium_purple/50 text-bright_magenta px-3 py-1 rounded-md text-sm">
                 {post.category}
               </Link>
             </div>
@@ -176,7 +177,7 @@ const BlogPost = () => {
               {post.tags.map((tag, index) => (
                 <Link 
                   key={index} 
-                  to={`/blog?tag=${tag}`} 
+                  href={`/blog?tag=${tag}`} 
                   className="bg-medium_purple/30 hover:bg-medium_purple text-light_gray_text px-3 py-1 rounded-md text-sm transition-colors"
                 >
                   #{tag}
@@ -205,7 +206,7 @@ const BlogPost = () => {
                 <div key={index} className="bg-medium_purple/20 rounded-lg p-4 border border-light_purple/30 hover:border-bright_magenta transition-colors">
                   <div className="text-xs text-bright_magenta mb-2">{relatedPost.category}</div>
                   <h4 className="font-semibold mb-2">
-                    <Link to={`/blog/${relatedPost.slug}`} className="hover:text-bright_magenta transition-colors">
+                    <Link href={`/blog/${relatedPost.slug}`} className="hover:text-bright_magenta transition-colors">
                       {relatedPost.title}
                     </Link>
                   </h4>

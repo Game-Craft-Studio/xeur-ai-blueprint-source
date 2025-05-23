@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -50,7 +50,7 @@ const UseCases = () => {
                 </CardHeader>
                 <CardContent>
                   <Link 
-                    to={useCase.path} 
+                    href={useCase.path} 
                     className="inline-flex items-center text-bright_magenta hover:text-bright_magenta/80 transition-colors"
                   >
                     Learn More <ArrowRight size={16} className="ml-2" />

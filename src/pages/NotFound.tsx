@@ -1,19 +1,19 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { usePathname } from "next/navigation";
 import { useEffect } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const ComingSoon = () => {
-  const location = useLocation();
+  const pathname = usePathname();
 
   useEffect(() => {
     console.log(
       "Coming Soon page accessed:",
-      location.pathname
+      pathname
     );
-  }, [location.pathname]);
+  }, [pathname]);
 
   return (
     <div className="bg-near_black min-h-screen">
@@ -27,7 +27,7 @@ const ComingSoon = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <Link 
-              to="/" 
+              href="/" 
               className="btn-primary inline-block"
             >
               Return to Homepage

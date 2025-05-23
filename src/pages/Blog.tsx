@@ -1,9 +1,8 @@
 
-import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import Link from "next/link";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { CalendarDays, User, Clock, Tag } from "lucide-react";
 
 const Blog = () => {
@@ -100,7 +99,7 @@ const Blog = () => {
                   </div>
                   
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                    <Link to={`/blog/${blogPosts[0].slug}`} className="hover:text-bright_magenta transition-colors">
+                    <Link href={`/blog/${blogPosts[0].slug}`} className="hover:text-bright_magenta transition-colors">
                       {blogPosts[0].title}
                     </Link>
                   </h2>
@@ -138,7 +137,7 @@ const Blog = () => {
                     <span>{post.category}</span>
                   </div>
                   <CardTitle>
-                    <Link to={`/blog/${post.slug}`} className="hover:text-bright_magenta transition-colors">
+                    <Link href={`/blog/${post.slug}`} className="hover:text-bright_magenta transition-colors">
                       {post.title}
                     </Link>
                   </CardTitle>

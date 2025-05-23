@@ -2,7 +2,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Users, TrendingUp, DollarSign, Heart } from "lucide-react";
 
 const ContentInfluencers = () => {
@@ -53,10 +53,10 @@ const ContentInfluencers = () => {
               As an influencer or content creator, stand out by offering your audience more than videos—give them games that feature your brand, personality, and content themes.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/signup" className="btn-primary">
+              <Link href="/signup" className="btn-primary">
                 Transform Your Content
               </Link>
-              <Link to="#creator-advantages" className="btn-secondary">
+              <Link href="#creator-advantages" className="btn-secondary">
                 Discover Benefits
               </Link>
             </div>
@@ -150,7 +150,7 @@ const ContentInfluencers = () => {
           </div>
           
           <div className="mt-12 text-center">
-            <Link to="/signup" className="btn-primary">
+            <Link href="/signup" className="btn-primary">
               Create Your First Interactive Experience
             </Link>
           </div>

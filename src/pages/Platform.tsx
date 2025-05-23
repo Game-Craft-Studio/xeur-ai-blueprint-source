@@ -2,7 +2,7 @@
 import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Server, Cpu, Globe, Code, Zap, Lock } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -174,7 +174,7 @@ const Platform = () => {
           </div>
           
           <div className="text-center">
-            <Link to="/pricing" className="btn-primary">
+            <Link href="/pricing" className="btn-primary">
               View Pricing Plans
             </Link>
           </div>

@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Linkedin, Twitter, Youtube, Mail } from "lucide-react";
 
 const Footer = () => {
@@ -15,22 +15,22 @@ const Footer = () => {
             <h4 className="text-lg md:text-xl font-bold mb-3 md:mb-4">XEUR.AI</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/about" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/about" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link to="/vision" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/vision" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Our Vision
                 </Link>
               </li>
               <li>
-                <Link to="/careers" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/careers" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Careers
                 </Link>
               </li>
               <li>
-                <Link to="/contact" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/contact" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Contact Us
                 </Link>
               </li>
@@ -42,17 +42,17 @@ const Footer = () => {
             <h4 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Platform</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/platform#features" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/platform#features" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Features
                 </Link>
               </li>
               <li>
-                <Link to="/platform#technology" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/platform#technology" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Technology
                 </Link>
               </li>
               <li>
-                <Link to="/pricing" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/pricing" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Pricing
                 </Link>
               </li>
@@ -64,12 +64,12 @@ const Footer = () => {
             <h4 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Resources</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/blog" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/blog" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Blog
                 </Link>
               </li>
               <li>
-                <Link to="/docs" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/docs" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Documentation
                 </Link>
               </li>
@@ -86,17 +86,17 @@ const Footer = () => {
             <h4 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Legal</h4>
             <ul className="space-y-2">
               <li>
-                <Link to="/privacy-policy" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/privacy-policy" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Privacy Policy
                 </Link>
               </li>
               <li>
-                <Link to="/terms-of-service" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/terms-of-service" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Terms of Service
                 </Link>
               </li>
               <li>
-                <Link to="/cookie-policy" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/cookie-policy" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Cookie Policy
                 </Link>
               </li>

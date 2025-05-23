@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Link } from 'react-router-dom';
+import Link from "next/link";
 import { Eye, EyeOff, Mail, Lock, User, Sparkles, Check } from "lucide-react";
 
 export default function SignUpPage() {
@@ -146,11 +146,11 @@ export default function SignUpPage() {
               </button>
               <div className="text-sm text-gray-200 leading-5">
                 I agree to the{' '}
-                <Link to="/terms-of-service" className="text-pink-300 hover:text-pink-200 underline">
+                <Link href="/terms-of-service" className="text-pink-300 hover:text-pink-200 underline">
                   Terms of Service
                 </Link>{' '}
                 and{' '}
-                <Link to="/privacy-policy" className="text-pink-300 hover:text-pink-200 underline">
+                <Link href="/privacy-policy" className="text-pink-300 hover:text-pink-200 underline">
                   Privacy Policy
                 </Link>
               </div>
@@ -190,7 +190,7 @@ export default function SignUpPage() {
           {/* Sign In Link */}
           <div className="text-center">
             <Link 
-              to="/login" 
+              href="/login" 
               className="inline-flex items-center justify-center w-full h-12 px-4 text-sm font-medium text-white bg-purple-500/30 border border-purple-400/50 rounded-lg hover:bg-purple-400/40 hover:border-purple-300/60 transition-all duration-200"
             >
               Sign In Instead

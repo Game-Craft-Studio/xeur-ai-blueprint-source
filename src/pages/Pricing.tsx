@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Check } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 
@@ -174,7 +174,7 @@ const Pricing = () => {
                 
                 <div className="text-center">
                   <Link 
-                    to={plan.ctaLink} 
+                    href={plan.ctaLink} 
                     className={`inline-block w-full py-3 px-6 rounded-md font-semibold ${
                       plan.isHighlighted 
                         ? 'bg-bright_magenta text-light_gray_text hover:bg-bright_magenta/90' 
@@ -227,7 +227,7 @@ const Pricing = () => {
             </div>
             
             <div className="text-center">
-              <Link to="/contact" className="btn-primary">
+              <Link href="/contact" className="btn-primary">
                 Contact Sales Team
               </Link>
             </div>
@@ -253,7 +253,7 @@ const Pricing = () => {
           
           <div className="mt-12 text-center">
             <p className="text-xl mb-4">Still have questions?</p>
-            <Link to="/contact" className="btn-secondary">
+            <Link href="/contact" className="btn-secondary">
               Contact Support
             </Link>
           </div>

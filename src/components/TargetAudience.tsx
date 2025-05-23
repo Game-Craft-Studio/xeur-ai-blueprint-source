@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { ArrowRight, UserPlus, Code, Video } from "lucide-react";
 
 const TargetAudience = () => {
@@ -49,7 +49,7 @@ const TargetAudience = () => {
                 <h3 className="text-xl mb-3">{audience.name}</h3>
                 <p className="text-light_gray_text/90 mb-6 flex-grow">{audience.description}</p>
                 <Link 
-                  to={audience.link}
+                  href={audience.link}
                   className="flex items-center gap-2 text-white hover:gap-3 transition-all"
                 >
                   Learn more <ArrowRight size={18} />

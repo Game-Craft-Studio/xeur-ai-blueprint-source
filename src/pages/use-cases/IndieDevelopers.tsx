@@ -1,8 +1,7 @@
 
-import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import { Clock, Zap, Target, Puzzle, Coins } from "lucide-react";
 
 const IndieDevelopers = () => {
@@ -68,10 +67,10 @@ const IndieDevelopers = () => {
               Build more, faster, while maintaining your creative vision.
             </p>
             <div className="flex flex-wrap gap-4">
-              <Link to="/signup" className="btn-primary">
+              <Link href="/signup" className="btn-primary">
                 Amplify Your Development
               </Link>
-              <Link to="#indie-benefits" className="btn-secondary">
+              <Link href="#indie-benefits" className="btn-secondary">
                 See How It Works
               </Link>
             </div>
@@ -139,7 +138,7 @@ const IndieDevelopers = () => {
           </div>
           
           <div className="mt-12 text-center">
-            <Link to="/signup" className="btn-primary">
+            <Link href="/signup" className="btn-primary">
               Join Successful Indie Developers
             </Link>
           </div>
