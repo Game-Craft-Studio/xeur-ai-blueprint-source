@@ -15,8 +15,8 @@ const FinalCTA = () => {
             Join the creative revolution and build the game of your dreams in minutes, not months.
           </p>
           
-          <Link href="/signup" className="btn-primary bg-white text-bright_magenta hover:bg-white/90 px-10 py-4 text-lg">
-            Sign Up & Start Creating
+          <Link href="/Contact" className="btn-primary bg-white text-bright_magenta hover:bg-white/90 px-10 py-4 text-lg">
+            Start Creating
           </Link>
         </div>
       </div>
