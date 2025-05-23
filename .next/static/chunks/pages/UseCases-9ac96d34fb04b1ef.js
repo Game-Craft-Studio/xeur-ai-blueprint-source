@@ -1,0 +1,31 @@
+(self.webpackChunk_N_E=self.webpackChunk_N_E||[]).push([[384],{2701:function(e,t,r){"use strict";r.d(t,{Z:function(){return n}});/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let n=(0,r(1373).Z)("ArrowRight",[["path",{d:"M5 12h14",key:"1ays0h"}],["path",{d:"m12 5 7 7-7 7",key:"xquz4c"}]])},8971:function(e,t,r){"use strict";r.d(t,{Z:function(){return n}});/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let n=(0,r(1373).Z)("ChevronDown",[["path",{d:"m6 9 6 6 6-6",key:"qrunsl"}]])},9560:function(e,t,r){"use strict";r.d(t,{Z:function(){return n}});/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let n=(0,r(1373).Z)("Linkedin",[["path",{d:"M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z",key:"c2jq9f"}],["rect",{width:"4",height:"12",x:"2",y:"9",key:"mk3on5"}],["circle",{cx:"4",cy:"4",r:"2",key:"bt5ra8"}]])},7232:function(e,t,r){"use strict";r.d(t,{Z:function(){return n}});/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let n=(0,r(1373).Z)("Menu",[["line",{x1:"4",x2:"20",y1:"12",y2:"12",key:"1e0a9i"}],["line",{x1:"4",x2:"20",y1:"6",y2:"6",key:"1owob3"}],["line",{x1:"4",x2:"20",y1:"18",y2:"18",key:"yk5zj1"}]])},4778:function(e,t,r){"use strict";r.d(t,{Z:function(){return n}});/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let n=(0,r(1373).Z)("Twitter",[["path",{d:"M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z",key:"pff0z6"}]])},726:function(e,t,r){"use strict";r.d(t,{Z:function(){return n}});/**
+ * @license lucide-react v0.462.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */let n=(0,r(1373).Z)("Youtube",[["path",{d:"M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17",key:"1q2vi4"}],["path",{d:"m10 15 5-3-5-3z",key:"1jp15x"}]])},3661:function(e,t,r){(window.__NEXT_P=window.__NEXT_P||[]).push(["/UseCases",function(){return r(7908)}])},7908:function(e,t,r){"use strict";r.r(t);var n=r(5893);r(7294);var s=r(1664),a=r.n(s),i=r(1181),c=r(9512),o=r(3749),l=r(2701);t.default=()=>(0,n.jsxs)("div",{className:"bg-near_black min-h-screen",children:[(0,n.jsx)(i.Z,{}),(0,n.jsx)("div",{className:"pt-24 pb-16",children:(0,n.jsxs)("div",{className:"container-custom",children:[(0,n.jsxs)("h1",{className:"text-4xl md:text-5xl font-bold mb-6 text-center",children:[(0,n.jsx)("span",{className:"text-gradient",children:"XEUR.AI"})," For Every Creator"]}),(0,n.jsx)("p",{className:"text-xl text-center text-light_gray_text/80 mb-12 max-w-3xl mx-auto",children:"Our platform adapts to your needs, whether you're just starting out or are an experienced developer looking to streamline your workflow."}),(0,n.jsx)("div",{className:"grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12",children:[{title:"For Aspiring Creators",description:"No coding or design skills? No problem! Turn your game ideas into reality with XEUR.AI.",path:"/use-cases/aspiring-creators",image:"/assets/aspiring-creators.jpg"},{title:"For Indie Developers",description:"Accelerate your game development process and focus on what matters most - creativity and innovation.",path:"/use-cases/indie-developers",image:"/assets/indie-developers.jpg"},{title:"For Content Influencers",description:"Create engaging, branded games for your audience. Boost engagement and open new revenue streams.",path:"/use-cases/content-influencers",image:"/assets/content-influencers.jpg"}].map((e,t)=>(0,n.jsxs)(o.Zb,{className:"bg-medium_purple border-light_purple/30 card-hover",children:[(0,n.jsxs)(o.Ol,{children:[(0,n.jsx)(o.ll,{className:"text-light_gray_text",children:e.title}),(0,n.jsx)(o.SZ,{className:"text-light_gray_text/70",children:e.description})]}),(0,n.jsx)(o.aY,{children:(0,n.jsxs)(a(),{href:e.path,className:"inline-flex items-center text-bright_magenta hover:text-bright_magenta/80 transition-colors",children:["Learn More ",(0,n.jsx)(l.Z,{size:16,className:"ml-2"})]})})]},t))})]})}),(0,n.jsx)(c.Z,{})]})},3749:function(e,t,r){"use strict";r.d(t,{Ol:function(){return c},SZ:function(){return l},Zb:function(){return i},aY:function(){return d},eW:function(){return u},ll:function(){return o}});var n=r(5893),s=r(7294),a=r(4531);let i=s.forwardRef((e,t)=>{let{className:r,...s}=e;return(0,n.jsx)("div",{ref:t,className:(0,a.cn)("rounded-lg border bg-card text-card-foreground shadow-sm",r),...s})});i.displayName="Card";let c=s.forwardRef((e,t)=>{let{className:r,...s}=e;return(0,n.jsx)("div",{ref:t,className:(0,a.cn)("flex flex-col space-y-1.5 p-6",r),...s})});c.displayName="CardHeader";let o=s.forwardRef((e,t)=>{let{className:r,...s}=e;return(0,n.jsx)("h3",{ref:t,className:(0,a.cn)("text-2xl font-semibold leading-none tracking-tight",r),...s})});o.displayName="CardTitle";let l=s.forwardRef((e,t)=>{let{className:r,...s}=e;return(0,n.jsx)("p",{ref:t,className:(0,a.cn)("text-sm text-muted-foreground",r),...s})});l.displayName="CardDescription";let d=s.forwardRef((e,t)=>{let{className:r,...s}=e;return(0,n.jsx)("div",{ref:t,className:(0,a.cn)("p-6 pt-0",r),...s})});d.displayName="CardContent";let u=s.forwardRef((e,t)=>{let{className:r,...s}=e;return(0,n.jsx)("div",{ref:t,className:(0,a.cn)("flex items-center p-6 pt-0",r),...s})});u.displayName="CardFooter"}},function(e){e.O(0,[183,112,888,774,179],function(){return e(e.s=3661)}),_N_E=e.O()}]);
