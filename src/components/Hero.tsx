@@ -25,7 +25,7 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact" className="btn-primary text-center">
+            <Link href="/Contact" className="btn-primary text-center">
               Start Creating Now
             </Link>
             <Link href="/demo" className="btn-secondary text-center">

@@ -30,7 +30,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/Contact" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Contact Us
                 </Link>
               </li>
@@ -52,7 +52,7 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                <Link href="/Pricing" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
                   Pricing
                 </Link>
               </li>

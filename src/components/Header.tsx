@@ -26,7 +26,7 @@ const navLinks: NavLink[] = [
   },
   {
     title: "Pricing",
-    path: "/pricing",
+    path: "/Pricing",
   },
   {
     title: "Resources",
@@ -98,7 +98,7 @@ const Header = () => {
           {/* <Link href="/login" className="text-light_gray_text hover:text-bright_magenta transition-colors">
             Login
           </Link> */}
-          <Link href="/contact" className="btn-primary">
+          <Link href="/Contact" className="btn-primary">
             Start Creating
           </Link>
         </div>
@@ -168,15 +168,15 @@ const Header = () => {
             </div>
           ))}
           <div className="flex flex-col gap-3 mt-6 mb-4">
-            <Link 
+            {/* <Link 
               href="/login" 
               className="block w-full text-center py-3 border border-light_gray_text/50 rounded-md hover:border-bright_magenta hover:text-bright_magenta transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               Login
-            </Link>
+            </Link> */}
             <Link 
-              href="/signup" 
+              href="/Contact" 
               className="btn-primary w-full text-center py-3"
               onClick={() => setMobileMenuOpen(false)}
             >
