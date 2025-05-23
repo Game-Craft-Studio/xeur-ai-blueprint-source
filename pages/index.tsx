@@ -6,7 +6,6 @@ import ProblemSolution from "@/components/ProblemSolution";
 import HowItWorks from "@/components/HowItWorks";
 import Benefits from "@/components/Benefits";
 import TargetAudience from "@/components/TargetAudience";
-import Vision from "../src/components/vision";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 
@@ -19,7 +18,6 @@ const Index = () => {
       <HowItWorks />
       <Benefits />
       <TargetAudience />
-      <Vision />
       <FinalCTA />
       <Footer />
     </div>
