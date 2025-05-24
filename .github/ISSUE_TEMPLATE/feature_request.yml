@@ -1,0 +1,258 @@
+name: ✨ Feature Request
+description: Suggest a new feature or enhancement for XEUR.AI platform
+title: "[Feature]: "
+labels: ["enhancement", "needs-review"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # ✨ Feature Request
+        
+        Help us make XEUR.AI even better! Your ideas drive our innovation in AI-powered game creation.
+        
+        **Before submitting:**
+        - Check if this feature already exists or is planned
+        - Search existing feature requests to avoid duplicates
+        - Consider if this aligns with XEUR.AI's mission to democratize game creation
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: "Feature Category"
+      description: "What type of feature is this?"
+      options:
+        - "🤖 AI/ML Enhancement (new models, improved generation)"
+        - "🎨 UI/UX Improvement (interface, user experience)"
+        - "🎮 Game Creation Features (new tools, capabilities)"
+        - "🔧 Platform Integration (APIs, third-party services)"
+        - "📱 Mobile/Cross-platform (mobile app, responsive features)"
+        - "🔐 Security/Privacy (authentication, data protection)"
+        - "📊 Analytics/Monitoring (metrics, insights)"
+        - "🌐 Internationalization (languages, localization)"
+        - "⚡ Performance (speed, optimization)"
+        - "🛠️ Developer Tools (APIs, SDKs, debugging)"
+        - "💰 Business Features (billing, enterprise features)"
+        - "🎯 Accessibility (a11y improvements)"
+        - "📚 Documentation/Help (guides, tutorials)"
+        - "❓ Other (please specify)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: priority
+    attributes:
+      label: "Priority Level"
+      description: "How important is this feature to you?"
+      options:
+        - "🔴 High (Critical for workflow, many users would benefit)"
+        - "🟠 Medium (Would significantly improve experience)"
+        - "🟡 Low (Nice to have, quality of life improvement)"
+        - "🟢 Future (Long-term vision, not immediately needed)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: "Problem Statement"
+      description: "What problem does this feature solve? What's the current pain point?"
+      placeholder: |
+        Describe the problem you're trying to solve:
+        - What's frustrating about the current experience?
+        - What workflow is this blocking?
+        - How many users might this affect?
+      value: |
+        **Current Problem:**
+        
+        **Impact:**
+        
+        **Frequency:**
+    validations:
+      required: true
+
+  - type: textarea
+    id: solution
+    attributes:
+      label: "Proposed Solution"
+      description: "Describe your ideal solution to this problem"
+      placeholder: |
+        Describe what you'd like to see:
+        - How should this feature work?
+        - What should the user interface look like?
+        - How should users interact with it?
+      value: |
+        **Proposed Feature:**
+        
+        **User Flow:**
+        1. 
+        2. 
+        3. 
+        
+        **Expected Outcome:**
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternative Solutions"
+      description: "What other approaches have you considered?"
+      placeholder: |
+        - Alternative approach 1: ...
+        - Alternative approach 2: ...
+        - Why the proposed solution is better: ...
+
+  - type: textarea
+    id: use-cases
+    attributes:
+      label: "Use Cases & Examples"
+      description: "Provide specific examples of how this feature would be used"
+      placeholder: |
+        **Use Case 1:**
+        - User type: (e.g., Indie game developer)
+        - Scenario: (e.g., Creating a puzzle platformer)
+        - How feature helps: (e.g., Faster level generation)
+        
+        **Use Case 2:**
+        - User type: 
+        - Scenario: 
+        - How feature helps: 
+
+  - type: textarea
+    id: mockups
+    attributes:
+      label: "Mockups/Wireframes"
+      description: "Add mockups, wireframes, or visual examples (optional but helpful!)"
+      placeholder: "Drag and drop images here, paste URLs, or describe the visual layout..."
+
+  - type: dropdown
+    id: target-users
+    attributes:
+      label: "Target Users"
+      description: "Who would primarily benefit from this feature?"
+      multiple: true
+      options:
+        - "🎨 Creative Hobbyists (non-technical creators)"
+        - "👨‍💻 Indie Game Developers (small teams)"
+        - "🏢 Enterprise/Studios (large organizations)"
+        - "🎓 Educators/Students (learning and teaching)"
+        - "📱 Mobile Game Developers"
+        - "🌐 Web Game Developers"
+        - "🎮 Console Game Developers"
+        - "🔧 Technical Integrators (using APIs)"
+        - "📊 Content Analysts (data-driven users)"
+        - "🌍 International Users (non-English)"
+
+  - type: dropdown
+    id: complexity
+    attributes:
+      label: "Implementation Complexity (Your Estimate)"
+      description: "How complex do you think this would be to implement?"
+      options:
+        - "🟢 Simple (UI changes, configuration options)"
+        - "🟡 Medium (New components, moderate backend changes)"
+        - "🟠 Complex (Significant new functionality, AI model changes)"
+        - "🔴 Very Complex (Major architecture changes, new AI models)"
+        - "❓ Not Sure (Let the developers assess)"
+
+  - type: checkboxes
+    id: ai-models
+    attributes:
+      label: "AI Models Involved (if applicable)"
+      description: "Which XEUR.AI models might be involved in this feature?"
+      options:
+        - label: "🔬 Eureka & Galileo (Exploration/Ideation)"
+        - label: "⚡ Newton & Faraday (Physics/Mechanics)"
+        - label: "📖 Curie & Albert (Narrative/Quest)"
+        - label: "🌍 Hawking (World Generation)"
+        - label: "🎨 Ramanujan & Ratan (Asset Creation)"
+        - label: "🧠 XEUR LLM Core (Main language model)"
+        - label: "🤖 New Model Needed (requires new AI model)"
+
+  - type: textarea
+    id: technical-requirements
+    attributes:
+      label: "Technical Requirements/Constraints"
+      description: "Any technical considerations, limitations, or requirements?"
+      placeholder: |
+        - Performance requirements: ...
+        - Platform constraints: ...
+        - Integration needs: ...
+        - Data/privacy considerations: ...
+
+  - type: textarea
+    id: business-impact
+    attributes:
+      label: "Business Impact"
+      description: "How would this feature impact XEUR.AI's business goals?"
+      placeholder: |
+        - User acquisition: ...
+        - User retention: ...
+        - Revenue impact: ...
+        - Competitive advantage: ...
+        - Market expansion: ...
+
+  - type: input
+    id: deadline
+    attributes:
+      label: "Timeline/Deadline (if any)"
+      description: "Do you have a specific timeline need for this feature?"
+      placeholder: "e.g., Needed for conference demo in Q3 2025, or no specific deadline"
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Anything else we should know about this feature request?"
+      placeholder: |
+        - Related features or dependencies
+        - Industry trends this addresses
+        - User feedback that prompted this
+        - Links to research or examples
+        - Willingness to beta test
+
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: "Contribution Interest"
+      description: "Would you be interested in helping implement this feature?"
+      options:
+        - label: "🎨 I can help with UI/UX design"
+        - label: "💻 I can contribute code (frontend)"
+        - label: "⚙️ I can contribute code (backend)"
+        - label: "🧪 I can help with testing"
+        - label: "📚 I can help with documentation"
+        - label: "💡 I can provide domain expertise"
+        - label: "❌ I prefer to just provide feedback"
+
+  - type: checkboxes
+    id: pre-submission
+    attributes:
+      label: "Pre-submission Checklist"
+      description: "Please confirm:"
+      options:
+        - label: "I have searched existing issues and this is not a duplicate"
+          required: true
+        - label: "This feature aligns with XEUR.AI's mission to democratize game creation"
+          required: true
+        - label: "I have provided clear use cases and examples"
+          required: true
+        - label: "I understand this may require significant development time"
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **What happens next?**
+        1. Our product team will review your request within 3-5 days
+        2. We'll evaluate feasibility, impact, and alignment with our roadmap
+        3. We may reach out for clarification or additional input
+        4. If approved, we'll add it to our development backlog
+        5. You'll be notified of progress and can contribute to the discussion
+        
+        **Want to discuss this feature?** Join the conversation in our [Discord community](https://discord.gg/xeur-ai)!
+        
+        **Thank you for helping make XEUR.AI better! 🚀**
