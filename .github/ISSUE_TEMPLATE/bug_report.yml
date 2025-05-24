@@ -1,0 +1,179 @@
+name: 🐛 Bug Report
+description: Report a bug or unexpected behavior in XEUR.AI platform
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+assignees: []
+body:
+  - type: markdown
+    attributes:
+      value: |
+        # 🐛 Bug Report
+        
+        Thank you for taking the time to report a bug! This helps us improve XEUR.AI for everyone.
+        
+        **Before submitting:**
+        - Search existing issues to avoid duplicates
+        - Make sure you're using a supported version
+        - Test in multiple browsers if it's a UI issue
+
+  - type: input
+    id: version
+    attributes:
+      label: "XEUR.AI Version"
+      description: "What version of XEUR.AI are you using?"
+      placeholder: "e.g., 1.2.0"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: component
+    attributes:
+      label: "Affected Component"
+      description: "Which part of XEUR.AI is affected?"
+      options:
+        - "🎨 UI/Frontend (React components, styling)"
+        - "🔧 Backend/API (data processing, authentication)"
+        - "🤖 AI Models (game generation, prompts)"
+        - "⚡ Performance (loading times, responsiveness)"
+        - "📱 Mobile/Responsive (mobile view, touch interactions)"
+        - "🔐 Security (authentication, permissions)"
+        - "📊 Analytics (tracking, metrics)"
+        - "🌐 Cross-platform (compatibility issues)"
+        - "📚 Documentation (README, guides)"
+        - "🔧 DevOps/Infrastructure (build, deployment)"
+        - "❓ Other (please specify in description)"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Bug Severity"
+      description: "How severe is this bug?"
+      options:
+        - "🔴 Critical (System crash, data loss, security vulnerability)"
+        - "🟠 High (Major feature broken, significant user impact)"
+        - "🟡 Medium (Feature partially broken, workaround exists)"
+        - "🟢 Low (Minor issue, cosmetic problem)"
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: "Bug Description"
+      description: "Provide a clear and concise description of the bug"
+      placeholder: "Describe what happened and what you expected to happen..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Steps to Reproduce"
+      description: "Provide detailed steps to reproduce the bug"
+      placeholder: |
+        1. Go to '...'
+        2. Click on '...'
+        3. Scroll down to '...'
+        4. See error
+      value: |
+        1. 
+        2. 
+        3. 
+        4. 
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected Behavior"
+      description: "What should happen instead?"
+      placeholder: "Describe the expected behavior..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual Behavior"
+      description: "What actually happened?"
+      placeholder: "Describe what actually happened..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: "Screenshots/Videos"
+      description: "Add screenshots or videos to help explain the problem"
+      placeholder: "Drag and drop images/videos here or paste URLs..."
+
+  - type: input
+    id: browser
+    attributes:
+      label: "Browser"
+      description: "Which browser are you using?"
+      placeholder: "e.g., Chrome 120.0, Firefox 119.0, Safari 17.0"
+
+  - type: input
+    id: os
+    attributes:
+      label: "Operating System"
+      description: "Which OS are you using?"
+      placeholder: "e.g., Windows 11, macOS 14.0, Ubuntu 22.04"
+
+  - type: input
+    id: device
+    attributes:
+      label: "Device"
+      description: "What device are you using?"
+      placeholder: "e.g., Desktop, iPhone 15 Pro, Samsung Galaxy S24"
+
+  - type: textarea
+    id: console-logs
+    attributes:
+      label: "Console Logs/Error Messages"
+      description: "Include any error messages from browser console or network tab"
+      placeholder: "Paste error logs here..."
+      render: shell
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: "Additional Context"
+      description: "Add any other context about the problem"
+      placeholder: |
+        - Does this happen consistently or intermittently?
+        - Any recent changes to your setup?
+        - Any browser extensions that might interfere?
+        - Network conditions (slow/fast internet)?
+
+  - type: checkboxes
+    id: pre-submission
+    attributes:
+      label: "Pre-submission Checklist"
+      description: "Please confirm the following:"
+      options:
+        - label: "I have searched existing issues and this is not a duplicate"
+          required: true
+        - label: "I have provided all the requested information"
+          required: true
+        - label: "I have tested this in the latest version"
+          required: true
+        - label: "I understand this may be a complex issue and patience is required"
+          required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        ---
+        
+        **What happens next?**
+        1. Our team will review your report within 24-48 hours
+        2. We may ask for additional information or clarification
+        3. We'll prioritize the fix based on severity and impact
+        4. You'll be notified when the fix is available
+        
+        **Need immediate help?** Join our [Discord community](https://discord.gg/xeur-ai) for faster support!
