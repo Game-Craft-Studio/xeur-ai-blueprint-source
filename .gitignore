@@ -1,5 +1,132 @@
-# Logs
-logs
+# XEUR.AI Platform - Comprehensive .gitignore
+# Generated for Next.js, TypeScript, AI Development, and Enterprise Security
+
+# ===============================================================================
+# DEPENDENCIES & PACKAGE MANAGERS
+# ===============================================================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+bun.lockb
+package-lock.json
+
+# Dependency directories
+jspm_packages/
+
+# ===============================================================================
+# NEXT.JS BUILD & PRODUCTION
+# ===============================================================================
+.next/
+out/
+build/
+dist/
+.vercel
+.netlify/
+
+# Next.js cache
+.next/cache/
+
+# Static exports
+export/
+
+# ===============================================================================
+# ENVIRONMENT & CONFIGURATION
+# ===============================================================================
+# Environment variables (CRITICAL for XEUR.AI API keys)
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Config files that might contain secrets
+.env.example.filled
+config.local.json
+secrets.json
+
+# ===============================================================================
+# AI & MACHINE LEARNING SPECIFIC
+# ===============================================================================
+# XEUR.AI Model Files
+*.model
+*.checkpoint
+*.ckpt
+*.h5
+*.hdf5
+*.pb
+*.pth
+*.pt
+*.onnx
+*.tflite
+
+# Training data and artifacts
+training_data/
+model_cache/
+embeddings/
+vector_stores/
+fine_tuned_models/
+
+# AI experiment logs
+experiments/
+wandb/
+tensorboard_logs/
+mlruns/
+
+# Large dataset files
+*.csv.gz
+*.jsonl.gz
+large_datasets/
+
+# ===============================================================================
+# SECURITY & CREDENTIALS
+# ===============================================================================
+# API Keys and secrets
+*.pem
+*.key
+*.p12
+*.pfx
+service-account*.json
+google-credentials*.json
+aws-credentials*
+azure-credentials*
+
+# SSH keys
+id_rsa*
+id_ed25519*
+*.ppk
+
+# Certificate files
+*.crt
+*.cert
+*.ca-bundle
+
+# ===============================================================================
+# DEVELOPMENT TOOLS
+# ===============================================================================
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# ===============================================================================
+# LOGS & DEBUGGING
+# ===============================================================================
+logs/
 *.log
 npm-debug.log*
 yarn-debug.log*
@@ -7,18 +134,177 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-.next
-# Editor directories and files
-.vscode/*
-!.vscode/extensions.json
-.idea
-.DS_Store
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-*.sw?
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage and testing
+coverage/
+*.lcov
+.nyc_output/
+.coverage
+htmlcov/
+.pytest_cache/
+.tox/
+
+# ===============================================================================
+# TEMPORARY & CACHE FILES
+# ===============================================================================
+# Temporary directories
+tmp/
+temp/
+.tmp/
+.temp/
+
+# Cache directories
+.cache/
+.parcel-cache/
+.eslintcache
+.stylelintcache
+.prettier-cache
+
+# TypeScript cache
+*.tsbuildinfo
+
+# ===============================================================================
+# DATABASE & STORAGE
+# ===============================================================================
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+database.sql
+dump.sql
+
+# Database migrations (if containing sensitive data)
+migrations/seed-data/
+
+# ===============================================================================
+# ANALYTICS & MONITORING
+# ===============================================================================
+# Error tracking uploads
+.sentry-cli/
+sentry-debug-meta.properties
+
+# Analytics data
+analytics-data/
+user-data/
+metrics/
+
+# ===============================================================================
+# DOCUMENTATION BUILD
+# ===============================================================================
+# Generated documentation
+docs/_build/
+docs/build/
+site/
+
+# ===============================================================================
+# XEUR.AI SPECIFIC
+# ===============================================================================
+# Generated game assets (temp)
+generated_games/temp/
+asset_cache/
+preview_games/
+
+# User uploads (temp processing)
+uploads/temp/
+processing_queue/
+
+# XEUR.AI internal logs
+xeur_logs/
+generation_logs/
+model_performance/
+
+# License and billing data
+license_data/
+billing_cache/
+
+# ===============================================================================
+# CLOUD & DEPLOYMENT
+# ===============================================================================
+# Deployment artifacts
+deployment/
+.deployment/
+deploy.log
+
+# Docker
+.dockerignore
+docker-compose.override.yml
+.docker/
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+terraform.tfvars
+
+# Kubernetes
+k8s-secrets/
+kubeconfig*
+
+# ===============================================================================
+# PERFORMANCE & PROFILING
+# ===============================================================================
+# Performance data
+*.cpuprofile
+*.heapprofile
+*.heapsnapshot
+
+# Benchmark results
+benchmark_results/
+performance_data/
+
+# ===============================================================================
+# LEGAL & COMPLIANCE
+# ===============================================================================
+# Legal review files
+legal_review/
+compliance_data/
+audit_logs/
+
+# ===============================================================================
+# BACKUP & ARCHIVE
+# ===============================================================================
+# Backup files
+*.bak
+*.backup
+*.old
+backup/
+archives/
+
+# ===============================================================================
+# MISCELLANEOUS
+# ===============================================================================
+# Optional npm cache directory
+.npm
+
+# Optional REPL history
+.node_repl_history
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.parcel-cache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# FuseBox cache
+.fusebox/
+
+# DynamoDB Local files
+.dynamodb/
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# Temporary folders
+.tmp
+.temp
