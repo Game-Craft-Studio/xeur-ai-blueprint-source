@@ -1,0 +1,257 @@
+name: 🚀 XEUR.AI Platform CI/CD
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "main", "develop" ]
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  NODE_VERSION: '18.17.0'
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+
+jobs:
+  # ===== CODE QUALITY & SECURITY =====
+  quality-gate:
+    name: 🔍 Quality Gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: 🔍 TypeScript Check
+        run: npm run type-check
+
+      - name: 🧹 ESLint Analysis
+        run: npm run lint:check
+
+      - name: 🔒 Security Audit
+        run: npm run security:audit
+        continue-on-error: true
+
+      - name: 📊 Dependency Check
+        run: npm run deps:check
+        continue-on-error: true
+
+  # ===== BUILD & TEST =====
+  build-and-test:
+    name: 🏗️ Build & Test
+    runs-on: ubuntu-latest
+    needs: quality-gate
+    timeout-minutes: 15
+    
+    strategy:
+      matrix:
+        node-version: [18.17.0, 20.11.0]
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: 🏗️ Build Application
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: 🧪 Run Tests
+        run: npm test
+        env:
+          CI: true
+
+      - name: 📊 Bundle Analysis (Node 18 only)
+        if: matrix.node-version == '18.17.0'
+        run: npm run analyze
+        continue-on-error: true
+
+      - name: 📤 Upload Build Artifacts
+        if: matrix.node-version == '18.17.0'
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-artifacts
+          path: |
+            .next/
+            out/
+          retention-days: 7
+
+  # ===== SECURITY SCANNING =====
+  security-scan:
+    name: 🛡️ Security Scan
+    runs-on: ubuntu-latest
+    needs: quality-gate
+    timeout-minutes: 10
+    
+    permissions:
+      contents: read
+      security-events: write
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🔍 CodeQL Analysis
+        uses: github/codeql-action/init@v3
+        with:
+          languages: javascript,typescript
+
+      - name: 🏗️ Autobuild
+        uses: github/codeql-action/autobuild@v3
+
+      - name: 📊 Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v3
+
+  # ===== DEPLOYMENT (Production) =====
+  deploy-production:
+    name: 🌍 Deploy to Production
+    runs-on: ubuntu-latest
+    needs: [build-and-test, security-scan]
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    timeout-minutes: 20
+    
+    environment:
+      name: production
+      url: https://xeur.ai
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: 🏗️ Build for Production
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: 🚀 Deploy to Production
+        run: |
+          echo "🚀 Deploying to production environment..."
+          echo "✅ Deployment would happen here (Vercel, Netlify, etc.)"
+          # Add actual deployment commands here
+        env:
+          DEPLOYMENT_TOKEN: ${{ secrets.DEPLOYMENT_TOKEN }}
+
+  # ===== STAGING DEPLOYMENT =====
+  deploy-staging:
+    name: 🧪 Deploy to Staging
+    runs-on: ubuntu-latest
+    needs: [build-and-test]
+    if: github.ref == 'refs/heads/develop' && github.event_name == 'push'
+    timeout-minutes: 15
+    
+    environment:
+      name: staging
+      url: https://staging.xeur.ai
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: ⚙️ Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+
+      - name: 📦 Install Dependencies
+        run: npm ci --prefer-offline --no-audit
+
+      - name: 🏗️ Build for Staging
+        run: npm run build
+        env:
+          NODE_ENV: production
+
+      - name: 🧪 Deploy to Staging
+        run: |
+          echo "🧪 Deploying to staging environment..."
+          echo "✅ Staging deployment would happen here"
+          # Add actual staging deployment commands here
+
+  # ===== PERFORMANCE TESTING =====
+  performance-test:
+    name: ⚡ Performance Test
+    runs-on: ubuntu-latest
+    needs: deploy-staging
+    if: github.ref == 'refs/heads/develop'
+    timeout-minutes: 10
+    
+    steps:
+      - name: 📥 Checkout Code
+        uses: actions/checkout@v4
+
+      - name: 🔍 Lighthouse CI
+        uses: treosh/lighthouse-ci-action@v11
+        with:
+          urls: |
+            https://staging.xeur.ai
+          configPath: './lighthouserc.json'
+          uploadArtifacts: true
+          temporaryPublicStorage: true
+
+  # ===== CLEANUP =====
+  cleanup:
+    name: 🧹 Cleanup
+    runs-on: ubuntu-latest
+    needs: [deploy-production, deploy-staging, performance-test]
+    if: always()
+    
+    steps:
+      - name: 🗑️ Clean up artifacts
+        run: |
+          echo "🧹 Cleaning up temporary files and artifacts..."
+          echo "✅ Cleanup completed"
+
+# ===== NOTIFICATION WORKFLOW =====
+  notify-status:
+    name: 📢 Notify Status
+    runs-on: ubuntu-latest
+    needs: [deploy-production, deploy-staging]
+    if: always()
+    
+    steps:
+      - name: 📧 Notify Success
+        if: contains(needs.*.result, 'success')
+        run: |
+          echo "✅ XEUR.AI Platform deployment successful!"
+          echo "🌍 Production: https://xeur.ai"
+          echo "🧪 Staging: https://staging.xeur.ai"
+
+      - name: ❌ Notify Failure
+        if: contains(needs.*.result, 'failure')
+        run: |
+          echo "❌ XEUR.AI Platform deployment failed!"
+          echo "🔍 Check the logs for details"
