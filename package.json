@@ -1,12 +1,40 @@
 {
-  "name": "vite_react_shadcn_ts",
+  "name": "xeur-ai-platform",
+  "description": "Revolutionary AI-powered game development platform - Create complete, production-ready games with simple text prompts",
+  "version": "1.0.0",
   "private": true,
-  "version": "0.0.0",
+  "homepage": "https://xeur.ai",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Game-Craft-Studio/xeur-ai-blueprint-source.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Game-Craft-Studio/xeur-ai-blueprint-source/issues"
+  },
+  "author": {
+    "name": "Game Craft Studio",
+    "email": "hello@xeur.ai",
+    "url": "https://xeur.ai"
+  },
+  "keywords": [
+    "ai",
+    "game-development",
+    "artificial-intelligence",
+    "next.js",
+    "typescript",
+    "react",
+    "xeur",
+    "game-creation",
+    "no-code",
+    "shadcn-ui"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "type-check": "tsc --noEmit",
+    "preview": "next build && next start"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -81,5 +109,21 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.4.5",
     "typescript-eslint": "^8.0.1"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
