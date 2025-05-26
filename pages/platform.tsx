@@ -174,7 +174,7 @@ const Platform = () => {
           </div>
           
           <div className="text-center">
-            <Link href="/Pricing" className="btn-primary">
+            <Link href="/pricing" className="btn-primary">
               View Pricing Plans
             </Link>
           </div>

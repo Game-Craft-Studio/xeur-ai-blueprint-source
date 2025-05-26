@@ -3,6 +3,9 @@
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
   "/": "pages/index.js",
-  "/demo": "pages/demo.js",
-  "/Contact": "pages/Contact.js"
+  "/pricing": "pages/pricing.js",
+  "/platform": "pages/platform.js",
+  "/Contact": "pages/Contact.js",
+  "/xeur-xport": "pages/xeur-xport.js",
+  "/demo": "pages/demo.js"
 }

@@ -56,7 +56,7 @@ const navLinks: NavLink[] = [
       { title: "Blog", path: "/blog" },
       { title: "Tutorials", path: "/tutorials" },
       { title: "Documentation", path: "/docs" },
-      { title: "Demo", path: "/demo" },
+      { title: "Demo", path: "https://www.youtube.com/watch?v=XtI4AndkV24" },
     ],
   },
 ];
