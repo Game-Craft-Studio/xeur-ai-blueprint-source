@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -16,6 +15,18 @@ const navLinks: NavLink[] = [
     path: "/platform",
   },
   {
+    title: "Solutions",
+    path: "/solutions",
+    children: [
+      { title: "Pricing & Plans", path: "/pricing" },
+      { title: "XEUR Xport - Multi-Platform Deploy", path: "/xeur-xport" },
+      { title: "XEUR API - Developer Platform", path: "/xeur-api" },
+      { title: "XEUR Connect - Web3 Gaming", path: "/xeur-connect" },
+      { title: "Enterprise Solutions", path: "/enterprise" },
+      { title: "Business Model Overview", path: "/business-model" },
+    ],
+  },
+  {
     title: "Use Cases",
     path: "/use-cases",
     children: [
@@ -25,8 +36,14 @@ const navLinks: NavLink[] = [
     ],
   },
   {
-    title: "Pricing",
-    path: "/Pricing",
+    title: "Company",
+    path: "/company",
+    children: [
+      { title: "About Us", path: "/about" },
+      { title: "Company Overview", path: "/company-overview" },
+      { title: "Vision & Mission", path: "/vision" },
+      { title: "Careers", path: "/careers" },
+    ],
   },
   {
     title: "Resources",
@@ -35,11 +52,8 @@ const navLinks: NavLink[] = [
       { title: "Blog", path: "/blog" },
       { title: "Tutorials", path: "/tutorials" },
       { title: "Documentation", path: "/docs" },
+      { title: "Demo", path: "/demo" },
     ],
-  },
-  {
-    title: "About Us",
-    path: "/about",
   },
 ];
 
@@ -76,15 +90,15 @@ const Header = () => {
               )}
 
               {link.children && (
-                <div className="absolute top-full left-0 mt-2 w-64 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50">
+                <div className="absolute top-full left-0 mt-2 w-80 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50">
                   <div className="bg-medium_purple rounded-md shadow-lg shadow-deep_purple/50 overflow-hidden">
                     {link.children.map((child) => (
                       <Link
                         key={child.title}
                         href={child.path}
-                        className="block px-4 py-3 hover:bg-deep_purple transition-colors"
+                        className="block px-4 py-3 hover:bg-deep_purple transition-colors border-b border-light_purple/20 last:border-b-0"
                       >
-                        {child.title}
+                        <div className="font-medium">{child.title}</div>
                       </Link>
                     ))}
                   </div>
@@ -95,9 +109,9 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          {/* <Link href="/login" className="text-light_gray_text hover:text-bright_magenta transition-colors">
-            Login
-          </Link> */}
+          <Link href="/pricing" className="text-light_gray_text hover:text-bright_magenta transition-colors">
+            Pricing
+          </Link>
           <Link href="/Contact" className="btn-primary">
             Start Creating
           </Link>
@@ -168,13 +182,13 @@ const Header = () => {
             </div>
           ))}
           <div className="flex flex-col gap-3 mt-6 mb-4">
-            {/* <Link 
-              href="/login" 
+            <Link 
+              href="/pricing" 
               className="block w-full text-center py-3 border border-light_gray_text/50 rounded-md hover:border-bright_magenta hover:text-bright_magenta transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
-              Login
-            </Link> */}
+              View Pricing
+            </Link>
             <Link 
               href="/Contact" 
               className="btn-primary w-full text-center py-3"
