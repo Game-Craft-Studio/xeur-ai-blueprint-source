@@ -2,5 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/Pricing": "pages/Pricing.js"
+  "/": "pages/index.js",
+  "/platform": "pages/platform.js",
+  "/xeur-xport": "pages/xeur-xport.js",
+  "/Contact": "pages/Contact.js",
+  "/pricing": "pages/pricing.js"
 }

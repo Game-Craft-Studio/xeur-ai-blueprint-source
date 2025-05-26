@@ -15,15 +15,17 @@ const Hero = () => {
         style={{ animationDelay: '1s' }}
       ></div>
 
-      <div className='container-custom relative z-10'>
+      {/* Added mt-12 here to provide some top spacing for the main content block */}
+      <div className='container-custom relative z-10 mt-12'>
         <div className='max-w-4xl mx-auto text-center'>
-          {/* NVIDIA Partnership Badge */}
-          <div className='inline-flex items-center px-4 py-2 mb-6 bg-gradient-to-r from-green-500/20 to-green-400/20 border border-green-500/30 rounded-full text-green-400 text-sm font-medium'>
+          {/* NVIDIA Partnership Badge - Increased mb-6 to mb-8 */}
+          <div className='inline-flex items-center px-4 py-2 mb-8 bg-gradient-to-r from-green-500/20 to-green-400/20 border border-green-500/30 rounded-full text-green-400 text-sm font-medium'>
             <div className='w-2 h-2 bg-green-400 rounded-full mr-2 animate-pulse'></div>
             NVIDIA Inception Member • $2.5M Seed Funded
           </div>
 
-          <h1 className='mb-6 text-4xl md:text-6xl lg:text-7xl font-bold leading-tight'>
+          {/* H1 - Increased mb-6 to mb-10 */}
+          <h1 className='mb-10 text-4xl md:text-6xl lg:text-7xl font-bold leading-tight'>
             The{' '}
             <span className='text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-deep_purple animate-pulse-soft'>
               Extinction Event
@@ -31,7 +33,8 @@ const Hero = () => {
             for Game Development
           </h1>
 
-          <p className='text-xl md:text-2xl mb-4 text-light_gray_text/90 max-w-3xl mx-auto'>
+          {/* P1 - Increased mb-4 to mb-6 */}
+          <p className='text-xl md:text-2xl mb-6 text-light_gray_text/90 max-w-3xl mx-auto'>
             Transform any idea into a{' '}
             <span className='text-bright_magenta font-semibold'>
               complete, multi-platform game
@@ -39,14 +42,15 @@ const Hero = () => {
             in ~1 hour with simple text prompts.
           </p>
 
-          <p className='text-lg mb-8 text-light_gray_text/70 max-w-2xl mx-auto'>
+          {/* P2 - Increased mb-8 to mb-10 */}
+          <p className='text-lg mb-10 text-light_gray_text/70 max-w-2xl mx-auto'>
             Powered by our proprietary LLM trained on{' '}
             <span className='text-bright_magenta font-semibold'>78,000 games</span> + 8
             specialized AI models
           </p>
 
-          {/* Impact Metrics */}
-          <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-8 max-w-3xl mx-auto'>
+          {/* Impact Metrics - Increased mb-8 to mb-10 */}
+          <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 max-w-3xl mx-auto'>
             <div className='bg-gradient-to-b from-deep_purple/20 to-transparent border border-deep_purple/30 rounded-lg p-4'>
               <div className='text-2xl font-bold text-bright_magenta'>99%+</div>
               <div className='text-sm text-light_gray_text/70'>Faster Development</div>
@@ -80,8 +84,8 @@ const Hero = () => {
             </Link>
           </div>
 
-          {/* Founder Quote */}
-          <div className='mt-12 max-w-2xl mx-auto'>
+          {/* Founder Quote - Increased mt-12 to mt-16 */}
+          <div className='mt-16 max-w-2xl mx-auto'>
             <blockquote className='text-lg italic text-light_gray_text/80 border-l-4 border-bright_magenta pl-6'>
               "We're not just creating another tool – we're triggering an extinction event
               for traditional game development barriers."
@@ -92,6 +96,8 @@ const Hero = () => {
           </div>
         </div>
       </div>
+      <br></br>
+      <br></br>
 
       {/* Enhanced Decorative Code Elements */}
       <div className='absolute bottom-10 left-4 md:left-10 text-medium_purple/40 font-mono text-sm hidden lg:block'>

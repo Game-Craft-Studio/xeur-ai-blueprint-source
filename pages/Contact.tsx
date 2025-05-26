@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import { Mail, MapPin, Phone, Send, Linkedin, Twitter, Youtube } from "lucide-react";
+import { Linkedin, Mail, MapPin, Phone, Send, Twitter, Youtube } from "lucide-react";
 import { toast } from "@/components/ui/use-toast";
 
 const Contact = () => {

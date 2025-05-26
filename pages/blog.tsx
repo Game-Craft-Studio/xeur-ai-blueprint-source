@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { CalendarDays, User, Clock, Tag } from "lucide-react";
+import { CalendarDays, Clock, Tag, User } from "lucide-react";
 
 const Blog = () => {
   // Sample blog posts data - in a real implementation, this would come from an API or CMS
@@ -99,27 +99,27 @@ const Blog = () => {
                   </div>
                   
                   <h2 className="text-2xl md:text-3xl font-bold mb-4">
-                    <Link href={`/blog/${blogPosts[0].slug}`} className="hover:text-bright_magenta transition-colors">
-                      {blogPosts[0].title}
+                    <Link href={`/blog/${blogPosts[0]?.slug ?? ""}`} className="hover:text-bright_magenta transition-colors">
+                      {blogPosts[0]?.title}
                     </Link>
                   </h2>
                   
                   <p className="text-light_gray_text/80 mb-6">
-                    {blogPosts[0].excerpt}
+                    {blogPosts[0]?.excerpt}
                   </p>
                   
                   <div className="flex flex-wrap gap-4 text-sm text-light_gray_text/60">
                     <div className="flex items-center gap-1">
                       <CalendarDays size={16} />
-                      <span>{blogPosts[0].publishDate}</span>
+                      <span>{blogPosts[0]?.publishDate}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <User size={16} />
-                      <span>{blogPosts[0].author}</span>
+                      <span>{blogPosts[0]?.author}</span>
                     </div>
                     <div className="flex items-center gap-1">
                       <Clock size={16} />
-                      <span>{blogPosts[0].readTime}</span>
+                      <span>{blogPosts[0]?.readTime}</span>
                     </div>
                   </div>
                 </div>

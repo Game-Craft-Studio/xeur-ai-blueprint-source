@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Lightbulb, Zap, Target, Globe, Users, Award, TrendingUp, Shield, Rocket, Star, Heart, Crown } from "lucide-react";
+import { Award, Crown, Globe, Heart, Lightbulb, Rocket, Shield, Star, Target, TrendingUp, Users, Zap } from "lucide-react";
 
 const CompanyOverview = () => {
   const storyCards = [

@@ -3,7 +3,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Server, Cpu, Globe, Code, Zap, Lock } from "lucide-react";
+import { Code, Cpu, Globe, Lock, Server, Zap } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
 const Platform = () => {

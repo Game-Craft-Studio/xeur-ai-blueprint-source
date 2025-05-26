@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Check, Zap, Users, Globe, Rocket } from "lucide-react";
+import { Check, Globe, Rocket, Users, Zap } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 
 const Pricing = () => {

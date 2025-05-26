@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { TrendingUp, Target, Zap, Users, Building, Coins, BarChart3, Shield, Rocket, Crown } from "lucide-react";
+import { BarChart3, Building, Coins, Crown, Rocket, Shield, Target, TrendingUp, Users, Zap } from "lucide-react";
 
 const BusinessModel = () => {
   const marketStats = [

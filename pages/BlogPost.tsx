@@ -3,12 +3,10 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { CalendarDays, User, Clock, Tag, ArrowLeft, Share2, Bookmark, Heart, Facebook, Twitter, Linkedin } from "lucide-react";
-import { useRouter } from "next/router";
+import { ArrowLeft, Bookmark, CalendarDays, Clock, Facebook, Heart, Linkedin, Share2, Twitter, User } from "lucide-react";
 
 const BlogPost = () => {
   // In a real implementation, this would fetch the blog post data based on the slug
-  const { slug } = useRouter().query;
 
   // Sample data - in a real implementation, this would come from an API or CMS
   const post = {

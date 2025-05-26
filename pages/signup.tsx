@@ -4,7 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import Link from "next/link";
-import { Eye, EyeOff, Mail, Lock, User, Sparkles, Check } from "lucide-react";
+import { Check, Eye, EyeOff, Lock, Mail, Sparkles, User } from "lucide-react";
 
 export default function SignUpPage() {
   const [showPassword, setShowPassword] = useState(false);
@@ -12,9 +12,9 @@ export default function SignUpPage() {
   const [isLoading, setIsLoading] = useState(false);
   const [agreedToTerms, setAgreedToTerms] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: { preventDefault: () => void; }) => {
     e.preventDefault();
-    if (!agreedToTerms) return;
+    if (!agreedToTerms) {return;}
     setIsLoading(true);
     // Simulate loading for demo
     setTimeout(() => setIsLoading(false), 2000);

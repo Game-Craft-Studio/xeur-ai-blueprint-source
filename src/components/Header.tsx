@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { ChevronDown, Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface NavLink {
@@ -18,7 +18,7 @@ const navLinks: NavLink[] = [
     title: "Solutions",
     path: "/solutions",
     children: [
-      { title: "Pricing & Plans", path: "/pricing" },
+      // { title: "Pricing & Plans", path: "/pricing" },
       { title: "XEUR Xport - Multi-Platform Deploy", path: "/xeur-xport" },
       { title: "XEUR API - Developer Platform", path: "/xeur-api" },
       { title: "XEUR Connect - Web3 Gaming", path: "/xeur-connect" },
@@ -34,6 +34,10 @@ const navLinks: NavLink[] = [
       { title: "For Indie Developers", path: "/use-cases/indie-developers" },
       { title: "For Content Influencers", path: "/use-cases/content-influencers" },
     ],
+  },
+  {
+    title: "Pricing",
+    path: "/pricing",
   },
   {
     title: "Company",
@@ -109,9 +113,9 @@ const Header = () => {
         </nav>
 
         <div className="hidden lg:flex items-center gap-4">
-          <Link href="/pricing" className="text-light_gray_text hover:text-bright_magenta transition-colors">
+          {/* <Link href="/pricing" className="text-light_gray_text hover:text-bright_magenta transition-colors">
             Pricing
-          </Link>
+          </Link> */}
           <Link href="/Contact" className="btn-primary">
             Start Creating
           </Link>
@@ -182,13 +186,13 @@ const Header = () => {
             </div>
           ))}
           <div className="flex flex-col gap-3 mt-6 mb-4">
-            <Link 
+            {/* <Link 
               href="/pricing" 
               className="block w-full text-center py-3 border border-light_gray_text/50 rounded-md hover:border-bright_magenta hover:text-bright_magenta transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               View Pricing
-            </Link>
+            </Link> */}
             <Link 
               href="/Contact" 
               className="btn-primary w-full text-center py-3"
