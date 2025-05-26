@@ -110,13 +110,15 @@ const nextConfig = {
     domains: [
       'via.placeholder.com',
       'cdn.xeur.ai',
-      'assets.xeur.ai',
+      'assets.xeur.ai', 
       'user-content.xeur.ai',
     ],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
+    // For static export compatibility
+    unoptimized: process.env.NODE_ENV === 'production',
   },
 
   // ===== INTERNATIONALIZATION =====
@@ -170,17 +172,40 @@ const nextConfig = {
         source: '/health',
         destination: '/api/health',
       },
+      // Partnership route rewrites
+      {
+        source: '/partnerships/nvidia',
+        destination: '/nvidia-partnership',
+      },
+      {
+        source: '/partnerships/:path*',
+        destination: '/nvidia-partnership',
+      },
     ];
   },
 
   // ===== OUTPUT CONFIGURATION =====
-  output: 'standalone',
+  // Use 'export' for static site generation (GitHub Pages)
+  // Use 'standalone' for server deployment (Vercel, etc.)
+  output: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS === 'true' 
+    ? 'export' 
+    : 'standalone',
+  
+  // For static export compatibility
+  trailingSlash: true,
+  
+  // ===== GITHUB PAGES SPECIFIC CONFIGURATION =====
+  ...(process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS === 'true' && {
+    // Configure asset prefix for GitHub Pages
+    assetPrefix: process.env.GITHUB_PAGES ? '/xeur-ai-blueprint-source' : '',
+    basePath: process.env.GITHUB_PAGES ? '/xeur-ai-blueprint-source' : '',
+  }),
   
   // ===== ENVIRONMENT VARIABLES =====
   env: {
     NEXT_PUBLIC_APP_VERSION: process.env.npm_package_version,
     NEXT_PUBLIC_BUILD_TIME: new Date().toISOString(),
-    NEXT_PUBLIC_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || 'dev',
+    NEXT_PUBLIC_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'dev',
   },
 
   // ===== WEBPACK CUSTOMIZATION =====
@@ -246,7 +271,7 @@ const nextConfig = {
     // Optimize CSS
     optimizeFonts: true,
     // Generate static pages where possible
-    trailingSlash: false,
+    trailingSlash: true,
   }),
 
   // ===== CUSTOM PAGE EXTENSIONS =====
@@ -255,7 +280,7 @@ const nextConfig = {
   // ===== STATIC OPTIMIZATION =====
   generateBuildId: async () => {
     // Use commit SHA for build ID in production
-    return process.env.VERCEL_GIT_COMMIT_SHA || 'development';
+    return process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'development';
   },
 };
 
