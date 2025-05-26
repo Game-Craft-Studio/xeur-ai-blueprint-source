@@ -1,0 +1,13 @@
+
+> vite_react_shadcn_ts@0.0.0 start
+> next start
+
+   ▲ Next.js 14.1.0
+   - Local:        http://localhost:3000
+
+[Error: ENOENT: no such file or directory, open '/home/kolkatasouvik1/xeur-ai-blueprint-source/.next/BUILD_ID'] {
+  errno: -2,
+  code: 'ENOENT',
+  syscall: 'open',
+  path: '/home/kolkatasouvik1/xeur-ai-blueprint-source/.next/BUILD_ID'
+}
