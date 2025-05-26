@@ -86,8 +86,8 @@ const Contact = () => {
                     <Mail className="text-bright_magenta shrink-0 mt-1" size={20} />
                     <div>
                       <h3 className="font-semibold mb-1">Email Us</h3>
-                      <p className="text-light_gray_text/80">support@xeur.ai</p>
-                      <p className="text-light_gray_text/80">partnerships@xeur.ai</p>
+                      <p className="text-light_gray_text/80">Rishav Goyal - rishav@cpgplay.com</p>
+                      <p className="text-light_gray_text/80">Harshit Verma - harshit@cpgplay.com</p>
                     </div>
                   </div>
                   
@@ -96,9 +96,9 @@ const Contact = () => {
                     <div>
                       <h3 className="font-semibold mb-1">Office Location</h3>
                       <p className="text-light_gray_text/80">
-                        XEUR Technologies<br />
-                        Cyber Hub, DLF Cyber City<br />
-                        Gurugram, Haryana 122002<br />
+                      NETCO office space<br />
+                      pk 28, Block L-4 Neechi Mangali<br />
+                      Ludhiana, Punjab - 141123<br />
                         India
                       </p>
                     </div>
