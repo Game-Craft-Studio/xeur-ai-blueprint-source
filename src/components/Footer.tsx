@@ -39,21 +39,21 @@ const Footer = () => {
 
           {/* Column 2 */}
           <div>
-            <h4 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Platform</h4>
+            <h4 className="text-lg md:text-xl font-bold mb-3 md:mb-4">Leverage</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/platform#features" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
-                  Features
+                <Link href="/leverage/updates" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                  Updates
                 </Link>
               </li>
               <li>
-                <Link href="/platform#technology" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
-                  Technology
+                <Link href="/leverage/changelogs" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                  Changelogs
                 </Link>
               </li>
               <li>
-                <Link href="/Pricing" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
-                  Pricing
+                <Link href="/leverage/media" className="hover:text-bright_magenta transition-colors text-sm md:text-base">
+                  Media Coverage
                 </Link>
               </li>
             </ul>
