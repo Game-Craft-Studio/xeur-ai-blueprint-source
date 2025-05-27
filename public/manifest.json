@@ -1,0 +1,123 @@
+{
+  "name": "XEUR.AI - AI Game Development Platform",
+  "short_name": "XEUR.AI",
+  "description": "Revolutionary AI-powered game development platform. Create complete, multi-platform games in ~1 hour using just natural language prompts. Democratizing game creation for everyone.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#ff6b9d",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": [
+    "productivity",
+    "games",
+    "developer-tools",
+    "entertainment"
+  ],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "16x16 32x32",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "XEUR.AI Platform Overview"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "640x1136",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "XEUR.AI Mobile Experience"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Watch Demo",
+      "short_name": "Demo",
+      "description": "See XEUR.AI create games in real-time",
+      "url": "/#demo",
+      "icons": [
+        {
+          "src": "/icon-demo.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Join Beta",
+      "short_name": "Beta",
+      "description": "Get early access to XEUR.AI platform",
+      "url": "/#beta",
+      "icons": [
+        {
+          "src": "/icon-beta.png",
+          "sizes": "96x96"
+        }
+      ]
+    },
+    {
+      "name": "Solutions",
+      "short_name": "Solutions",
+      "description": "Explore XEUR.AI solutions and capabilities",
+      "url": "/solutions",
+      "icons": [
+        {
+          "src": "/icon-solutions.png",
+          "sizes": "96x96"
+        }
+      ]
+    }
+  ],
+  "prefer_related_applications": false,
+  "edge_side_panel": {
+    "preferred_width": 400
+  },
+  "file_handlers": [
+    {
+      "action": "/",
+      "accept": {
+        "text/plain": [".txt"],
+        "application/json": [".json"]
+      }
+    }
+  ],
+  "protocol_handlers": [
+    {
+      "protocol": "xeur",
+      "url": "/?source=%s"
+    }
+  ],
+  "related_applications": [
+    {
+      "platform": "webapp",
+      "url": "https://xeur.ai/manifest.json"
+    }
+  ],
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "version": "1.3.0",
+  "permissions": [
+    "clipboardRead",
+    "clipboardWrite"
+  ]
+}
