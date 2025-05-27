@@ -1,0 +1,54 @@
+Contact: mailto:security@xeur.ai
+Contact: https://xeur.ai/contact?subject=security
+Expires: 2026-05-27T00:00:00.000Z
+Encryption: https://xeur.ai/.well-known/pgp-key.txt
+Acknowledgments: https://xeur.ai/security-acknowledgments
+Preferred-Languages: en
+Canonical: https://xeur.ai/.well-known/security.txt
+Policy: https://xeur.ai/security-policy
+
+# XEUR.AI Security Contact Information
+# 
+# If you have discovered a security vulnerability in XEUR.AI,
+# we appreciate your help in disclosing it to us in a responsible manner.
+#
+# Please do NOT create public GitHub issues for security vulnerabilities.
+# Instead, please contact us directly using the information above.
+#
+# What we need from you:
+# - Description of the vulnerability
+# - Steps to reproduce the issue
+# - Potential impact assessment
+# - Any proof-of-concept code (if applicable)
+#
+# What you can expect from us:
+# - Acknowledgment within 24 hours
+# - Regular updates on our progress
+# - Credit in our security acknowledgments (if desired)
+# - Responsible disclosure timeline coordination
+#
+# Scope:
+# - xeur.ai and all subdomains
+# - XEUR.AI platform and API endpoints
+# - Production infrastructure and services
+#
+# Out of scope:
+# - Social engineering attacks
+# - Physical security issues
+# - Third-party services not controlled by XEUR.AI
+# - Issues affecting end-of-life software versions
+#
+# Legal:
+# We commit to not taking legal action against researchers who:
+# - Make a good faith effort to avoid privacy violations and service disruption
+# - Only interact with accounts they own or have explicit permission to access
+# - Do not access, modify, or delete data belonging to others
+# - Provide us with reasonable time to address issues before public disclosure
+#
+# Company Information:
+# XEUR.AI (Craft Production Group)
+# Revolutionary AI-Powered Game Development Platform
+# Currently in Alpha/Beta - Raising $2.5M Seed Round
+# NVIDIA Inception Member
+#
+# Thank you for helping keep XEUR.AI and our users safe!
