@@ -5,33 +5,6 @@ import Footer from "../src/components/Footer";
 import Link from "next/link";
 
 const About = () => {
-  const teamMembers = [
-    {
-      name: "Raj Sharma",
-      title: "CEO & Founder",
-      bio: "Experienced AI researcher with previous exits in the tech space. Passionate about democratizing game development.",
-      image: "/assets/team/raj-sharma.jpg"
-    },
-    {
-      name: "Priya Patel",
-      title: "Chief Operating Officer",
-      bio: "Former gaming industry executive with expertise in scaling startups and international business development.",
-      image: "/assets/team/priya-patel.jpg"
-    },
-    {
-      name: "Arjun Mehta",
-      title: "Chief Technology Officer",
-      bio: "AI pioneer with over 15 years of experience in machine learning, computer vision, and generative models.",
-      image: "/assets/team/arjun-mehta.jpg"
-    },
-    {
-      name: "Neha Kapoor",
-      title: "Chief Product Officer",
-      bio: "Former game designer with a passion for accessible technology and intuitive user experiences.",
-      image: "/assets/team/neha-kapoor.jpg"
-    }
-  ];
-
   return (
     <div className="bg-near_black min-h-screen">
       <Header />
@@ -134,30 +107,59 @@ const About = () => {
         </div>
       </div>
       
-      {/* Team Section */}
+      {/* Team Section - Updated with placeholder */}
       <div className="py-16">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
             The Minds Behind the <span className="text-bright_magenta">Magic</span>
           </h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
-              <div key={index} className="bg-medium_purple/30 rounded-lg overflow-hidden border border-light_purple/30 card-hover">
-                <div className="h-48 bg-gradient-to-b from-light_purple/10 to-deep_purple flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-deep_purple/50 flex items-center justify-center text-2xl font-bold">
-                    {member.name.split(' ').map(n => n[0]).join('')}
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold">{member.name}</h3>
-                  <p className={`font-semibold mb-3 ${member.title.includes("Operating") ? "text-rich_gold" : "text-electric_blue"}`}>
-                    {member.title}
-                  </p>
-                  <p className="text-light_gray_text/80">{member.bio}</p>
-                </div>
+          {/* Team Information Update Notice */}
+          <div className="max-w-3xl mx-auto text-center mb-16">
+            <div className="bg-gradient-to-r from-bright_magenta/10 to-purple-400/10 rounded-2xl p-8 border border-bright_magenta/30">
+              <div className="text-5xl mb-4">🚀</div>
+              <h3 className="text-2xl font-bold mb-4 text-bright_magenta">Our Team is Growing</h3>
+              <p className="text-lg text-light_gray_text/80 leading-relaxed">
+                We're in the process of updating our team information to reflect our recent growth and organizational changes. 
+                Our leadership team brings together decades of experience in AI research, game development, and enterprise technology.
+              </p>
+              <div className="mt-6">
+                <Link 
+                  href="/contact?inquiry=team" 
+                  className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-bright_magenta to-purple-600 rounded-xl hover:scale-105 shadow-lg hover:shadow-xl"
+                >
+                  Get in Touch
+                </Link>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Leadership Highlights */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-medium_purple/30 rounded-lg p-8 border border-light_purple/30 text-center">
+              <div className="text-4xl mb-4">🧠</div>
+              <h3 className="text-xl font-bold mb-3 text-bright_magenta">AI Research Excellence</h3>
+              <p className="text-light_gray_text/80">
+                Our research team brings cutting-edge expertise in machine learning, 
+                computer vision, and generative AI technologies.
+              </p>
+            </div>
+            <div className="bg-medium_purple/30 rounded-lg p-8 border border-light_purple/30 text-center">
+              <div className="text-4xl mb-4">🎮</div>
+              <h3 className="text-xl font-bold mb-3 text-electric_blue">Game Industry Veterans</h3>
+              <p className="text-light_gray_text/80">
+                Seasoned professionals with experience at leading gaming companies, 
+                understanding both creative and technical aspects of game development.
+              </p>
+            </div>
+            <div className="bg-medium_purple/30 rounded-lg p-8 border border-light_purple/30 text-center">
+              <div className="text-4xl mb-4">🏢</div>
+              <h3 className="text-xl font-bold mb-3 text-tech_green">Enterprise Leadership</h3>
+              <p className="text-light_gray_text/80">
+                Business leaders with proven track records in scaling technology companies 
+                and building global partnerships.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -187,6 +189,46 @@ const About = () => {
               "AI is transforming every aspect of our lives. India, with its vast talent pool and innovative spirit,
               has the opportunity to lead this revolution."
             </p>
+          </div>
+        </div>
+      </div>
+      
+      {/* Company Values */}
+      <div className="py-16">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Our <span className="text-bright_magenta">Core Values</span>
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-5xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold mb-3 text-bright_magenta">Innovation First</h3>
+              <p className="text-light_gray_text/70">
+                We push the boundaries of what's possible with AI and game development technology.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-4">🤝</div>
+              <h3 className="text-xl font-semibold mb-3 text-tech_green">Democratization</h3>
+              <p className="text-light_gray_text/70">
+                Making advanced technology accessible to creators regardless of technical background.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-4">🌟</div>
+              <h3 className="text-xl font-semibold mb-3 text-purple-400">Excellence</h3>
+              <p className="text-light_gray_text/70">
+                Every product and feature we deliver meets the highest standards of quality.
+              </p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-4">🌍</div>
+              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Global Impact</h3>
+              <p className="text-light_gray_text/70">
+                Building technology that empowers creators worldwide to share their stories.
+              </p>
+            </div>
           </div>
         </div>
       </div>

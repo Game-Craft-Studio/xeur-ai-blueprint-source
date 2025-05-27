@@ -44,60 +44,57 @@ const XeurXport = () => {
     }
   ];
 
-  const pricingPlans = [
+  const deploymentOptions = [
     {
-      name: "Per-Export",
-      price: "$29",
-      period: "per platform export",
-      description: "Perfect for testing and single deployments",
+      name: "Single Platform Deploy",
+      description: "Perfect for testing and focused distribution",
       features: [
         "Single platform deployment",
         "Standard optimization", 
-        "48-hour processing",
-        "Basic store metadata",
-        "Standard support",
-        "Download delivery"
+        "Rapid processing",
+        "Essential store metadata",
+        "Community support",
+        "Direct download delivery"
       ],
-      ctaText: "Export Now",
-      ctaLink: "/signup?plan=export-single",
-      highlighted: false
+      ctaText: "Discover the Technology",
+      ctaLink: "/demo?service=single-deploy",
+      highlighted: false,
+      gradient: "from-purple-400 to-purple-600"
     },
     {
       name: "Multi-Platform Bundle",
-      price: "$99", 
-      period: "up to 5 platforms",
-      description: "Most popular for serious developers",
+      description: "Comprehensive solution for serious developers",
       features: [
-        "5 platform simultaneous export",
-        "Advanced optimization",
-        "24-hour processing", 
+        "Up to 5 platforms simultaneous export",
+        "Advanced optimization profiles",
+        "Priority processing", 
         "Enhanced store metadata",
-        "Priority support",
-        "Cloud delivery + CDN",
-        "Version control"
+        "Expert technical support",
+        "Cloud delivery with CDN",
+        "Version control integration"
       ],
-      ctaText: "Bundle Export",
-      ctaLink: "/signup?plan=export-bundle",
-      highlighted: true
+      ctaText: "Explore Features",
+      ctaLink: "/demo?service=multi-deploy",
+      highlighted: true,
+      gradient: "from-bright_magenta to-pink-400"
     },
     {
       name: "Enterprise Volume",
-      price: "Custom",
-      period: "high-volume deployment", 
-      description: "For studios and enterprises",
+      description: "Scalable solutions for studios and enterprises",
       features: [
         "Unlimited platform exports",
         "Custom optimization profiles",
-        "1-hour processing SLA",
-        "White-label deployment",
-        "Dedicated support team",
-        "API integration",
-        "Custom delivery options",
-        "Advanced analytics"
+        "High-performance processing",
+        "White-label deployment options",
+        "Dedicated expert technical support",
+        "API integration capabilities",
+        "Custom delivery solutions",
+        "Advanced analytics dashboard"
       ],
-      ctaText: "Contact Sales",
+      ctaText: "Learn More",
       ctaLink: "/contact?service=export-enterprise",
-      highlighted: false
+      highlighted: false,
+      gradient: "from-tech_green to-cyan-400"
     }
   ];
 
@@ -236,28 +233,28 @@ const XeurXport = () => {
         </div>
       </div>
 
-      {/* Pricing Section */}
+      {/* Deployment Solutions */}
       <div className="py-16 bg-deep_purple">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
             <Target className="inline-block w-10 h-10 text-pink-400 mr-2" />
-            Export Pricing Models
+            Deployment Solutions
           </h2>
           <p className="text-xl text-center text-light_gray_text/80 mb-12 max-w-3xl mx-auto">
-            Flexible pricing to match your deployment needs - from single exports to enterprise volumes
+            Flexible solutions to match your deployment needs - from single exports to enterprise volumes
           </p>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {pricingPlans.map((plan, index) => (
+            {deploymentOptions.map((option, index) => (
               <div 
                 key={index}
                 className={`rounded-xl p-8 border transition-all duration-300 hover:scale-105 ${
-                  plan.highlighted 
+                  option.highlighted 
                     ? 'bg-purple-gradient border-bright_magenta shadow-lg shadow-bright_magenta/20' 
                     : 'bg-medium_purple/20 border-light_purple/30'
                 }`}
               >
-                {plan.highlighted && (
+                {option.highlighted && (
                   <div className="text-center mb-4">
                     <span className="bg-tech_green text-near_black font-bold py-1 px-4 rounded-full text-sm">
                       MOST POPULAR
@@ -266,14 +263,12 @@ const XeurXport = () => {
                 )}
                 
                 <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                  <div className="text-3xl font-bold text-bright_magenta mb-1">{plan.price}</div>
-                  <div className="text-sm text-light_gray_text/70 mb-3">{plan.period}</div>
-                  <p className="text-light_gray_text/70">{plan.description}</p>
+                  <h3 className="text-2xl font-bold mb-2">{option.name}</h3>
+                  <p className="text-light_gray_text/70 mb-6">{option.description}</p>
                 </div>
                 
                 <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
+                  {option.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
                       <Check size={18} className="text-tech_green mr-3 shrink-0 mt-1" />
                       <span className="text-sm">{feature}</span>
@@ -282,14 +277,10 @@ const XeurXport = () => {
                 </ul>
                 
                 <Link 
-                  href={plan.ctaLink}
-                  className={`block w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
-                    plan.highlighted 
-                      ? 'bg-bright_magenta text-light_gray_text hover:bg-bright_magenta/90' 
-                      : 'bg-medium_purple text-light_gray_text hover:bg-medium_purple/80'
-                  }`}
+                  href={option.ctaLink}
+                  className={`block w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 bg-gradient-to-r ${option.gradient} text-white hover:scale-105 shadow-lg hover:shadow-xl`}
                 >
-                  {plan.ctaText}
+                  {option.ctaText}
                 </Link>
               </div>
             ))}
@@ -325,8 +316,39 @@ const XeurXport = () => {
         </div>
       </div>
 
+      {/* Benefits Showcase */}
+      <div className="py-16 bg-gradient-to-r from-bright_magenta/10 to-pink-400/10">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            Why Choose <span className="text-bright_magenta">XEUR Xport?</span>
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="text-5xl mb-4">⚡</div>
+              <h3 className="text-xl font-semibold mb-2 text-bright_magenta">Lightning Fast</h3>
+              <p className="text-light_gray_text/70">Deploy to multiple platforms in minutes, not weeks</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-4">🎯</div>
+              <h3 className="text-xl font-semibold mb-2 text-tech_green">Platform Optimized</h3>
+              <p className="text-light_gray_text/70">Automatic optimization for each platform's unique requirements</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-4">🔧</div>
+              <h3 className="text-xl font-semibold mb-2 text-purple-400">Zero Configuration</h3>
+              <p className="text-light_gray_text/70">One-click deployment with intelligent defaults</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-4">📈</div>
+              <h3 className="text-xl font-semibold mb-2 text-cyan-400">Scalable Solutions</h3>
+              <p className="text-light_gray_text/70">From single games to enterprise-wide deployments</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* CTA Section */}
-      <div className="py-16 bg-gradient-to-r from-bright_magenta/20 to-pink-400/20">
+      <div className="py-16">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Ready to Deploy <span className="text-bright_magenta">Everywhere?</span>
@@ -335,11 +357,17 @@ const XeurXport = () => {
             Transform your XEUR.AI created game into a multi-platform phenomenon. One click, infinite reach.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup?plan=export" className="btn-primary">
-              Start Export Process
+            <Link 
+              href="/demo?service=xport" 
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-bright_magenta to-purple-600 rounded-xl hover:from-purple-600 hover:to-bright_magenta transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-bright_magenta/50"
+            >
+              <span className="relative z-10">Experience the Technology</span>
             </Link>
-            <Link href="/demo?service=xport" className="btn-secondary">
-              View Demo
+            <Link 
+              href="/contact?service=xport-info" 
+              className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 border-2 border-tech_green/70 rounded-xl hover:border-tech_green hover:bg-tech_green/10 transform hover:scale-105"
+            >
+              Learn More
             </Link>
           </div>
         </div>
