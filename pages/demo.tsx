@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BetaSignupModal from "@/components/BetaSignupModal";
 import Link from "next/link";
-import { Play, Clock, Users, Zap, Globe, Sparkles, ChevronRight, Star } from "lucide-react";
+import { ChevronRight, Clock, Globe, Play, Sparkles, Star, Zap } from "lucide-react";
 
 const Demo = () => {
   const [isBetaModalOpen, setIsBetaModalOpen] = useState(false);
@@ -187,19 +187,19 @@ const Demo = () => {
               <div className="relative">
                 <div className="bg-gradient-to-br from-deep_purple/50 to-medium_purple/30 rounded-2xl p-8 border border-light_purple/30">
                   <div className="text-center mb-6">
-                    <div className="text-6xl mb-4">{demoSteps[activeStep].icon}</div>
+                    <div className="text-6xl mb-4">{demoSteps[activeStep]?.icon}</div>
                     <h3 className="text-2xl font-bold text-bright_magenta mb-2">
-                      {demoSteps[activeStep].title}
+                      {demoSteps[activeStep]?.title}
                     </h3>
                     <p className="text-light_gray_text/80">
-                      {demoSteps[activeStep].description}
+                      {demoSteps[activeStep]?.description}
                     </p>
                   </div>
                   
                   <div className="bg-near_black/60 rounded-xl p-6 border border-light_purple/20">
                     <div className="text-sm text-tech_green mb-2">Example:</div>
                     <p className="text-light_gray_text/80 italic">
-                      {demoSteps[activeStep].example}
+                      {demoSteps[activeStep]?.example}
                     </p>
                   </div>
                 </div>

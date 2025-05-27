@@ -59,11 +59,11 @@ const Hero = () => {
             {/* Enhanced Metrics Grid with Updated Values */}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto'>
               <div className='bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-xl p-6 hover:scale-105 transition-transform'>
-                <div className='text-3xl md:text-4xl font-bold text-bright_magenta'>>99%</div>
+                <div className='text-3xl md:text-4xl font-bold text-bright_magenta'>{'>99%'}</div>
                 <div className='text-sm md:text-base text-light_gray_text/70'>Faster Development</div>
               </div>
               <div className='bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-xl p-6 hover:scale-105 transition-transform'>
-                <div className='text-3xl md:text-4xl font-bold text-tech_green'>>99%</div>
+                <div className='text-3xl md:text-4xl font-bold text-tech_green'>{'>99%'}</div>
                 <div className='text-sm md:text-base text-light_gray_text/70'>Cost Reduction</div>
               </div>
               <div className='bg-gradient-to-b from-purple-400/20 to-transparent border border-purple-400/30 rounded-xl p-6 hover:scale-105 transition-transform'>

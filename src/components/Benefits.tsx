@@ -1,6 +1,6 @@
 
 import React from "react";
-import { Zap, Infinity, Clock, Globe, Terminal, Palette } from "lucide-react";
+import { Clock, Globe, Infinity, Palette, Terminal, Zap } from "lucide-react";
 
 const Benefits = () => {
   const benefits = [

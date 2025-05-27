@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Home, Search, ArrowLeft, Zap } from 'lucide-react';
+import { Home, Search, Zap } from 'lucide-react';
 
 const Custom404 = () => {
   return (

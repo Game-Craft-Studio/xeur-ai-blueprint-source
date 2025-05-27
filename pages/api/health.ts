@@ -39,7 +39,7 @@ export default async function handler(
       services: {
         database: 'not_configured',
         cache: 'not_configured',
-        external_apis: 'not_configured'
+        external_apis: 'disconnected'
       },
       company: {
         name: 'XEUR.AI',

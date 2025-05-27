@@ -1,11 +1,1 @@
-{
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/": "pages/index.js",
-  "/pricing": "pages/pricing.js",
-  "/platform": "pages/platform.js",
-  "/Contact": "pages/Contact.js",
-  "/xeur-xport": "pages/xeur-xport.js",
-  "/demo": "pages/demo.js"
-}
+{"/_app":"pages/_app.js","/_document":"pages/_document.js","/404":"pages/404.html","/500":"pages/500.html","/BlogPost":"pages/BlogPost.html","/Contact":"pages/Contact.html","/UseCases":"pages/UseCases.html","/api/health":"pages/api/health.js","/about":"pages/about.html","/api/sitemap.xml":"pages/api/sitemap.xml.js","/blog":"pages/blog.html","/careers":"pages/careers.html","/business-model":"pages/business-model.html","/cookie-policy":"pages/cookie-policy.html","/company-overview":"pages/company-overview.html","/_error":"pages/_error.js","/demo":"pages/demo.html","/docs":"pages/docs.html","/enterprise":"pages/enterprise.html","/":"pages/index.html","/login":"pages/login.html","/not-found":"pages/not-found.html","/platform":"pages/platform.html","/privacy-policy":"pages/privacy-policy.html","/nvidia-partnership":"pages/nvidia-partnership.html","/pricing":"pages/pricing.html","/signup":"pages/signup.html","/solutions":"pages/solutions.html","/tutorials":"pages/tutorials.html","/terms-of-service":"pages/terms-of-service.html","/use-cases/aspiring-creators":"pages/use-cases/aspiring-creators.html","/use-cases/content-influencers":"pages/use-cases/content-influencers.html","/vision":"pages/vision.html","/use-cases/indie-developers":"pages/use-cases/indie-developers.html","/xeur-api":"pages/xeur-api.html","/xeur-connect":"pages/xeur-connect.html","/xeur-xport":"pages/xeur-xport.html"}

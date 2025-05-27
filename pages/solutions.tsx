@@ -2,7 +2,7 @@ import React from "react";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
-import { Zap, Globe, Building, Coins, Rocket, Shield, Users, ChevronRight } from "lucide-react";
+import { Building, ChevronRight, Coins, Globe, Rocket, Shield, Zap } from "lucide-react";
 
 const Solutions = () => {
   const solutions = [
@@ -318,7 +318,7 @@ const Solutions = () => {
                 <div className="text-light_gray_text/70">Blocked Creators</div>
               </div>
               <div className="bg-near_black/60 rounded-xl p-6 border border-bright_magenta/30">
-                <div className="text-4xl font-bold text-bright_magenta mb-2">>99%</div>
+                <div className="text-4xl font-bold text-bright_magenta mb-2">{'>99%'}</div>
                 <div className="text-light_gray_text/70">Cost Reduction</div>
               </div>
               <div className="bg-near_black/60 rounded-xl p-6 border border-purple-400/30">

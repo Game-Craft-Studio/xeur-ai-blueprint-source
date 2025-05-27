@@ -109,7 +109,7 @@ const nextConfig = {
       },
       // Cache images
       {
-        source: '/(.*\\.(ico|png|jpg|jpeg|gif|webp|svg))',
+        source: '/:path*.(ico|png|jpg|jpeg|gif|webp|svg)',
         headers: [
           {
             key: 'Cache-Control',
@@ -200,7 +200,7 @@ const nextConfig = {
   },
 
   // ===== WEBPACK CUSTOMIZATION =====
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+  webpack: (config, { dev, isServer, webpack }) => {
     // Resolve aliases
     const path = require('path');
     config.resolve.alias = {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Home, RefreshCw, AlertTriangle, Zap } from 'lucide-react';
+import { AlertTriangle, Home, RefreshCw  } from 'lucide-react';
 
 const Custom500 = () => {
   return (
