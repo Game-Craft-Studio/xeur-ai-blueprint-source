@@ -28,10 +28,10 @@ const Hero = () => {
 
         <div className='container-custom relative z-10 mt-12 pb-24'>
           <div className='max-w-5xl mx-auto text-center'>
-            {/* Updated Status Badge */}
+            {/* Updated Status Badge with Current Status */}
             <div className='inline-flex items-center px-4 py-2 mb-8 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-medium animate-pulse'>
               <div className='w-2 h-2 bg-yellow-400 rounded-full mr-2'></div>
-              NVIDIA Inception Member • Raising $2.5M Seed
+              NVIDIA Inception Member • Currently Raising $2.5M Seed
             </div>
 
             <h1 className='mb-10 text-5xl md:text-7xl lg:text-8xl font-bold leading-tight'>
@@ -56,14 +56,14 @@ const Hero = () => {
               specialized AI models that handle everything from ideation to deployment
             </p>
 
-            {/* Enhanced Metrics Grid */}
+            {/* Enhanced Metrics Grid with Updated Values */}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto'>
               <div className='bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-xl p-6 hover:scale-105 transition-transform'>
-                <div className='text-3xl md:text-4xl font-bold text-bright_magenta'>99%+</div>
+                <div className='text-3xl md:text-4xl font-bold text-bright_magenta'>>99%</div>
                 <div className='text-sm md:text-base text-light_gray_text/70'>Faster Development</div>
               </div>
               <div className='bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-xl p-6 hover:scale-105 transition-transform'>
-                <div className='text-3xl md:text-4xl font-bold text-tech_green'>99%+</div>
+                <div className='text-3xl md:text-4xl font-bold text-tech_green'>>99%</div>
                 <div className='text-sm md:text-base text-light_gray_text/70'>Cost Reduction</div>
               </div>
               <div className='bg-gradient-to-b from-purple-400/20 to-transparent border border-purple-400/30 rounded-xl p-6 hover:scale-105 transition-transform'>
@@ -76,7 +76,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Main CTAs */}
+            {/* Main CTAs - Enhanced for Beta Focus */}
             <div className='flex flex-col sm:flex-row gap-4 justify-center mb-16'>
               <button
                 onClick={openModal}
@@ -159,14 +159,14 @@ const Hero = () => {
           <div className='bg-near_black/80 border border-medium_purple/30 rounded-lg p-4 backdrop-blur-sm hover:border-tech_green/50 transition-colors'>
             <div className='text-green-400'>// Market Impact</div>
             <div className='text-light_gray_text/70'>TAM: $600B+</div>
-            <div className='text-light_gray_text/70'>Opportunity: $142B</div>
+            <div className='text-light_gray_text/70'>Lost Value: $142B/year</div>
             <div className='text-light_gray_text/70'>Creators: 590M+</div>
-            <div className='text-green-400 mt-2'>// Status: ACTIVE ✓</div>
+            <div className='text-green-400 mt-2'>// Status: RAISING ⚡</div>
           </div>
         </div>
       </div>
 
-      {/* Demo Section */}
+      {/* Enhanced Demo Section */}
       <div id="demo" className='py-20 bg-gradient-to-b from-near_black to-deep_purple'>
         <div className='container-custom'>
           <h2 className='text-4xl md:text-6xl font-bold text-center mb-12'>
@@ -180,7 +180,7 @@ const Hero = () => {
                   width="100%" 
                   height="600" 
                   src="https://www.youtube.com/embed/XtI4AndkV24" 
-                  title="XEUR.AI Demo" 
+                  title="XEUR.AI Demo - Create Complete Games in ~1 Hour" 
                   frameBorder="0" 
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                   allowFullScreen
@@ -189,6 +189,10 @@ const Hero = () => {
               </div>
             </div>
             <div className='mt-8 text-center'>
+              <p className='text-lg text-light_gray_text/80 mb-6 max-w-2xl mx-auto'>
+                Watch how our AI transforms a simple text prompt into a complete, playable game. 
+                See the future of game development in action.
+              </p>
               <button
                 onClick={openModal}
                 className='group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-tech_green to-cyan-400 rounded-xl hover:from-cyan-400 hover:to-tech_green transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-tech_green/50'
