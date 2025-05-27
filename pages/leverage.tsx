@@ -86,7 +86,7 @@ const Leverage = () => {
           </p>
           
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {leverageSections.map((section, index) => (
+            {leverageSections.map((section) => (
               <div 
                 key={section.id}
                 className="bg-gradient-to-br from-medium_purple/20 to-deep_purple/20 rounded-2xl p-8 border border-light_purple/30 hover:border-bright_magenta/50 transition-all duration-300 hover:scale-105 group"

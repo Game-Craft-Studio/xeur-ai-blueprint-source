@@ -1,4 +1,4 @@
-(()=>{var t={};t.id=888,t.ids=[888],t.modules={1373:(t,e,r)=>{"use strict";r.d(e,{Z:()=>n});var s=r(6689);/**
+(()=>{var t={};t.id=2888,t.ids=[2888],t.modules={1373:(t,e,r)=>{"use strict";r.d(e,{Z:()=>n});var s=r(6689);/**
  * @license lucide-react v0.462.0 - ISC
  *
  * This source code is licensed under the ISC license.

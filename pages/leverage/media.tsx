@@ -229,8 +229,8 @@ const LeverageMedia = () => {
                       <span className="ml-2">{item.publication}</span>
                     </div>
                     <div className="flex items-center text-light_gray_text/60 text-sm">
-                      <span className={getCategoryInfo(item.category).color}>
-                        {getCategoryInfo(item.category).name}
+                      <span className={getCategoryInfo(item.category)?.color || 'text-light_gray_text'}>
+                        {getCategoryInfo(item.category)?.name ?? 'Uncategorized'}
                       </span>
                     </div>
                     {item.readTime && (
@@ -271,7 +271,7 @@ const LeverageMedia = () => {
           <div className="max-w-6xl mx-auto">
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-2">
-                {selectedCategory === "all" ? "All Media Coverage" : getCategoryInfo(selectedCategory).name}
+                {selectedCategory === "all" ? "All Media Coverage" : getCategoryInfo(selectedCategory)?.name ?? "All Coverage"}
               </h2>
               <p className="text-light_gray_text/70">
                 {filteredMedia.length} coverage item{filteredMedia.length !== 1 ? "s" : ""} found
@@ -314,8 +314,8 @@ const LeverageMedia = () => {
 
                     <div className="flex items-center justify-between">
                       <div className="flex items-center gap-2 text-xs">
-                        <span className={`px-2 py-1 rounded-full ${getCategoryInfo(item.category).color} bg-current/20`}>
-                          {getCategoryInfo(item.category).name}
+                        <span className={`px-2 py-1 rounded-full ${getCategoryInfo(item.category)?.color ?? 'text-light_gray_text'} bg-current/20`}>
+                          {getCategoryInfo(item.category)?.name ?? 'Uncategorized'}
                         </span>
                         {item.readTime && (
                           <span className="text-light_gray_text/60">{item.readTime}</span>

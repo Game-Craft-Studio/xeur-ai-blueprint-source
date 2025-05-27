@@ -237,7 +237,7 @@ const physics = xeur.physics.create({
             </div>
 
             <div className="space-y-12">
-              {filteredChangelogs.map((changelog, index) => (
+              {filteredChangelogs.map((changelog) => (
                 <article 
                   key={changelog.version}
                   className="bg-gradient-to-br from-medium_purple/20 to-deep_purple/20 rounded-2xl border border-light_purple/30 overflow-hidden hover:border-blue-400/50 transition-all duration-300"

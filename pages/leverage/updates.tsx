@@ -147,7 +147,7 @@ const LeverageUpdates = () => {
           <div className="max-w-4xl mx-auto">
             <div className="mb-8">
               <h2 className="text-2xl font-bold mb-2">
-                {selectedCategory === "all" ? "All Updates" : getCategoryInfo(selectedCategory).name}
+                {selectedCategory === "all" ? "All Updates" : getCategoryInfo(selectedCategory)?.name ?? "All Updates"}
               </h2>
               <p className="text-light_gray_text/70">
                 {filteredUpdates.length} update{filteredUpdates.length !== 1 ? "s" : ""} found
@@ -155,7 +155,7 @@ const LeverageUpdates = () => {
             </div>
 
             <div className="space-y-8">
-              {filteredUpdates.map((update, index) => (
+              {filteredUpdates.map((update) => (
                 <article 
                   key={update.id}
                   className={`bg-gradient-to-br from-medium_purple/20 to-deep_purple/20 rounded-2xl p-8 border transition-all duration-300 hover:scale-[1.02] hover:shadow-xl ${
@@ -180,8 +180,8 @@ const LeverageUpdates = () => {
                       </div>
                       <div className="flex items-center text-sm">
                         <Tag className="w-4 h-4 mr-2" />
-                        <span className={getCategoryInfo(update.category).color}>
-                          {getCategoryInfo(update.category).name}
+                        <span className={getCategoryInfo(update.category)?.color ?? 'text-light_gray_text'}>
+                          {getCategoryInfo(update.category)?.name ?? 'Unknown Category'}
                         </span>
                       </div>
                     </div>
