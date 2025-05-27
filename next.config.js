@@ -4,31 +4,26 @@ const nextConfig = {
   experimental: {
     // Enable modern bundling optimizations
     optimizePackageImports: ['lucide-react', '@radix-ui/react-*'],
-    // Enable compile-time optimizations
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
     // Optimize server components
     serverComponentsExternalPackages: ['sharp'],
+    // Enable PPR for better performance
+    ppr: false, // Enable when stable
   },
 
   // ===== BUILD OPTIMIZATIONS =====
   swcMinify: true,
   compiler: {
     // Remove console.logs in production
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: process.env.NODE_ENV === 'production' ? {
+      exclude: ['error']
+    } : false,
   },
 
   // ===== BUNDLE ANALYSIS =====
   ...(process.env.ANALYZE === 'true' && {
     webpack: (config, { isServer }) => {
       if (!isServer) {
-        const { BundleAnalyzerPlugin } = require('@next/bundle-analyzer')();
+        const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
         config.plugins.push(
           new BundleAnalyzerPlugin({
             analyzerMode: 'static',
@@ -65,23 +60,23 @@ const nextConfig = {
           // Prevent clickjacking
           {
             key: 'X-Frame-Options',
-            value: 'DENY',
+            value: 'SAMEORIGIN', // Allow YouTube embeds
           },
           // Content Security Policy
           {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.youtube.com https://s.ytimg.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com",
               "img-src 'self' data: https: blob:",
               "connect-src 'self' https://api.xeur.ai https://www.google-analytics.com https://vitals.vercel-insights.com",
-              "media-src 'self' https:",
+              "media-src 'self' https: data:",
+              "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
               "object-src 'none'",
               "base-uri 'self'",
               "form-action 'self'",
-              "frame-ancestors 'none'",
               "upgrade-insecure-requests",
             ].join('; '),
           },
@@ -102,6 +97,26 @@ const nextConfig = {
           },
         ],
       },
+      // Cache static assets
+      {
+        source: '/static/(.*)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      // Cache images
+      {
+        source: '/(.*\\.(ico|png|jpg|jpeg|gif|webp|svg))',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
     ];
   },
 
@@ -112,48 +127,40 @@ const nextConfig = {
       'cdn.xeur.ai',
       'assets.xeur.ai', 
       'user-content.xeur.ai',
+      'img.youtube.com',
+      'i.ytimg.com'
     ],
     formats: ['image/webp', 'image/avif'],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     minimumCacheTTL: 31536000, // 1 year
-    // For static export compatibility
-    unoptimized: process.env.NODE_ENV === 'production',
-  },
-
-  // ===== INTERNATIONALIZATION =====
-  i18n: {
-    locales: ['en', 'es', 'fr', 'de', 'hi', 'zh'],
-    defaultLocale: 'en',
-    domains: [
-      {
-        domain: 'xeur.ai',
-        defaultLocale: 'en',
-      },
-      {
-        domain: 'es.xeur.ai',
-        defaultLocale: 'es',
-      },
-    ],
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 
   // ===== REDIRECTS & REWRITES =====
   async redirects() {
     return [
-      // Redirect old paths to new structure
+      // Redirect /pricing to /solutions
       {
-        source: '/demo',
-        destination: '/platform',
+        source: '/pricing',
+        destination: '/solutions',
         permanent: true,
       },
+      // Redirect old paths to new structure
       {
         source: '/docs',
-        destination: 'https://docs.xeur.ai',
-        permanent: true,
+        destination: '/tutorials',
+        permanent: false,
       },
       // SEO redirects
       {
         source: '/game-creation',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/ai-game-development',
         destination: '/',
         permanent: true,
       },
@@ -165,7 +172,9 @@ const nextConfig = {
       // API proxy for development
       {
         source: '/api/xeur/:path*',
-        destination: 'https://api.xeur.ai/:path*',
+        destination: process.env.NODE_ENV === 'development' 
+          ? 'http://localhost:3001/api/:path*'
+          : 'https://api.xeur.ai/:path*',
       },
       // Health check endpoint
       {
@@ -177,61 +186,68 @@ const nextConfig = {
         source: '/partnerships/nvidia',
         destination: '/nvidia-partnership',
       },
-      {
-        source: '/partnerships/:path*',
-        destination: '/nvidia-partnership',
-      },
     ];
   },
 
   // ===== OUTPUT CONFIGURATION =====
-  // Use 'export' for static site generation (GitHub Pages)
-  // Use 'standalone' for server deployment (Vercel, etc.)
-  output: process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS === 'true' 
-    ? 'export' 
-    : 'standalone',
-  
-  // For static export compatibility
-  trailingSlash: true,
-  
-  // ===== GITHUB PAGES SPECIFIC CONFIGURATION =====
-  ...(process.env.NODE_ENV === 'production' && process.env.GITHUB_ACTIONS === 'true' && {
-    // Configure asset prefix for GitHub Pages
-    assetPrefix: process.env.GITHUB_PAGES ? '/xeur-ai-blueprint-source' : '',
-    basePath: process.env.GITHUB_PAGES ? '/xeur-ai-blueprint-source' : '',
-  }),
+  output: 'standalone',
   
   // ===== ENVIRONMENT VARIABLES =====
   env: {
-    NEXT_PUBLIC_APP_VERSION: process.env.npm_package_version,
+    NEXT_PUBLIC_APP_VERSION: process.env.npm_package_version || '1.3.0',
     NEXT_PUBLIC_BUILD_TIME: new Date().toISOString(),
     NEXT_PUBLIC_COMMIT_SHA: process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'dev',
   },
 
   // ===== WEBPACK CUSTOMIZATION =====
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Ignore certain packages during build
+    // Resolve aliases
+    const path = require('path');
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': require('path').join(__dirname, 'src'),
+      '@': path.join(__dirname, 'src'),
     };
 
-    // Optimize bundle size
+    // Optimize bundle size for production
     if (!dev && !isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
+        minSize: 20000,
+        minRemainingSize: 0,
+        minChunks: 1,
+        maxAsyncRequests: 30,
+        maxInitialRequests: 30,
+        enforceSizeThreshold: 50000,
         cacheGroups: {
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+          },
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
+            priority: -10,
             chunks: 'all',
           },
-          common: {
-            name: 'common',
-            minChunks: 2,
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            name: 'react',
             chunks: 'all',
-            enforce: true,
+            priority: 20,
           },
+          radix: {
+            test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
+            name: 'radix',
+            chunks: 'all',
+            priority: 15,
+          },
+          lucide: {
+            test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+            name: 'lucide',
+            chunks: 'all',
+            priority: 10,
+          }
         },
       };
     }
@@ -242,45 +258,55 @@ const nextConfig = {
       use: ['@svgr/webpack'],
     });
 
+    // Ignore certain files during build
+    config.plugins.push(
+      new webpack.IgnorePlugin({
+        resourceRegExp: /^\.\/locale$/,
+        contextRegExp: /moment$/,
+      })
+    );
+
     return config;
   },
 
   // ===== DEVELOPMENT CONFIGURATION =====
   ...(process.env.NODE_ENV === 'development' && {
-    // Enable React strict mode in development
     reactStrictMode: true,
-    // Show eslint errors during development
     eslint: {
       dirs: ['pages', 'src'],
     },
-    // TypeScript configuration
     typescript: {
-      // Ignore TypeScript errors during build (handle via CI)
       ignoreBuildErrors: false,
     },
   }),
 
   // ===== PRODUCTION CONFIGURATION =====
   ...(process.env.NODE_ENV === 'production' && {
-    // Enable React strict mode in production
     reactStrictMode: true,
-    // Disable source maps in production for security
     productionBrowserSourceMaps: false,
-    // Enable compression
     compress: true,
-    // Optimize CSS
     optimizeFonts: true,
-    // Generate static pages where possible
-    trailingSlash: true,
+    poweredByHeader: false,
   }),
 
   // ===== CUSTOM PAGE EXTENSIONS =====
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
 
-  // ===== STATIC OPTIMIZATION =====
+  // ===== BUILD ID GENERATION =====
   generateBuildId: async () => {
-    // Use commit SHA for build ID in production
-    return process.env.VERCEL_GIT_COMMIT_SHA || process.env.GITHUB_SHA || 'development';
+    return process.env.VERCEL_GIT_COMMIT_SHA || 
+           process.env.GITHUB_SHA || 
+           require('crypto').randomBytes(16).toString('hex');
+  },
+
+  // ===== RUNTIME CONFIGURATION =====
+  serverRuntimeConfig: {
+    // Will only be available on the server side
+    mySecret: process.env.MY_SECRET,
+  },
+  publicRuntimeConfig: {
+    // Will be available on both server and client
+    staticFolder: '/static',
   },
 };
 
