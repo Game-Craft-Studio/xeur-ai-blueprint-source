@@ -19,7 +19,7 @@ const CompanyOverview = () => {
     {
       icon: <Target className="w-12 h-12 text-tech_green" />,
       title: "The Vision Realized",
-      content: "XEUR.AI represents an 'extinction event' for traditional game development. We've achieved 99% cost reduction, 99% time reduction, and expanded the addressable market by 21X. From individual creators to enterprise brands, we're unleashing unprecedented creative potential through AI-powered democratization."
+      content: "XEUR.AI represents an 'extinction event' for traditional game development. We've achieved >99% cost reduction, >99% time reduction, and expanded the addressable market by 21X. From individual creators to enterprise brands, we're unleashing unprecedented creative potential through AI-powered democratization."
     },
     {
       icon: <Globe className="w-12 h-12 text-cyan-400" />,
@@ -57,10 +57,10 @@ const CompanyOverview = () => {
   const milestones = [
     { date: "Q1 2025", event: "Company Foundation", desc: "XEUR.AI founded with revolutionary vision of AI-powered game creation democratization", status: "completed" },
     { date: "Q2 2025", event: "NVIDIA Partnership", desc: "Accepted into NVIDIA Inception program with Capital Connect access and $500K+ in benefits", status: "completed" },
-    { date: "Q3 2025", event: "Alpha Launch", desc: "Private alpha testing with 200 select creators, validating core AI game generation capabilities", status: "current" },
-    { date: "Q4 2025", event: "Public Beta & Series A", desc: "Public beta launch with 5,000 users and Series A funding completion for global scaling", status: "upcoming" },
-    { date: "Q1 2026", event: "Full Production Launch", desc: "General availability with all business models active and enterprise partnerships established", status: "upcoming" },
-    { date: "2027-2029", event: "Market Domination", desc: "Category leadership established with $420M annual revenue and global creator ecosystem", status: "upcoming" }
+    { date: "Q2 2025", event: "Alpha Development", desc: "Core AI models operational, alpha build functional with initial user testing", status: "current" },
+    { date: "Q3 2025", event: "Beta Launch & Funding", desc: "Public beta with 5,000 users, complete $2.5M seed round, Web3 integration", status: "upcoming" },
+    { date: "Q4 2025", event: "Mobile & Series A", desc: "Mobile platform support, Series A funding, 10,000+ active users", status: "upcoming" },
+    { date: "Q1 2026", event: "Full Production Launch", desc: "50,000+ users, international expansion, advanced AI model updates", status: "upcoming" }
   ];
 
   const coreValues = [
@@ -70,6 +70,21 @@ const CompanyOverview = () => {
     { icon: <Award className="w-8 h-8 text-purple-400" />, title: "Global Quality", desc: "World-class standards in everything we build" },
     { icon: <Shield className="w-8 h-8 text-cyan-400" />, title: "Ethical AI", desc: "Responsible development with human values" },
     { icon: <TrendingUp className="w-8 h-8 text-pink-400" />, title: "Continuous Learning", desc: "Always evolving, always improving" }
+  ];
+
+  const partnerships = [
+    {
+      name: "NVIDIA Inception",
+      status: "Active Member",
+      benefits: "Capital Connect access, DGX Cloud Credits, Co-branding opportunities",
+      icon: "🚀"
+    },
+    {
+      name: "Google for Startups",
+      status: "Accelerator Member", 
+      benefits: "Cloud credits, TPU access, Gemini API integration",
+      icon: "☁️"
+    }
   ];
 
   return (
@@ -91,6 +106,12 @@ const CompanyOverview = () => {
             <p className="text-xl text-light_gray_text/80 max-w-4xl mx-auto mb-8">
               Transforming ideas into complete games in ~1 hour through revolutionary AI technology
             </p>
+            
+            {/* Current Status Badge */}
+            <div className="inline-flex items-center px-4 py-2 mb-8 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-medium">
+              <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2"></div>
+              Alpha/Beta Stage • Currently Raising $2.5M Seed • NVIDIA Inception Member
+            </div>
             
             {/* Mission Statement */}
             <div className="bg-medium_purple/30 rounded-xl p-8 border border-light_purple/30 max-w-4xl mx-auto">
@@ -163,8 +184,38 @@ const CompanyOverview = () => {
         </div>
       </div>
 
-      {/* Revolutionary Technology */}
+      {/* Strategic Partnerships */}
       <div className="py-16 bg-deep_purple">
+        <div className="container-custom">
+          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+            <Globe className="inline-block w-10 h-10 text-cyan-400 mr-2" />
+            Strategic Partnerships
+          </h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            {partnerships.map((partnership, index) => (
+              <div 
+                key={index}
+                className="bg-cyan-400/10 rounded-xl p-8 border border-cyan-400/30 hover:border-cyan-400/50 transition-all duration-300 text-center"
+              >
+                <div className="text-4xl mb-4">{partnership.icon}</div>
+                <h3 className="text-xl font-bold text-cyan-400 mb-2">{partnership.name}</h3>
+                <p className="text-bright_magenta font-semibold mb-4">{partnership.status}</p>
+                <p className="text-light_gray_text/70 text-sm">{partnership.benefits}</p>
+              </div>
+            ))}
+          </div>
+          
+          <div className="text-center mt-8">
+            <p className="text-light_gray_text/80 text-lg">
+              <span className="text-tech_green font-semibold">$500K+</span> in partnership benefits secured
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* Revolutionary Technology */}
+      <div className="py-16">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
             <Star className="inline-block w-10 h-10 text-yellow-400 mr-2" />
@@ -190,7 +241,7 @@ const CompanyOverview = () => {
       </div>
 
       {/* Key Milestones & Roadmap */}
-      <div className="py-16">
+      <div className="py-16 bg-deep_purple">
         <div className="container-custom">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
             <TrendingUp className="inline-block w-10 h-10 text-pink-400 mr-2" />
@@ -202,17 +253,44 @@ const CompanyOverview = () => {
               <div key={index} className="flex items-start mb-8">
                 <div className={`w-6 h-6 rounded-full mr-6 mt-2 ${
                   milestone.status === 'completed' ? 'bg-tech_green' : 
-                  milestone.status === 'current' ? 'bg-bright_magenta' : 'bg-light_purple/30'
+                  milestone.status === 'current' ? 'bg-bright_magenta animate-pulse' : 'bg-light_purple/30'
                 }`}></div>
                 <div className="flex-1">
                   <div className="flex items-center mb-2">
                     <span className="font-semibold text-bright_magenta mr-4">{milestone.date}</span>
                     <h3 className="text-lg font-bold text-white">{milestone.event}</h3>
+                    {milestone.status === 'current' && (
+                      <span className="ml-4 px-3 py-1 bg-bright_magenta/20 text-bright_magenta text-xs rounded-full">CURRENT</span>
+                    )}
                   </div>
                   <p className="text-light_gray_text/70">{milestone.desc}</p>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Current Funding Status */}
+      <div className="py-16">
+        <div className="container-custom">
+          <div className="bg-gradient-to-r from-cyan-400/20 to-bright_magenta/20 rounded-xl p-8 border border-cyan-400/30 text-center">
+            <h3 className="text-2xl font-bold mb-4">
+              <TrendingUp className="inline-block w-8 h-8 text-cyan-400 mr-2" />
+              Current Funding Status
+            </h3>
+            <p className="text-light_gray_text/80 mb-6">
+              <strong>Currently Raising:</strong> $2.5M Seed Round at $25M pre-money valuation<br />
+              <strong>Use of Funds:</strong> AI development, product scaling, and market expansion
+            </p>
+            <div className="flex flex-wrap justify-center gap-4 mb-6">
+              <span className="bg-cyan-400/20 px-4 py-2 rounded-full text-cyan-400 font-semibold">Engineering: 60%</span>
+              <span className="bg-tech_green/20 px-4 py-2 rounded-full text-tech_green font-semibold">GTM: 25%</span>
+              <span className="bg-yellow-400/20 px-4 py-2 rounded-full text-yellow-400 font-semibold">Operations: 15%</span>
+            </div>
+            <p className="text-sm text-light_gray_text/70">
+              NVIDIA Inception Capital Connect access provides direct pipeline to AI-focused VCs
+            </p>
           </div>
         </div>
       </div>
@@ -272,27 +350,6 @@ const CompanyOverview = () => {
         </div>
       </div>
 
-      {/* Current Funding */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <div className="bg-gradient-to-r from-cyan-400/20 to-bright_magenta/20 rounded-xl p-8 border border-cyan-400/30 text-center">
-            <h3 className="text-2xl font-bold mb-4">
-              <TrendingUp className="inline-block w-8 h-8 text-cyan-400 mr-2" />
-              Current Funding
-            </h3>
-            <p className="text-light_gray_text/80 mb-6">
-              <strong>Series A:</strong> $2.5M raised at $25M pre-money valuation<br />
-              <strong>Use of Funds:</strong> AI development, product scaling, and market expansion
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <span className="bg-cyan-400/20 px-4 py-2 rounded-full text-cyan-400 font-semibold">Engineering: 60%</span>
-              <span className="bg-tech_green/20 px-4 py-2 rounded-full text-tech_green font-semibold">GTM: 25%</span>
-              <span className="bg-yellow-400/20 px-4 py-2 rounded-full text-yellow-400 font-semibold">Operations: 15%</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
       {/* Join the Revolution CTA */}
       <div className="py-16 bg-gradient-to-r from-tech_green/20 to-bright_magenta/20">
         <div className="container-custom text-center">
@@ -304,14 +361,14 @@ const CompanyOverview = () => {
             to transform engagement—XEUR.AI offers the platform to turn your vision into reality.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup" className="btn-primary">
-              Start Creating
+            <Link href="/#demo" className="btn-primary">
+              Watch Demo
             </Link>
             <Link href="/contact?service=partnership" className="btn-secondary">
               Partner With Us
             </Link>
             <Link href="/contact?service=investment" className="btn-secondary">
-              Invest in the Future
+              Investment Opportunities
             </Link>
           </div>
         </div>
