@@ -81,39 +81,61 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed w-full top-0 z-50 bg-near_black/90 backdrop-blur-md border-b border-medium_purple/30">
+      <header className="fixed w-full top-0 z-50 bg-near_black/95 backdrop-blur-md border-b-2 border-light_purple/40">
         <div className="container-custom flex justify-between items-center py-4">
-          <Link href="/" className="flex items-center group">
-            <div className="text-2xl font-bold text-light_gray_text">
+          <Link 
+            href="/" 
+            className="flex items-center group focus-enhanced"
+            aria-label="XEUR.AI Homepage"
+          >
+            <div className="text-2xl font-bold text-max-contrast text-shadow-high-contrast">
               <span className="text-bright_magenta group-hover:text-tech_green transition-colors">XEUR</span>.AI
             </div>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8" role="navigation" aria-label="Main navigation">
             {navLinks.map((link) => (
               <div key={link.title} className="relative group">
                 {link.children ? (
-                  <div className="flex items-center gap-1 cursor-pointer nav-link hover:text-bright_magenta transition-colors">
+                  <button 
+                    className="flex items-center gap-1 nav-link-high-contrast hover:text-bright_magenta transition-colors focus-enhanced"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                    onMouseEnter={() => setActiveDropdown(link.title)}
+                    onMouseLeave={() => setActiveDropdown(null)}
+                  >
                     {link.title}
-                    <ChevronDown size={18} className="group-hover:rotate-180 transition-transform duration-300" />
-                  </div>
+                    <ChevronDown 
+                      size={18} 
+                      className="group-hover:rotate-180 transition-transform duration-300" 
+                      aria-hidden="true"
+                    />
+                  </button>
                 ) : (
-                  <Link href={link.path} className="nav-link hover:text-bright_magenta transition-colors">
+                  <Link 
+                    href={link.path} 
+                    className="nav-link-high-contrast hover:text-bright_magenta transition-colors focus-enhanced"
+                  >
                     {link.title}
                   </Link>
                 )}
 
                 {link.children && (
-                  <div className="absolute top-full left-0 mt-2 w-80 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50">
-                    <div className="bg-medium_purple/95 backdrop-blur-md rounded-lg shadow-2xl shadow-deep_purple/50 overflow-hidden border border-light_purple/30">
+                  <div 
+                    className="absolute top-full left-0 mt-2 w-80 invisible group-hover:visible opacity-0 group-hover:opacity-100 transition-all duration-300 z-50"
+                    role="menu"
+                    aria-label={`${link.title} submenu`}
+                  >
+                    <div className="bg-medium_purple/95 backdrop-blur-md rounded-lg shadow-2xl shadow-deep_purple/50 overflow-hidden border-2 border-light_purple/50">
                       {link.children.map((child) => (
                         <Link
                           key={child.title}
                           href={child.path}
-                          className="block px-4 py-3 hover:bg-deep_purple transition-colors border-b border-light_purple/20 last:border-b-0 hover:text-bright_magenta"
+                          className="block px-4 py-3 text-max-contrast hover:bg-deep_purple/80 hover:text-bright_magenta transition-colors border-b border-light_purple/30 last:border-b-0 focus-enhanced"
+                          role="menuitem"
                         >
-                          <div className="font-medium">{child.title}</div>
+                          <div className="font-medium text-shadow-button">{child.title}</div>
                         </Link>
                       ))}
                     </div>
@@ -126,13 +148,14 @@ const Header = () => {
           <div className="hidden lg:flex items-center gap-4">
             <Link 
               href="/#demo" 
-              className="text-sm font-medium text-light_gray_text hover:text-tech_green transition-colors"
+              className="text-sm font-medium text-max-contrast hover:text-tech_green transition-colors px-3 py-2 rounded-md focus-enhanced text-shadow-button"
             >
               Watch Demo
             </Link>
             <button 
               onClick={openBetaModal}
-              className="relative group inline-flex items-center justify-center px-6 py-3 text-sm font-semibold text-white transition-all duration-300 bg-gradient-to-r from-bright_magenta to-purple-600 rounded-lg hover:from-purple-600 hover:to-bright_magenta transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-bright_magenta/50"
+              className="btn-high-contrast relative group inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 focus-enhanced"
+              aria-label="Join Beta Program"
             >
               <span className="relative z-10">Join Beta</span>
               <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-bright_magenta to-purple-600 blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
@@ -141,9 +164,11 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="lg:hidden text-light_gray_text hover:text-bright_magenta transition-colors"
+            className="lg:hidden text-max-contrast hover:text-bright_magenta transition-colors p-2 rounded-md focus-enhanced"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
+            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            aria-expanded={mobileMenuOpen}
+            aria-controls="mobile-menu"
           >
             {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -151,19 +176,25 @@ const Header = () => {
 
         {/* Mobile Menu */}
         <div 
+          id="mobile-menu"
           className={cn(
-            "lg:hidden fixed top-[73px] left-0 w-full bg-deep_purple/95 backdrop-blur-md shadow-lg z-50 transition-all duration-300", 
-            mobileMenuOpen ? "max-h-[calc(100vh-73px)] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0"
+            "lg:hidden fixed top-[81px] left-0 w-full bg-deep_purple/98 backdrop-blur-md shadow-2xl z-50 transition-all duration-300 border-t-2 border-light_purple/40", 
+            mobileMenuOpen ? "max-h-[calc(100vh-81px)] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0"
           )}
+          role="navigation"
+          aria-labelledby="mobile-menu-label"
         >
           <div className="container-custom py-4">
+            <span id="mobile-menu-label" className="sr-only">Mobile navigation menu</span>
             {navLinks.map((link) => (
               <div key={link.title} className="mb-4">
                 {link.children ? (
                   <>
                     <button 
                       onClick={() => toggleDropdown(link.title)}
-                      className="w-full flex justify-between items-center text-left py-3 px-2 text-lg border-b border-medium_purple/30 hover:text-bright_magenta transition-colors"
+                      className="w-full flex justify-between items-center text-left py-3 px-2 text-lg text-max-contrast border-b-2 border-medium_purple/50 hover:text-bright_magenta transition-colors focus-enhanced text-shadow-button"
+                      aria-expanded={activeDropdown === link.title}
+                      aria-controls={`mobile-${link.title}-submenu`}
                     >
                       {link.title}
                       <ChevronDown 
@@ -172,19 +203,23 @@ const Header = () => {
                           "transition-transform",
                           activeDropdown === link.title ? "rotate-180" : ""
                         )}
+                        aria-hidden="true"
                       />
                     </button>
                     <div 
+                      id={`mobile-${link.title}-submenu`}
                       className={cn(
                         "pl-4 space-y-2 transition-all duration-300", 
                         activeDropdown === link.title ? "max-h-96 py-2" : "max-h-0 overflow-hidden"
                       )}
+                      role="region"
+                      aria-labelledby={`mobile-${link.title}-button`}
                     >
                       {link.children.map((child) => (
                         <Link
                           key={child.title}
                           href={child.path}
-                          className="block py-2 px-2 hover:text-bright_magenta transition-colors"
+                          className="block py-2 px-2 text-secondary-contrast hover:text-bright_magenta transition-colors focus-enhanced rounded-md"
                           onClick={() => setMobileMenuOpen(false)}
                         >
                           {child.title}
@@ -195,7 +230,7 @@ const Header = () => {
                 ) : (
                   <Link
                     href={link.path}
-                    className="block py-3 px-2 text-lg border-b border-medium_purple/30 hover:text-bright_magenta transition-colors"
+                    className="block py-3 px-2 text-lg text-max-contrast border-b-2 border-medium_purple/50 hover:text-bright_magenta transition-colors focus-enhanced text-shadow-button"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     {link.title}
@@ -206,14 +241,14 @@ const Header = () => {
             <div className="flex flex-col gap-3 mt-6 mb-4">
               <Link 
                 href="/#demo" 
-                className="text-center py-3 px-4 border border-tech_green/50 rounded-lg text-tech_green hover:bg-tech_green/10 transition-colors"
+                className="text-center py-3 px-4 border-2 border-tech_green text-max-contrast hover:bg-tech_green/20 hover:text-tech_green transition-colors rounded-lg focus-enhanced text-shadow-button"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Watch Demo
               </Link>
               <button 
                 onClick={openBetaModal}
-                className="btn-primary w-full text-center py-3"
+                className="btn-high-contrast w-full text-center py-3 rounded-lg focus-enhanced"
               >
                 Join Beta Launch
               </button>
