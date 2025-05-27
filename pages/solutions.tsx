@@ -11,19 +11,20 @@ const Solutions = () => {
       icon: <Zap className="w-12 h-12 text-bright_magenta" />,
       description: "Core subscription-based game creation platform with tiered access levels",
       features: [
-        "Creator Tier - Perfect for hobbyists and first-time creators",
-        "Pro Tier - Unlimited creation power for serious developers",
-        "Studio Tier - Enterprise features with Web3 and API access",
-        "High-margin recurring revenue model",
-        "Freemium conversion funnel"
+        "Complete game creation in ~1 hour vs traditional 1+ years",
+        "Natural language input - no coding required",
+        "AI-powered asset generation at scale",
+        "Multi-platform export capabilities",
+        "Built-in monetization tools and analytics",
+        "Cloud-based with instant access"
       ],
       link: "/contact?solution=platform",
       gradient: "from-bright_magenta to-purple-600",
       benefits: [
-        "Complete game creation in ~1 hour",
-        "No coding required",
-        "Multi-platform export options",
-        "Built-in monetization tools"
+        "Revolutionary speed and efficiency",
+        "No technical barriers or learning curve",
+        "Professional-quality game output",
+        "Comprehensive development ecosystem"
       ]
     },
     {
@@ -35,7 +36,8 @@ const Solutions = () => {
         "Automated platform-specific optimization",
         "App store submission automation",
         "Cross-platform compatibility testing",
-        "Performance optimization for each platform"
+        "Performance optimization for each platform",
+        "Real-time deployment monitoring"
       ],
       link: "/xeur-xport",
       gradient: "from-tech_green to-cyan-400",
@@ -43,7 +45,7 @@ const Solutions = () => {
         "Deploy to PC, Mobile, Web, and Web3",
         "Automatic asset optimization",
         "Platform-specific feature adaptation",
-        "One-click store submission"
+        "Streamlined publishing workflow"
       ]
     },
     {
@@ -54,16 +56,17 @@ const Solutions = () => {
         "RESTful API for programmatic game creation",
         "White-label solutions for businesses",
         "Custom integration support",
-        "Scalable infrastructure",
-        "Comprehensive documentation"
+        "Scalable cloud infrastructure",
+        "Comprehensive documentation and SDKs",
+        "24/7 enterprise support"
       ],
       link: "/xeur-api",
       gradient: "from-blue-400 to-indigo-600",
       benefits: [
         "Integrate AI game creation into your platform",
-        "Custom branding options",
-        "Enterprise-grade security",
-        "Dedicated support"
+        "Custom branding and white-label options",
+        "Enterprise-grade security and compliance",
+        "Dedicated technical support"
       ]
     },
     {
@@ -71,19 +74,20 @@ const Solutions = () => {
       icon: <Coins className="w-12 h-12 text-purple-400" />,
       description: "Web3 gaming platform with blockchain integration and NFT marketplace",
       features: [
-        "Blockchain game deployment",
-        "NFT minting and marketplace",
-        "Multi-chain support",
+        "Blockchain game deployment capabilities",
+        "NFT minting and marketplace integration",
+        "Multi-chain support (Ethereum, Polygon, etc.)",
         "Smart contract automation",
-        "Decentralized game hosting"
+        "Decentralized game hosting",
+        "Play-to-earn mechanics integration"
       ],
       link: "/xeur-connect",
       gradient: "from-purple-400 to-pink-600",
       benefits: [
-        "Deploy games on blockchain",
-        "Built-in NFT functionality",
-        "Play-to-earn mechanics",
-        "Decentralized gaming ecosystem"
+        "Deploy games on blockchain networks",
+        "Built-in NFT and crypto functionality",
+        "Access to Web3 gaming economy",
+        "Future-ready decentralized features"
       ]
     },
     {
@@ -91,19 +95,20 @@ const Solutions = () => {
       icon: <Rocket className="w-12 h-12 text-orange-400" />,
       description: "Custom B2B solutions for brands, educators, and large organizations",
       features: [
-        "Brand gamification services",
-        "Corporate training solutions",
-        "Educational game creation",
-        "Custom development services",
-        "Dedicated account management"
+        "Brand gamification and marketing games",
+        "Corporate training and simulation solutions",
+        "Educational game creation tools",
+        "Custom development and consultation",
+        "Dedicated account management",
+        "On-premise deployment options"
       ],
       link: "/enterprise",
       gradient: "from-orange-400 to-red-600",
       benefits: [
-        "Tailored solutions for your needs",
-        "Full-service development",
-        "Training and onboarding",
-        "Priority support"
+        "Tailored solutions for specific needs",
+        "Full-service development support",
+        "Training and onboarding programs",
+        "Priority support and SLA guarantees"
       ]
     }
   ];
@@ -141,6 +146,27 @@ const Solutions = () => {
     }
   ];
 
+  const caseStudies = [
+    {
+      title: "Creator Success Story",
+      description: "Individual creator launches viral mobile game",
+      metric: "1M+ downloads in first month",
+      icon: "🎮"
+    },
+    {
+      title: "Educational Impact",
+      description: "University creates interactive learning games",
+      metric: "300% increase in student engagement",
+      icon: "🎓"
+    },
+    {
+      title: "Enterprise Transformation",
+      description: "Fortune 500 company gamifies training",
+      metric: "85% completion rate improvement",
+      icon: "🏢"
+    }
+  ];
+
   return (
     <div className="bg-near_black min-h-screen">
       <Header />
@@ -159,6 +185,10 @@ const Solutions = () => {
               From individual creators to enterprise deployments - XEUR.AI offers comprehensive solutions 
               for every game creation need, powered by our revolutionary AI technology.
             </p>
+            <div className="mt-8 inline-flex items-center px-4 py-2 bg-gradient-to-r from-tech_green/20 to-cyan-400/20 border border-tech_green/30 rounded-full text-tech_green text-sm font-medium">
+              <div className="w-2 h-2 bg-tech_green rounded-full mr-2"></div>
+              Currently in Alpha/Beta • Join Early Access
+            </div>
           </div>
         </div>
       </div>
@@ -187,6 +217,14 @@ const Solutions = () => {
       {/* Solutions Grid */}
       <div className="py-16">
         <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Our <span className="text-bright_magenta">Solution Portfolio</span>
+            </h2>
+            <p className="text-lg text-light_gray_text/70 max-w-3xl mx-auto">
+              Choose the solution that fits your needs - from individual creativity to enterprise transformation
+            </p>
+          </div>
           <div className="space-y-12">
             {solutions.map((solution, index) => (
               <div 
@@ -243,6 +281,30 @@ const Solutions = () => {
         </div>
       </div>
 
+      {/* Success Stories */}
+      <div className="py-16 bg-gradient-to-r from-tech_green/10 to-bright_magenta/10">
+        <div className="container-custom">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Success <span className="text-bright_magenta">Stories</span>
+            </h2>
+            <p className="text-lg text-light_gray_text/70">
+              See how XEUR.AI is transforming game creation across industries
+            </p>
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {caseStudies.map((study, index) => (
+              <div key={index} className="bg-near_black/60 rounded-xl p-6 border border-light_purple/30 hover:border-bright_magenta/50 transition-all duration-300">
+                <div className="text-4xl mb-4">{study.icon}</div>
+                <h3 className="text-xl font-semibold mb-2 text-bright_magenta">{study.title}</h3>
+                <p className="text-light_gray_text/70 mb-4">{study.description}</p>
+                <div className="text-2xl font-bold text-tech_green">{study.metric}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Market Opportunity */}
       <div className="py-16 bg-gradient-to-r from-tech_green/20 to-bright_magenta/20">
         <div className="container-custom">
@@ -250,18 +312,22 @@ const Solutions = () => {
             <h2 className="text-3xl md:text-4xl font-bold mb-8">
               Addressing a <span className="text-bright_magenta">$142B Market Opportunity</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
               <div className="bg-near_black/60 rounded-xl p-6 border border-tech_green/30">
                 <div className="text-4xl font-bold text-tech_green mb-2">590M+</div>
                 <div className="text-light_gray_text/70">Blocked Creators</div>
               </div>
               <div className="bg-near_black/60 rounded-xl p-6 border border-bright_magenta/30">
-                <div className="text-4xl font-bold text-bright_magenta mb-2">99%</div>
+                <div className="text-4xl font-bold text-bright_magenta mb-2">>99%</div>
                 <div className="text-light_gray_text/70">Cost Reduction</div>
               </div>
               <div className="bg-near_black/60 rounded-xl p-6 border border-purple-400/30">
                 <div className="text-4xl font-bold text-purple-400 mb-2">21X</div>
                 <div className="text-light_gray_text/70">Market Expansion</div>
+              </div>
+              <div className="bg-near_black/60 rounded-xl p-6 border border-cyan-400/30">
+                <div className="text-4xl font-bold text-cyan-400 mb-2">~300X</div>
+                <div className="text-light_gray_text/70">Capacity Multiplier</div>
               </div>
             </div>
           </div>
