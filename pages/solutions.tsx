@@ -7,9 +7,9 @@ import { Building, ChevronRight, Coins, Globe, Rocket, Shield, Zap } from "lucid
 const Solutions = () => {
   const solutions = [
     {
-      name: "Platform SaaS",
+      name: "XEUR Platform",
       icon: <Zap className="w-12 h-12 text-bright_magenta" />,
-      description: "Core subscription-based game creation platform with tiered access levels",
+      description: "A comprehensive, unified game creation environment, engineered for advanced capabilities and seamless workflow integration.",
       features: [
         "Complete game creation in ~1 hour vs traditional 1+ years",
         "Natural language input - no coding required",
@@ -58,7 +58,7 @@ const Solutions = () => {
         "Custom integration support",
         "Scalable cloud infrastructure",
         "Comprehensive documentation and SDKs",
-        "24/7 enterprise support"
+        "Dedicated expert technical support"
       ],
       link: "/xeur-api",
       gradient: "from-blue-400 to-indigo-600",
@@ -108,7 +108,7 @@ const Solutions = () => {
         "Tailored solutions for specific needs",
         "Full-service development support",
         "Training and onboarding programs",
-        "Priority support and SLA guarantees"
+        "Dedicated expert technical support and performance commitments"
       ]
     }
   ];
@@ -246,13 +246,13 @@ const Solutions = () => {
                       href={solution.link}
                       className={`inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r ${solution.gradient} rounded-xl hover:scale-105 shadow-lg hover:shadow-xl group`}
                     >
-                      Explore {solution.name}
+                      Explore Features
                       <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                     </Link>
                   </div>
                   <div className="space-y-4">
                     <div className="bg-near_black/50 rounded-xl p-6 border border-light_purple/20">
-                      <h4 className="text-xl font-semibold mb-4 text-bright_magenta">Key Features</h4>
+                      <h4 className="text-xl font-semibold mb-4 text-bright_magenta">Key Capabilities</h4>
                       <ul className="space-y-2">
                         {solution.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-start">
@@ -263,7 +263,7 @@ const Solutions = () => {
                       </ul>
                     </div>
                     <div className="bg-near_black/50 rounded-xl p-6 border border-light_purple/20">
-                      <h4 className="text-xl font-semibold mb-4 text-tech_green">Benefits</h4>
+                      <h4 className="text-xl font-semibold mb-4 text-tech_green">Advantages</h4>
                       <ul className="space-y-2">
                         {solution.benefits.map((benefit, benefitIndex) => (
                           <li key={benefitIndex} className="flex items-start">
@@ -355,7 +355,7 @@ const Solutions = () => {
               href="/Contact?service=solutions" 
               className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 border-2 border-tech_green/70 rounded-xl hover:border-tech_green hover:bg-tech_green/10 transform hover:scale-105"
             >
-              Contact Sales
+              Learn More
             </Link>
           </div>
         </div>
