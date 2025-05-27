@@ -12,8 +12,13 @@ interface NavLink {
 
 const navLinks: NavLink[] = [
   {
-    title: "Platform",
-    path: "/platform",
+    title: "Leverage",
+    path: "/leverage",
+    children: [
+      { title: "Project Evolution & Updates", path: "/leverage/updates" },
+      { title: "Technical Insights & Changelogs", path: "/leverage/changelogs" },
+      { title: "XEUR.AI in the Spotlight", path: "/leverage/media" },
+    ],
   },
   {
     title: "Solutions",
