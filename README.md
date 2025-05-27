@@ -1,273 +1,329 @@
-# XEUR.AI - Revolutionary AI-Powered Game Creation Platform
+# XEUR.AI - Revolutionary AI-Powered Game Development Platform
 
 <div align="center">
 
-![XEUR.AI Logo](https://via.placeholder.com/200x80/1E3A8A/FFFFFF?text=XEUR.AI)
+![XEUR.AI Logo](https://img.shields.io/badge/XEUR.AI-Democratizing%20Game%20Creation-FF6B9D?style=for-the-badge&logo=gamepad&logoColor=white)
 
-**🎮 Democratizing Game Creation Through AI**  
-*Transform ideas into complete, production-ready games with simple text prompts*
-
-[![Website](https://img.shields.io/badge/Website-xeur.ai-1E3A8A?style=for-the-badge)](https://xeur.ai)
-[![NVIDIA Inception](https://img.shields.io/badge/NVIDIA-Inception%20Member-76B900?style=for-the-badge&logo=nvidia)](https://www.nvidia.com/en-us/startups/)
-[![Funding](https://img.shields.io/badge/Funding-$2.5M%20Seed-22C55E?style=for-the-badge)](https://xeur.ai)
-[![Next.js](https://img.shields.io/badge/Next.js-14-000000?style=for-the-badge&logo=next.js)](https://nextjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.4-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Current Status](https://img.shields.io/badge/Status-Alpha%2FBeta-yellow?style=flat-square)](https://xeur.ai)
+[![Funding](https://img.shields.io/badge/Funding-Raising%20$2.5M%20Seed-green?style=flat-square)](https://xeur.ai/investors)
+[![NVIDIA](https://img.shields.io/badge/NVIDIA-Inception%20Member-76B900?style=flat-square&logo=nvidia)](https://developer.nvidia.com/startups)
+[![Next.js](https://img.shields.io/badge/Next.js-14-black?style=flat-square&logo=next.js)](https://nextjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-100%25-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 
 </div>
 
----
+## 🚀 The Game Creation Revolution
 
-## 🚀 **The Extinction Event for Traditional Game Development**
+**XEUR.AI** is transforming how games are created by eliminating technical barriers entirely. Our proprietary AI system, trained on 78,000 games, enables anyone to create complete, multi-platform games in approximately **1 hour** using just natural language prompts.
 
-XEUR.AI represents a paradigm shift that eliminates the fundamental technical barrier causing 94% of game ideas to remain unrealized. Our proprietary LLM, trained on **78,000 games**, powers eight specialized AI models that transform simple text prompts into complete, multi-platform games.
+### 🎯 Key Metrics
+- **>99%** Development Time Reduction (1+ years → ~1 hour)
+- **>99%** Cost Reduction ($300K+ → ~$300)
+- **21X** Market Expansion (28M developers → 590M+ creators)
+- **80%+** Projected Completion Rate vs 6% industry average
 
-> **"From idea to published game in ~1 hour instead of 1+ years"**
+## 🌟 Current Status
 
-### **🎯 Core Disruption Metrics**
+- **Stage**: Alpha/Beta Development
+- **Funding**: Currently raising $2.5M seed round at $25M pre-money valuation
+- **Partnerships**: NVIDIA Inception Member with Capital Connect access
+- **Team**: Based in India, building for global market
 
-| Traditional | XEUR.AI | Impact |
-|-------------|---------|---------|
-| **Development Time** | 1+ years | ~1 hour | **99%+ reduction** |
-| **Development Cost** | $300,000+ | ~$300 | **99%+ reduction** |
-| **Market Size** | 28M developers | 590M creators | **21X expansion** |
-| **Completion Rate** | 6% industry avg | 80%+ target | **13X improvement** |
-| **Technical Barrier** | High coding skills | Natural language | **Eliminated** |
+## 🛠️ Technology Stack
 
----
+### Core Platform
+- **Frontend**: Next.js 14, React 18, TypeScript
+- **Styling**: Tailwind CSS, shadcn/ui components
+- **State Management**: React Query, React Hook Form
+- **Animation**: Framer Motion
+- **Icons**: Lucide React
 
-## 🤖 **AI Model Architecture**
+### AI Infrastructure
+- **XEUR LLM**: Proprietary model trained on 78,000 games
+- **8 Specialized Models**: Eureka, Galileo, Newton, Faraday, Curie, Albert, Hawking, Ramanujan & Ratan
+- **Cloud Infrastructure**: Google Cloud Platform, NVIDIA DGX integration
 
-Our proprietary **XEUR LLM Core** orchestrates eight specialized AI models:
+### Development & Deployment
+- **Build System**: Next.js with SWC
+- **Package Manager**: npm
+- **Code Quality**: ESLint, Prettier, Husky
+- **Performance**: Lighthouse CI, Bundle Analyzer
+- **Hosting**: Google Cloud VM (production)
 
-### **Specialized AI Models**
-- 🔬 **Eureka & Galileo**: Exploration and ideation models that expand concepts
-- ⚡ **Newton & Faraday**: Physics and mechanics engines for realistic gameplay  
-- 📖 **Curie & Albert**: Narrative and quest systems for compelling storylines
-- 🌍 **Hawking**: Advanced procedural world generation
-- 🎨 **Ramanujan & Ratan**: High-fidelity asset creation (art, audio, animations)
+## 🚀 Quick Start
 
-### **Platform Capabilities**
-- 🎯 **Zero-code creation**: Pure text-to-game generation
-- 🎨 **Complete asset pipeline**: Art, audio, animations included
-- 🌐 **Multi-platform export**: Web, mobile, desktop, console-ready
-- 🔄 **Real-time iteration**: Instant modifications via prompts
-- 🎮 **Production-ready output**: Commercial-grade games
-- 🔗 **Web3 Integration**: Native blockchain deployment via XEUR Connect
+### Prerequisites
+- Node.js 18.17.0 or higher
+- npm 9.0.0 or higher
+- Git
 
----
+### Installation
 
-## 📊 **Market Opportunity & Validation**
-
-### **Total Addressable Market (TAM): $600+ Billion**
-- **Gaming Industry**: $215B annually (growing 8.7% CAGR)
-- **Creator Economy**: $250B globally 
-- **Unrealized Games**: $142B opportunity (unfinished ideas)
-
-### **Strategic Validation**
-- ✅ **NVIDIA Inception Member** (May-Aug 2025) - $500k+ in benefits
-- ✅ **Capital Connect Access** - Direct VC network access
-- 🎯 **$2.5M Seed Round** at $25M pre-money valuation
-- 🏢 **Google for Startups** acceleration program candidate
-
----
-
-## 🛠️ **Technology Stack & Architecture**
-
-### **Frontend Excellence**
-```typescript
-// Modern React with TypeScript
-Framework: Next.js 14 (Pages Router)
-UI Library: React 18 + shadcn/ui components
-Styling: Tailwind CSS with custom design system
-State Management: TanStack React Query
-Forms: React Hook Form + Zod validation
+1. **Clone the repository**
+```bash
+git clone https://github.com/cpg-xeur-ai/xeur-ai-blueprint-source.git
+cd xeur-ai-blueprint-source
 ```
 
-### **Core Dependencies**
-- **UI Components**: Radix UI primitives for accessibility
-- **Icons**: Lucide React (450+ icons)
-- **Charts**: Recharts for analytics visualization
-- **Notifications**: Sonner for elegant toasts
-- **Themes**: Dark/light mode with next-themes
+2. **Install dependencies**
+```bash
+npm install
+```
 
-### **AI Infrastructure** 
-- **Proprietary LLM**: XEUR LLM trained on 78,000+ games
-- **Deployment**: XEUR Xport cross-platform compiler
-- **Web3 Integration**: XEUR Connect blockchain deployment
-- **Cloud**: Google Cloud Platform with TPU optimization
+3. **Set up environment variables**
+```bash
+cp .env.example .env.local
+# Edit .env.local with your configuration
+```
 
----
+4. **Start development server**
+```bash
+npm run dev
+```
 
-## 🏁 **Quick Start Guide**
+5. **Open in browser**
+```
+http://localhost:3000
+```
 
-### **Prerequisites**
-- Node.js 18+ (LTS recommended)
-- npm 8+ or Bun (recommended for speed)
-
-### **Installation & Development**
+### Production Build
 
 ```bash
-# Clone the repository
-git clone https://github.com/Game-Craft-Studio/xeur-ai-blueprint-source.git
-cd xeur-ai-blueprint-source
-
-# Install dependencies (choose one)
-npm install        # Standard npm
-bun install       # Faster with Bun
-
-# Start development server
-npm run dev       # Available at http://localhost:3000
-bun dev          # With Bun
-
 # Build for production
 npm run build
-npm run start
+
+# Start production server
+npm start
+
+# Or build and start
+npm run preview
 ```
 
-### **Available Scripts**
+## 📁 Project Structure
 
-| Command | Description |
-|---------|-------------|
-| `npm run dev` | Start development server with hot reload |
-| `npm run build` | Build optimized production bundle |
-| `npm run start` | Start production server |
-| `npm run lint` | Run ESLint checks and fixes |
-| `npm run type-check` | TypeScript validation without build |
-| `npm run preview` | Build and preview production locally |
+```
+xeur-ai-blueprint-source/
+├── pages/                    # Next.js pages (routing)
+│   ├── index.tsx            # Homepage
+│   ├── solutions.tsx        # Solutions overview
+│   ├── company-overview.tsx # Company information
+│   ├── platform.tsx         # Platform details
+│   └── ...
+├── src/
+│   ├── components/          # Reusable React components
+│   │   ├── Hero.tsx         # Hero section with demo
+│   │   ├── Header.tsx       # Navigation header
+│   │   ├── BetaSignupModal.tsx # Beta signup form
+│   │   └── ui/              # shadcn/ui components
+│   ├── lib/                 # Utility functions
+│   ├── hooks/               # Custom React hooks
+│   └── styles/              # Global styles
+├── public/                  # Static assets
+├── docs/                    # Documentation
+└── .github/                 # GitHub workflows
+```
 
----
+## 🎨 Key Features
 
-## 📈 **Strategic Roadmap (2025-2026)**
+### For Creators
+- **Natural Language Input**: Describe your game in plain English
+- **Complete Game Generation**: 3D models, textures, audio, mechanics
+- **Multi-Platform Export**: PC, Mobile, Web, Web3
+- **No Coding Required**: Zero technical skills needed
 
-| Phase | Timeline | Milestone | Target Metrics |
-|-------|----------|-----------|----------------|
-| **🧪 Alpha** | July 2025 | Closed testing | 200 select creators |
-| **🚀 Public Beta** | August 2025 | Open registration | 5,000 active users |
-| **🔗 Web3 Launch** | September 2025 | XEUR Connect | Blockchain deployment |
-| **🏢 Enterprise API** | October 2025 | B2B platform | Developer API access |
-| **💰 Series A** | December 2025 | Growth funding | Scale infrastructure |
-| **🌍 Production** | Q1 2026 | Global launch | 100k+ creators |
+### For Developers
+- **XEUR API**: Programmatic access to AI game creation
+- **300X Faster Prototyping**: Rapid iteration and testing
+- **White-label Solutions**: Custom branding options
+- **Enterprise Integration**: Scalable B2B solutions
 
----
+### For Enterprises
+- **Brand Gamification**: Marketing and engagement games
+- **Training Solutions**: Interactive corporate learning
+- **Custom Development**: Tailored game experiences
+- **Instant Deployment**: From concept to production in hours
 
-## 🏆 **Strategic Partnerships & Recognition**
+## 🧠 AI Model Architecture
 
-### **Technology Partners**
-- **🟢 NVIDIA Inception**: AI infrastructure & VC network access
-- **☁️ Google Cloud**: TPU integration & Gemini API enhancement  
-- **⚡ Microsoft Azure**: Enterprise deployment capabilities
-- **🔧 Amazon Web Services**: Global infrastructure scaling
+### XEUR LLM Core
+Our proprietary Large Language Model trained specifically on game development data:
+- **78,000 games** in training dataset
+- **Multi-modal understanding** (text → game mechanics)
+- **Continuous learning** from user interactions
 
-### **Industry Recognition**
-- 🏆 NVIDIA-validated AI technology architecture
-- 📈 $142B market opportunity (Lumikai Gaming Report)
-- 🌟 Featured in AI gaming innovation discussions
-- 🎯 Strategic positioning in $600B+ TAM
+### Specialized Models
+1. **Eureka & Galileo**: Game ideation and concept expansion
+2. **Newton & Faraday**: Physics simulation and game mechanics
+3. **Curie & Albert**: Narrative design and quest generation
+4. **Hawking**: Procedural world and level generation
+5. **Ramanujan & Ratan**: 3D asset and audio generation
 
----
+## 🚀 Deployment
 
-## 🔒 **Security & Compliance**
+### Development
+```bash
+npm run dev
+```
 
-### **Security Standards**
-- 🛡️ **SOC 2 Type II** compliance roadmap
-- 🔐 **GDPR & CCPA** compliant data handling
-- 🔒 **Multi-factor authentication** for platform access
-- 📊 **Privacy-first analytics** with Microsoft Clarity
-- 🌐 **Global CDN** with edge security
+### Production (Google Cloud VM)
+```bash
+# Build the application
+npm run build
 
-### **Code Quality**
-- ✅ **TypeScript** for type safety
-- 🔍 **ESLint** with strict rules
-- 🧪 **Testing** framework ready
-- 📦 **Dependency scanning** for vulnerabilities
-- 🔄 **Automated CI/CD** pipelines
+# Start with PM2 for production
+pm2 start npm --name "xeur-ai" -- start
 
----
+# Or use nohup for background process
+nohup npm start > app.log 2>&1 &
+```
 
-## 🤝 **Contributing & Community**
+### Environment Variables
+```bash
+# .env.local
+NEXT_PUBLIC_API_URL=https://api.xeur.ai
+NEXT_PUBLIC_APP_URL=https://xeur.ai
+NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=your-ga-id
+NEXT_PUBLIC_ENVIRONMENT=production
+```
 
-We welcome contributions from the developer community! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+## 🔧 Available Scripts
 
-### **Development Guidelines**
-- Follow TypeScript best practices
-- Use conventional commit messages
-- Maintain 100% type coverage
-- Write comprehensive tests
-- Document all public APIs
+```bash
+# Development
+npm run dev              # Start development server
+npm run build           # Build for production
+npm start              # Start production server
 
-### **Community Channels**
-- 💬 **Discord**: Join our developer community
-- 🐦 **Twitter**: [@XeurAI](https://twitter.com/XeurAI) for updates
-- 💼 **LinkedIn**: [XEUR.AI Company](https://linkedin.com/company/xeur-ai)
-- 📧 **Email**: [hello@xeur.ai](mailto:hello@xeur.ai)
+# Code Quality
+npm run lint           # Run ESLint with auto-fix
+npm run lint:check     # Check linting without fixing
+npm run format         # Format code with Prettier
+npm run type-check     # TypeScript type checking
 
----
+# Analysis & Testing
+npm run analyze        # Bundle analysis
+npm run lighthouse     # Performance testing
+npm test              # Run tests (coming soon)
 
-## 📞 **Contact & Business Inquiries**
+# Maintenance
+npm run clean          # Clean build cache
+npm run deps:check     # Check for outdated dependencies
+npm run deps:update    # Update dependencies
+```
 
-### **Company Information**
+## 🌐 Live Demo
+
+Experience XEUR.AI in action:
+- **Website**: [https://xeur.ai](https://xeur.ai)
+- **Demo Video**: [Watch how we create games in ~1 hour](https://xeur.ai/#demo)
+- **Beta Signup**: [Join the revolution](https://xeur.ai/#beta)
+
+## 📊 Business Model
+
+### Revenue Streams
+1. **Platform SaaS**: Subscription-based access ($Creator/$Pro/$Studio tiers)
+2. **XEUR Xport**: Multi-platform deployment services
+3. **XEUR API**: Enterprise B2B integration
+4. **XEUR Connect**: Web3 gaming and NFT marketplace
+5. **Enterprise Solutions**: Custom development and consulting
+
+### Market Opportunity
+- **TAM**: $600B+ (Gaming + Creator Economy)
+- **SAM**: $42B (AI-powered game creation tools)
+- **SOM**: $142M (Target by Year 3)
+- **Lost Opportunity**: $142B annually from unfinished games
+
+## 🤝 Strategic Partnerships
+
+### NVIDIA Inception
+- **Status**: Active member with Capital Connect access
+- **Benefits**: $100K+ DGX Cloud credits, VC introductions, co-branding
+- **Value**: $500K+ in partnership benefits
+
+### Google for Startups
+- **Status**: Accelerator member
+- **Benefits**: Cloud credits, TPU access, Gemini API integration
+- **Focus**: Infrastructure scaling and AI optimization
+
+## 👥 Team
+
+**Harshit Verma** - CEO & Co-Founder
+- Visionary leader driving AI-powered game creation revolution
+- Strategic focus on global market expansion
+
+**Rishav Goyal** - COO & Co-Founder  
+- Operational excellence and partnership development
+- Execution discipline for scalable growth
+
+## 💰 Funding Status
+
+**Current Round**: Seed ($2.5M at $25M pre-money)
+- **Use of Funds**: 60% Engineering, 25% Go-to-Market, 15% Operations
+- **Investor Access**: NVIDIA Capital Connect program
+- **Target Close**: Q3 2025
+
+## 🛣️ Roadmap
+
+### Q3 2025
+- Public beta launch (5,000 users)
+- Web3 integration (XEUR Connect)
+- Complete seed funding
+
+### Q4 2025
+- Mobile platform support
+- Series A funding ($15-20M)
+- 10,000+ active users
+
+### Q1 2026
+- Full production launch
+- 50,000+ users
+- International expansion
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
+
+### Development Workflow
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📝 License
+
+This project is proprietary software. All rights reserved by XEUR.AI (Craft Production Group).
+
+## 📞 Contact & Support
+
+### General Inquiries
 - **Website**: [xeur.ai](https://xeur.ai)
-- **General Inquiries**: [hello@xeur.ai](mailto:hello@xeur.ai)
-- **Business Development**: [partnerships@xeur.ai](mailto:partnerships@xeur.ai)
-- **Investment Relations**: [investors@xeur.ai](mailto:investors@xeur.ai)
-- **Legal & Licensing**: [legal@xeur.ai](mailto:legal@xeur.ai)
+- **Email**: hello@xeur.ai
+- **Support**: support@xeur.ai
 
-### **Leadership Team**
-- **CEO & Co-Founder**: Harshit Verma
-- **COO & Co-Founder**: Rishav Goyal
-- **Organization**: Game Craft Studio (Parent Company)
+### Business Development
+- **Partnerships**: partnerships@xeur.ai
+- **Enterprise**: enterprise@xeur.ai
+- **Investors**: investors@xeur.ai
 
----
+### Technical Support
+- **Developer API**: developers@xeur.ai
+- **Documentation**: [docs.xeur.ai](https://docs.xeur.ai)
+- **GitHub Issues**: [Report bugs](https://github.com/cpg-xeur-ai/xeur-ai-blueprint-source/issues)
 
-## 📊 **Performance Metrics**
+## 🌍 Made in India, for the World
 
-### **Technical Performance**
-- ⚡ **Page Load**: < 2s (Target: < 1s)
-- 🎯 **Core Web Vitals**: Optimized for all metrics
-- 📱 **Mobile Responsive**: 100% compatibility
-- ♿ **Accessibility**: WCAG 2.1 AA compliant
-- 🌍 **SEO Score**: 95+ (Google PageSpeed)
-
-### **Platform Metrics (Target for Beta)**
-- 👥 **Concurrent Users**: 5,000+
-- ⏱️ **Game Generation**: < 1 hour average
-- ✅ **Completion Rate**: 80%+ target
-- 🌐 **Global Availability**: Multi-region support
-
----
-
-## 📄 **Legal & Licensing**
-
-This repository contains proprietary software owned by **Game Craft Studio**. All rights reserved.
-
-### **Licensing Information**
-- **Core Platform**: Proprietary License
-- **Open Source Components**: Respective licenses apply
-- **Commercial Use**: Contact [legal@xeur.ai](mailto:legal@xeur.ai)
-- **API Access**: Available under separate agreement
-
----
-
-## 🔮 **Vision Statement**
-
-> **"To democratize game creation globally, empowering anyone to transform their interactive visions into reality through the power of AI, while establishing India as a global hub for gaming technology innovation."**
-
-### **Core Values**
-- 🚀 **Innovation**: Pushing the boundaries of AI-powered creation
-- 🌍 **Accessibility**: Making game development accessible to everyone
-- ⚡ **Speed**: Reducing creation time from years to hours
-- 🎯 **Quality**: Maintaining production-grade output standards
-- 🤝 **Community**: Building a global creator ecosystem
+XEUR.AI is proudly built in India, contributing to the nation's emergence as a global technology powerhouse while democratizing game creation worldwide.
 
 ---
 
 <div align="center">
 
-**🎮 Built with ❤️ by the Game Craft Studio Team**
+**"We're not just creating another tool – we're triggering an extinction event for traditional game development barriers."**
 
-*Made in India, for the World* 🇮🇳
+*— Harshit Verma, CEO & Co-Founder*
 
-[![GitHub Stars](https://img.shields.io/github/stars/Game-Craft-Studio/xeur-ai-blueprint-source?style=social)](https://github.com/Game-Craft-Studio/xeur-ai-blueprint-source)
-[![Follow on Twitter](https://img.shields.io/twitter/follow/XeurAI?style=social)](https://twitter.com/XeurAI)
+[![Join Beta](https://img.shields.io/badge/Join%20Beta-Early%20Access-FF6B9D?style=for-the-badge)](https://xeur.ai/#beta)
+[![Watch Demo](https://img.shields.io/badge/Watch%20Demo-Live%20Action-00D9FF?style=for-the-badge)](https://xeur.ai/#demo)
 
 </div>
