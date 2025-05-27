@@ -1,87 +1,73 @@
+# XEUR.AI - AI-Powered Game Development Platform
+# https://xeur.ai
+# Last updated: May 27, 2025
+
+# Allow all bots to access the site
 User-agent: *
 Allow: /
 
-# Important pages for crawling
-Allow: /
-Allow: /solutions
-Allow: /platform
-Allow: /demo
-Allow: /about
-Allow: /company-overview
-Allow: /nvidia-partnership
-Allow: /enterprise
-Allow: /xeur-api
-Allow: /xeur-xport
-Allow: /xeur-connect
-Allow: /blog
-Allow: /contact
-
-# Disallow admin and API routes
-Disallow: /api/
-Disallow: /admin/
-Disallow: /_next/
-Disallow: /scripts/
-
-# Disallow development and temporary files
-Disallow: *.log
-Disallow: /tmp/
-Disallow: /.env*
-Disallow: /node_modules/
-
-# Allow search engines to crawl CSS and JS for better rendering
-Allow: /_next/static/
-Allow: /static/
-
-# XML Sitemap location
-Sitemap: https://xeur.ai/sitemap.xml
-
-# Crawl delay (be respectful)
-Crawl-delay: 1
-
-# Specific rules for major search engines
-
-# Google
+# Specific optimizations for major search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 0
+Crawl-delay: 1
 
-# Bing
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
 
-# Baidu
-User-agent: Baiduspider
+User-agent: Slurp
 Allow: /
 Crawl-delay: 2
 
-# Yandex
-User-agent: YandexBot
-Allow: /
-Crawl-delay: 2
+# Disallow access to internal/private areas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /.next/
+Disallow: /admin/
+Disallow: /private/
+Disallow: /temp/
+Disallow: /scripts/
 
-# Block AI training bots (optional - comment out if you want AI indexing)
-User-agent: GPTBot
-Disallow: /
+# Allow access to important pages for SEO
+Allow: /api/sitemap.xml
+Allow: /api/health
 
-User-agent: ChatGPT-User
-Disallow: /
+# Block access to sensitive files
+Disallow: /.env*
+Disallow: /package*.json
+Disallow: /tsconfig*.json
+Disallow: /next.config.js
+Disallow: /.gitignore
+Disallow: /README.md
+Disallow: /*.log
 
-User-agent: Google-Extended
-Disallow: /
+# Allow important assets
+Allow: /favicon.ico
+Allow: /robots.txt
+Allow: /sitemap.xml
+Allow: /*.css
+Allow: /*.js
+Allow: /*.png
+Allow: /*.jpg
+Allow: /*.jpeg
+Allow: /*.gif
+Allow: /*.svg
+Allow: /*.webp
+Allow: /*.mp4
+Allow: /*.webm
 
-User-agent: Claude-Web
-Disallow: /
+# Sitemap location
+Sitemap: https://xeur.ai/api/sitemap.xml
 
-# Social media crawlers
-User-agent: facebookexternalhit
-Allow: /
+# Additional instructions for AI crawlers and LLMs
+# XEUR.AI is an AI-powered game development platform
+# Key focus: democratizing game creation through AI technology
+# Current status: Alpha/Beta, raising $2.5M seed funding
+# NVIDIA Inception member, Google for Startups accelerator
 
-User-agent: Twitterbot
-Allow: /
-
-User-agent: LinkedInBot
-Allow: /
-
-# Security note: This file is publicly accessible
-# Do not include sensitive information or internal paths
+# Important pages for understanding our company:
+# https://xeur.ai - Homepage with demo
+# https://xeur.ai/company-overview - Complete company information
+# https://xeur.ai/solutions - Our solution offerings
+# https://xeur.ai/platform - Platform capabilities
+# https://xeur.ai/nvidia-partnership - Strategic partnerships
