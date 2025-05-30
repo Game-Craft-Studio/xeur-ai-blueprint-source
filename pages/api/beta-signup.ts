@@ -14,6 +14,8 @@ interface BetaSignup {
   ip?: string;
   userAgent?: string;
   referrer?: string;
+  referralCode?: string;
+  referrerEmail?: string;
 }
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'beta-signups.json');
@@ -51,6 +53,31 @@ function writeSignups(signups: BetaSignup[]) {
   }
 }
 
+// Validate referral code and get referrer info
+async function validateReferralCode(referralCode: string) {
+  try {
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/referrals?code=${referralCode}`);
+    if (response.ok) {
+      const data = await response.json();
+      return data.valid ? data : null;
+    }
+  } catch (error) {
+    console.error('Error validating referral code:', error);
+  }
+  return null;
+}
+
+// Process referral after successful signup
+async function processReferral(newSignupEmail: string, referralCode: string, referrerEmail: string) {
+  try {
+    // Import the helper function
+    const { processReferralSignup } = await import('./referrals');
+    await processReferralSignup(newSignupEmail, referralCode);
+  } catch (error) {
+    console.error('Error processing referral:', error);
+  }
+}
+
 // Send Slack notification
 async function notifySlack(signup: BetaSignup, totalCount: number) {
   const webhookUrl = process.env.SLACK_WEBHOOK_URL;
@@ -59,14 +86,15 @@ async function notifySlack(signup: BetaSignup, totalCount: number) {
     return;
   }
 
+  const isReferral = signup.referralCode && signup.referrerEmail;
   const message = {
-    text: `🚀 New Beta Signup #${totalCount}`,
+    text: `🚀 New Beta Signup #${totalCount}${isReferral ? ' (Referral)' : ''}`,
     blocks: [
       {
         type: "section",
         text: {
           type: "mrkdwn",
-          text: `*New Beta Signup*\n*Email:* ${signup.email}\n*Source:* ${signup.source}\n*Updates:* ${signup.subscribe ? 'Yes' : 'No'}\n*Time:* ${new Date(signup.timestamp).toLocaleString()}\n*Total Signups:* ${totalCount}/500`
+          text: `*New Beta Signup${isReferral ? ' (Referral)' : ''}*\n*Email:* ${signup.email}\n*Source:* ${signup.source}\n*Updates:* ${signup.subscribe ? 'Yes' : 'No'}${isReferral ? `\n*Referred by:* ${signup.referrerEmail}\n*Referral Code:* ${signup.referralCode}` : ''}\n*Time:* ${new Date(signup.timestamp).toLocaleString()}\n*Total Signups:* ${totalCount}/500`
         }
       }
     ]
@@ -84,10 +112,10 @@ async function notifySlack(signup: BetaSignup, totalCount: number) {
 }
 
 // Send email notification (simple implementation)
-async function sendWelcomeEmail(email: string, position: number) {
+async function sendWelcomeEmail(email: string, position: number, isReferral: boolean = false) {
   // For immediate implementation, just log
   // Replace with actual email service (Resend, SendGrid, etc.)
-  console.log(`Welcome email would be sent to ${email} - Position: ${position}`);
+  console.log(`Welcome email would be sent to ${email} - Position: ${position}${isReferral ? ' (Referral)' : ''}`);
   
   // If you have email service configured:
   /*
@@ -103,7 +131,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     return res.status(405).json({ message: 'Method not allowed' });
   }
 
-  const { email, subscribe, source = 'website' } = req.body;
+  const { email, subscribe, source = 'website', referralCode } = req.body;
 
   // Validation
   if (!email || !email.includes('@')) {
@@ -123,6 +151,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       });
     }
 
+    // Validate referral code if provided
+    let referralData = null;
+    if (referralCode && referralCode.trim()) {
+      referralData = await validateReferralCode(referralCode.trim());
+    }
+
     // Create new signup
     const newSignup: BetaSignup = {
       id: Date.now().toString(),
@@ -135,6 +169,12 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       referrer: req.headers.referer
     };
 
+    // Add referral info if valid
+    if (referralData) {
+      newSignup.referralCode = referralCode.trim().toUpperCase();
+      newSignup.referrerEmail = referralData.referrerEmail;
+    }
+
     // Add to list
     signups.push(newSignup);
     
@@ -143,11 +183,27 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const position = signups.length;
 
+    // Process referral tracking
+    if (referralData) {
+      await processReferral(email, referralCode.trim(), referralData.referrerEmail);
+    }
+
     // Send notifications
     await Promise.all([
       notifySlack(newSignup, position),
-      sendWelcomeEmail(email, position)
+      sendWelcomeEmail(email, position, !!referralData)
     ]);
+
+    // Create referral tracking entry for new user
+    try {
+      await fetch(`${process.env.NEXT_PUBLIC_BASE_URL || 'http://localhost:3000'}/api/referrals`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, action: 'create_referral' })
+      });
+    } catch (error) {
+      console.error('Failed to create referral entry:', error);
+    }
 
     // Return success
     res.status(200).json({
@@ -155,7 +211,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       message: 'Successfully joined beta waitlist',
       position,
       totalSignups: position,
-      remainingSpots: Math.max(0, 500 - position)
+      remainingSpots: Math.max(0, 500 - position),
+      wasReferred: !!referralData,
+      referrerEmail: referralData?.referrerEmail
     });
 
   } catch (error) {
