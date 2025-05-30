@@ -35,7 +35,7 @@ const Hero = () => {
             <div className="flex flex-col items-start md:contents">
               <div className="flex items-center">
                 <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2 shrink-0"></div>
-                <span>NVIDIA Inception Member</span>
+                <span>Validated by NVIDIA</span>
               </div>
 
               <span className="hidden md:inline mx-1.5">•</span>
@@ -71,6 +71,26 @@ const Hero = () => {
               specialized AI models that handle everything from ideation to deployment
             </p>
 
+            {/* Main CTAs - Enhanced for Beta Focus */}
+            <div className='flex flex-col sm:flex-row gap-4 justify-center mb-16'>
+              <button
+                onClick={openModal}
+                className='group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-bright_magenta to-purple-600 rounded-xl hover:from-purple-600 hover:to-bright_magenta transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-bright_magenta/50'
+              >
+                <span className='relative z-10'>Join Beta Launch</span>
+                <div className='absolute inset-0 rounded-xl bg-gradient-to-r from-bright_magenta to-purple-600 blur-lg opacity-50 group-hover:opacity-75 transition-opacity'></div>
+              </button>
+              <Link
+                href='#demo'
+                className='group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 border-2 border-tech_green/70 rounded-xl hover:border-tech_green hover:bg-tech_green/10 transform hover:scale-105'
+              >
+                Watch Demo
+                <svg className='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 7l5 5m0 0l-5 5m5-5H6' />
+                </svg>
+              </Link>
+            </div>
+
             {/* Enhanced Metrics Grid with Updated Values */}
             <div className='grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 max-w-4xl mx-auto'>
               <div className='bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-xl p-6 hover:scale-105 transition-transform'>
@@ -91,25 +111,7 @@ const Hero = () => {
               </div>
             </div>
 
-            {/* Main CTAs - Enhanced for Beta Focus */}
-            <div className='flex flex-col sm:flex-row gap-4 justify-center mb-16'>
-              <button
-                onClick={openModal}
-                className='group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-bright_magenta to-purple-600 rounded-xl hover:from-purple-600 hover:to-bright_magenta transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-bright_magenta/50'
-              >
-                <span className='relative z-10'>Join Beta Launch</span>
-                <div className='absolute inset-0 rounded-xl bg-gradient-to-r from-bright_magenta to-purple-600 blur-lg opacity-50 group-hover:opacity-75 transition-opacity'></div>
-              </button>
-              <Link
-                href='#demo'
-                className='group relative inline-flex items-center justify-center px-8 py-4 text-lg font-semibold text-white transition-all duration-300 border-2 border-tech_green/70 rounded-xl hover:border-tech_green hover:bg-tech_green/10 transform hover:scale-105'
-              >
-                Watch Demo
-                <svg className='w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
-                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M13 7l5 5m0 0l-5 5m5-5H6' />
-                </svg>
-              </Link>
-            </div>
+            
 
             {/* Platform Showcase */}
             <div className='mb-16'>
