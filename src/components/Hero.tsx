@@ -29,32 +29,23 @@ const Hero = () => {
         <div className='container-custom relative z-10 mt-12 pb-24'>
           <div className='max-w-5xl mx-auto text-center'>
             {/* Updated Status Badge with Current Status */}
-            <div className="
-            flex flex-col items-center         
-            md:inline-flex md:flex-row md:items-center 
-            px-4 py-3                        
-            mb-8 
-            bg-gradient-to-r from-yellow-500/20 to-orange-500/20 
-            border border-yellow-500/30 
-            rounded-full 
-            text-yellow-400 text-sm font-medium 
-            animate-pulse
-            leading-tight md:leading-normal     /* Tighter line height for mobile */
-        ">
-          <div className="flex items-center">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2 shrink-0"></div>
-            <span>Validated by NVIDIA</span>
+            <div 
+            className="inline-flex flex-col justify-center items-center md:flex-row md:items-center px-4 py-3 mb-8 bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border border-yellow-500/30 rounded-full text-yellow-400 text-sm font-medium animate-pulse leading-tight md:leading-normal"
+          >
+            <div className="flex flex-col items-start md:contents">
+              <div className="flex items-center">
+                <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2 shrink-0"></div>
+                <span>NVIDIA Inception Member</span>
+              </div>
+
+              <span className="hidden md:inline mx-1.5">•</span>
+
+              <div className="flex items-center mt-1 md:mt-0">
+                <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2 shrink-0 md:hidden"></div>
+                <span>Currently Raising $2.5M Seed</span>
+              </div>
+            </div>
           </div>
-          <span className="hidden md:inline mx-1.5">•</span>
-          <div className="
-              flex items-center                
-              mt-1 md:mt-0                   
-              md:inline                       
-          ">
-            <div className="w-2 h-2 bg-yellow-400 rounded-full mr-2 shrink-0 md:hidden"></div>
-            <span>Currently Raising $2.5M Seed</span>
-          </div>
-        </div>
 
             {/* Main Heading */}
 
