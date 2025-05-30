@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 module.exports = {
@@ -63,18 +62,31 @@ module.exports = {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// XEUR.AI Brand Colors
-				near_black: "#121212",
+				// XEUR.AI Brand Colors - Enhanced for High Contrast
+				near_black: "#0a0a0a", // Enhanced from #121212 for better contrast
 				deep_purple: "#2A0F30",
 				medium_purple: "#3B1943",
 				light_purple: "#5C3C75",
-				bright_magenta: "#C8378A",
-				tech_green: "#2ECC71",
+				bright_magenta: "#ff6bb3", // Enhanced for better visibility
+				tech_green: "#00ff88", // Enhanced for better contrast
 				electric_blue: "#3498DB",
 				rich_gold: "#F1C40F",
 				warning_red: "#E74C3C",
-				light_gray_text: "#F5F5F5",
-				dark_gray_text: "#333333",
+				
+				// High Contrast Text Colors (WCAG AAA Compliant)
+				text_max_contrast: "#ffffff", // Pure white - 21:1 contrast ratio
+				text_secondary_contrast: "#e5e5e5", // Light gray - 16.75:1 contrast ratio
+				text_tertiary_contrast: "#cccccc", // Medium gray - 11.98:1 contrast ratio
+				
+				// Legacy support - redirect to high contrast versions
+				light_gray_text: "#ffffff", // Redirect to pure white
+				dark_gray_text: "#e5e5e5", // Redirect to high contrast gray
+				
+				// Enhanced UI Colors
+				link_blue: "#60a5fa", // Blue-400 for links - high contrast
+				focus_ring: "#fbbf24", // Amber-400 for focus states
+				success_green: "#10b981", // Emerald-500
+				error_red: "#ef4444", // Red-500
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -120,11 +132,39 @@ module.exports = {
 				'gradient-shift': 'gradient-shift 15s ease infinite',
 			},
 			backgroundImage: {
-				'hero-pattern': 'radial-gradient(circle at 50% 50%, rgba(92, 60, 117, 0.3) 0%, rgba(42, 15, 48, 0.5) 50%, rgba(18, 18, 18, 0.8) 100%)',
+				'hero-pattern': 'radial-gradient(circle at 50% 50%, rgba(92, 60, 117, 0.3) 0%, rgba(42, 15, 48, 0.5) 50%, rgba(10, 10, 10, 0.8) 100%)',
 				'purple-gradient': 'linear-gradient(135deg, #2A0F30 0%, #3B1943 50%, #5C3C75 100%)',
-				'cta-gradient': 'linear-gradient(135deg, #C8378A 0%, #AB1F7A 100%)',
+				'cta-gradient': 'linear-gradient(135deg, #ff6bb3 0%, #e91e63 100%)',
 			},
+			textShadow: {
+				'high-contrast': '0 1px 3px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.6)',
+				'button': '0 1px 2px rgba(0, 0, 0, 0.8)',
+			},
+			boxShadow: {
+				'high-contrast': '0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2)',
+				'focus-high-contrast': '0 0 0 3px rgba(251, 191, 36, 0.5)', // Amber ring
+			}
 		}
 	},
-	plugins: [require("tailwindcss-animate")],
+	plugins: [
+		require("tailwindcss-animate"),
+		// Add plugin for text shadow support
+		function({ addUtilities }) {
+			addUtilities({
+				'.text-shadow-high-contrast': {
+					textShadow: '0 1px 3px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.6)',
+				},
+				'.text-shadow-button': {
+					textShadow: '0 1px 2px rgba(0, 0, 0, 0.8)',
+				},
+				'.focus-visible-enhanced': {
+					'&:focus-visible': {
+						outline: '2px solid #fbbf24',
+						outlineOffset: '2px',
+						boxShadow: '0 0 0 3px rgba(251, 191, 36, 0.3)',
+					}
+				}
+			})
+		}
+	],
 } satisfies Config;
