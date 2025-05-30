@@ -179,7 +179,9 @@ const Header = () => {
           id="mobile-menu"
           className={cn(
             "lg:hidden fixed top-[81px] left-0 w-full bg-deep_purple/98 backdrop-blur-md shadow-2xl z-50 transition-all duration-300 border-t-2 border-light_purple/40", 
-            mobileMenuOpen ? "max-h-[calc(100vh-81px)] overflow-y-auto opacity-100" : "max-h-0 overflow-hidden opacity-0"
+            mobileMenuOpen 
+              ? "max-h-[calc(100vh-81px)] overflow-y-auto opacity-100 bg-deep_purple backdrop-blur-none" 
+              : "max-h-0 overflow-hidden opacity-0"
           )}
           role="navigation"
           aria-labelledby="mobile-menu-label"

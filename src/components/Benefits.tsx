@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Clock, Globe, Infinity, Palette, Terminal, Zap } from "lucide-react";
 
@@ -53,7 +52,8 @@ const Benefits = () => {
           {benefits.map((benefit, index) => (
             <div 
               key={index} 
-              className="brand-card bg-near_black/70 backdrop-blur-sm border-tech_green/20"
+              // MODIFIED LINE: Added flex, flex-col, and p-6
+              className="brand-card flex flex-col p-6 bg-near_black/70 backdrop-blur-sm border-tech_green/20"
             >
               <div className="bg-tech_green/10 p-3 rounded-full w-fit mb-4">
                 {benefit.icon}
