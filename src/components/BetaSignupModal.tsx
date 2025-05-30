@@ -11,6 +11,12 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
   const [subscribe, setSubscribe] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState('');
+  const [successData, setSuccessData] = useState<{
+    position: number;
+    totalSignups: number;
+    remainingSpots: number;
+  } | null>(null);
 
   useEffect(() => {
     // Reset form when modal is opened after a submission
@@ -18,6 +24,8 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
       setSubmitted(false);
       setEmail('');
       setSubscribe(true);
+      setError('');
+      setSuccessData(null);
     }
 
     // Trap focus within modal when open
@@ -32,22 +40,55 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
     };
   }, [isOpen]);
 
-  const handleSubmit = async (e: { preventDefault: () => void; }) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
+    setError('');
     
-    // Log form submission for now (in production, this would integrate with your backend)
-    console.log('Beta signup submitted:', { 
-      email, 
-      subscribe, 
-      timestamp: new Date().toISOString(),
-      source: 'website-beta-modal' 
-    });
-    
-    // Simulate API call
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    setIsSubmitting(false);
-    setSubmitted(true);
+    try {
+      const response = await fetch('/api/beta-signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          subscribe,
+          source: 'website-beta-modal',
+          utm_source: new URLSearchParams(window.location.search).get('utm_source'),
+          utm_medium: new URLSearchParams(window.location.search).get('utm_medium'),
+          utm_campaign: new URLSearchParams(window.location.search).get('utm_campaign')
+        })
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong');
+      }
+
+      setSuccessData({
+        position: data.position,
+        totalSignups: data.totalSignups,
+        remainingSpots: data.remainingSpots
+      });
+      setSubmitted(true);
+
+      // Track successful signup
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'beta_signup_completed', {
+          event_category: 'engagement',
+          event_label: 'beta_modal',
+          value: data.position
+        });
+      }
+
+    } catch (error: any) {
+      setError(error.message);
+      console.error('Beta signup error:', error);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleBackdropClick = (e: React.MouseEvent) => {
@@ -99,15 +140,35 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
         {submitted ? (
           <div className='text-center py-6' id="modal-description">
             <div className='text-6xl mb-4' role="img" aria-label="Rocket emoji">🚀</div>
-            <div className='text-success_green text-2xl mb-2 font-bold text-shadow-high-contrast'>Welcome to the Revolution!</div>
-            <p className='text-max-contrast mb-4 text-shadow-button'>
-              You're now in line for early access to XEUR.AI. We'll notify you as soon as beta spots become available.
-            </p>
-            <div className='card-high-contrast p-4 mb-6'>
-              <p className='text-sm text-secondary-contrast'>
-                Expected Beta Launch: <span className='text-tech_green font-semibold'>Q3 2025</span>
-              </p>
+            <div className='text-success_green text-2xl mb-2 font-bold text-shadow-high-contrast'>
+              Welcome to the Revolution!
             </div>
+            <p className='text-max-contrast mb-4 text-shadow-button'>
+              You're now in line for early access to XEUR.AI.
+            </p>
+            
+            {successData && (
+              <div className='card-high-contrast p-4 mb-6'>
+                <div className='grid grid-cols-3 gap-4 text-center'>
+                  <div>
+                    <div className='text-2xl font-bold text-bright_magenta'>#{successData.position}</div>
+                    <div className='text-xs text-secondary-contrast'>Your Position</div>
+                  </div>
+                  <div>
+                    <div className='text-2xl font-bold text-tech_green'>{successData.totalSignups}</div>
+                    <div className='text-xs text-secondary-contrast'>Total Signups</div>
+                  </div>
+                  <div>
+                    <div className='text-2xl font-bold text-purple-400'>{successData.remainingSpots}</div>
+                    <div className='text-xs text-secondary-contrast'>Spots Left</div>
+                  </div>
+                </div>
+                <p className='text-sm text-secondary-contrast mt-4'>
+                  Expected Beta Launch: <span className='text-tech_green font-semibold'>July 15, 2025</span>
+                </p>
+              </div>
+            )}
+            
             <button
               onClick={onClose}
               className='btn-high-contrast px-6 py-3 rounded-lg focus-enhanced'
@@ -120,7 +181,9 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
             <div className='mb-6' id="modal-description">
               <div className='card-high-contrast p-4 mb-6'>
                 <div className='text-center'>
-                  <h3 className='text-lg font-semibold text-bright_magenta mb-2 text-shadow-button'>Be Among the First</h3>
+                  <h3 className='text-lg font-semibold text-bright_magenta mb-2 text-shadow-button'>
+                    Be Among the First 500
+                  </h3>
                   <p className='text-sm text-max-contrast'>
                     Get exclusive early access to the world's first AI that creates complete games from text prompts
                   </p>
@@ -139,6 +202,12 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
               </div>
             </div>
 
+            {error && (
+              <div className='mb-4 p-3 bg-red-500/20 border border-red-500/50 rounded-lg text-red-400 text-sm'>
+                {error}
+              </div>
+            )}
+
             <form onSubmit={handleSubmit}>
               <div className='mb-6'>
                 <label
@@ -156,6 +225,7 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
                   placeholder='your@email.com'
                   className='input-high-contrast w-full focus-enhanced'
                   aria-describedby="email-description"
+                  disabled={isSubmitting}
                 />
                 <div id="email-description" className="sr-only">
                   Enter your email address to join the beta program
@@ -170,6 +240,7 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
                     onChange={(e) => setSubscribe(e.target.checked)}
                     className='h-5 w-5 rounded border-2 border-light_purple/50 bg-deep_purple/20 text-bright_magenta focus-enhanced mr-3 mt-0.5 accent-bright_magenta'
                     aria-describedby="subscribe-description"
+                    disabled={isSubmitting}
                   />
                   <span className='text-sm text-shadow-button'>
                     Get updates on development progress, new features, and funding milestones
@@ -211,7 +282,7 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
 
             <div className='mt-6 space-y-2'>
               <p className="text-xs text-secondary-contrast text-center">
-                🔥 Limited beta spots available • Expected launch Q3 2025
+                🔥 Limited to 500 beta participants • Expected launch July 15, 2025
               </p>
               <div className='flex items-center justify-center space-x-4 text-xs text-secondary-contrast'>
                 <span>✅ No credit card required</span>
