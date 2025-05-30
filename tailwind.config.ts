@@ -149,7 +149,7 @@ module.exports = {
 	plugins: [
 		require("tailwindcss-animate"),
 		// Add plugin for text shadow support
-		function({ addUtilities }) {
+		function({ addUtilities }: { addUtilities: any }) {
 			addUtilities({
 				'.text-shadow-high-contrast': {
 					textShadow: '0 1px 3px rgba(0, 0, 0, 0.8), 0 2px 6px rgba(0, 0, 0, 0.6)',
