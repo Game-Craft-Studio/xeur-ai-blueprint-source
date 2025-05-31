@@ -1,255 +1,142 @@
-
-import React, { useState } from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import { Linkedin, Mail, MapPin, Phone, Send, Twitter, Youtube } from "lucide-react";
-import { toast } from "@/components/ui/use-toast";
+import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import ContactFounders from '@/components/ContactFounders';
+import Head from 'next/head';
 
 const Contact = () => {
-  const [formState, setFormState] = useState({
-    fullName: "",
-    email: "",
-    subject: "",
-    message: "",
-    consent: false
-  });
-  
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-    const { name, value } = e.target;
-    setFormState({
-      ...formState,
-      [name]: value
-    });
-  };
-  
-  const handleCheckboxChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, checked } = e.target;
-    setFormState({
-      ...formState,
-      [name]: checked
-    });
-  };
-  
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent successfully!",
-        description: "Thank you for reaching out. We'll get back to you shortly.",
-      });
-      
-      setFormState({
-        fullName: "",
-        email: "",
-        subject: "",
-        message: "",
-        consent: false
-      });
-      
-      setIsSubmitting(false);
-    }, 1500);
-  };
-
   return (
-    <div className="bg-near_black min-h-screen">
-      <Header />
+    <>
+      <Head>
+        <title>Contact XEUR.AI Founders - Direct Access</title>
+        <meta name="description" content="Direct contact with XEUR.AI founders Harshit Verma and Rishav Goyal. No gatekeepers, no sales teams. Alpha access and investment inquiries." />
+      </Head>
       
-      {/* Hero Section */}
-      <div className="pt-24 pb-16">
-        <div className="container-custom">
-          <h1 className="text-4xl md:text-5xl font-bold mb-6 text-center">
-            Let's <span className="text-bright_magenta">Connect</span>
-          </h1>
-          <p className="text-xl text-center text-light_gray_text/80 mb-12 max-w-3xl mx-auto">
-            We're here to answer your questions and explore opportunities.
-            Get in touch with our team and start a conversation.
-          </p>
-        </div>
-      </div>
-      
-      {/* Contact Form & Info */}
-      <div className="pb-16">
-        <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {/* Contact Info */}
-            <div className="lg:col-span-1">
-              <div className="bg-medium_purple/30 rounded-lg p-6 border border-light_purple/30 h-full">
-                <h2 className="text-2xl font-bold mb-6">Contact Information</h2>
+      <div className="bg-near_black min-h-screen text-gray-100">
+        <Header />
+        
+        <main className="pt-24">
+          {/* Hero Section */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Direct Founder Access
+                  </span>
+                </h1>
+                <p className="text-xl text-light_gray_text/80 mb-8">
+                  No gatekeepers. No sales teams. Just founders who make decisions.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Contact Founders Component */}
+          <ContactFounders />
+
+          {/* Quick Actions */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Quick Actions
+                  </span>
+                </h2>
                 
-                <div className="space-y-6">
-                  <div className="flex items-start gap-3">
-                    <Mail className="text-bright_magenta shrink-0 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-semibold mb-1">Email Us</h3>
-                      <p className="text-light_gray_text/80">Rishav Goyal - rishav@cpgplay.com</p>
-                      <p className="text-light_gray_text/80">Harshit Verma - harshit@cpgplay.com</p>
-                    </div>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {/* Alpha Access */}
+                  <div className="text-center p-8 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-tech_green mb-4">Alpha Access</h3>
+                    <p className="text-light_gray_text/80 mb-6">
+                      Get hands-on access to our alpha platform for testing and feedback.
+                    </p>
+                    <a
+                      href="mailto:harshit@cpgplay.com?subject=Alpha Access Request - XEUR.AI Platform"
+                      className="inline-flex items-center px-6 py-3 bg-tech_green/20 border border-tech_green/40 rounded-lg text-tech_green hover:bg-tech_green/30 transition-colors"
+                    >
+                      🚀 Request Alpha Access
+                    </a>
                   </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <MapPin className="text-bright_magenta shrink-0 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-semibold mb-1">Office Location</h3>
-                      <p className="text-light_gray_text/80">
-                      NETCO office space<br />
-                      pk 28, Block L-4 Neechi Mangali<br />
-                      Ludhiana, Punjab - 141123<br />
-                        India
-                      </p>
-                    </div>
+
+                  {/* Investment Inquiry */}
+                  <div className="text-center p-8 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-bright_magenta mb-4">Investment Inquiry</h3>
+                    <p className="text-light_gray_text/80 mb-6">
+                      Interested in our Series A round? Get the investment deck and schedule a call.
+                    </p>
+                    <a
+                      href="mailto:harshit@cpgplay.com?cc=rishav@cpgplay.com&subject=Investment Inquiry - XEUR.AI Series A"
+                      className="inline-flex items-center px-6 py-3 bg-bright_magenta/20 border border-bright_magenta/40 rounded-lg text-bright_magenta hover:bg-bright_magenta/30 transition-colors"
+                    >
+                      💼 Investment Inquiry
+                    </a>
                   </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <Phone className="text-bright_magenta shrink-0 mt-1" size={20} />
-                    <div>
-                      <h3 className="font-semibold mb-1">Call Us</h3>
-                      <p className="text-light_gray_text/80">+91 (124) 123-4567</p>
-                    </div>
-                  </div>
-                  
-                  <div>
-                    <h3 className="font-semibold mb-3">Connect With Us</h3>
-                    <div className="flex gap-4">
-                      <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-deep_purple flex items-center justify-center hover:bg-bright_magenta transition-colors">
-                        <Linkedin size={18} />
-                      </a>
-                      <a href="https://twitter.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-deep_purple flex items-center justify-center hover:bg-bright_magenta transition-colors">
-                        <Twitter size={18} />
-                      </a>
-                      <a href="https://youtube.com" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-deep_purple flex items-center justify-center hover:bg-bright_magenta transition-colors">
-                        <Youtube size={18} />
-                      </a>
-                    </div>
+
+                  {/* Partnership Discussion */}
+                  <div className="text-center p-8 bg-gradient-to-b from-purple-400/20 to-transparent border border-purple-400/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-purple-400 mb-4">Partnership Discussion</h3>
+                    <p className="text-light_gray_text/80 mb-6">
+                      Explore integration, distribution, or technology collaboration opportunities.
+                    </p>
+                    <a
+                      href="mailto:rishav@cpgplay.com?subject=Partnership Inquiry - XEUR.AI"
+                      className="inline-flex items-center px-6 py-3 bg-purple-400/20 border border-purple-400/40 rounded-lg text-purple-400 hover:bg-purple-400/30 transition-colors"
+                    >
+                      🤝 Partnership Inquiry
+                    </a>
                   </div>
                 </div>
               </div>
             </div>
-            
-            {/* Contact Form */}
-            <div className="lg:col-span-2">
-              <div className="bg-deep_purple rounded-lg p-6 border border-light_purple/30">
-                <h2 className="text-2xl font-bold mb-6">Send Us a Message</h2>
+          </section>
+
+          {/* Response Expectations */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    What to Expect
+                  </span>
+                </h2>
                 
-                <form onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                    <div>
-                      <label htmlFor="fullName" className="block mb-2">Full Name*</label>
-                      <input
-                        type="text"
-                        id="fullName"
-                        name="fullName"
-                        value={formState.fullName}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-md bg-near_black border border-light_purple/30 focus:border-bright_magenta focus:outline-none"
-                        required
-                      />
-                    </div>
-                    
-                    <div>
-                      <label htmlFor="email" className="block mb-2">Email Address*</label>
-                      <input
-                        type="email"
-                        id="email"
-                        name="email"
-                        value={formState.email}
-                        onChange={handleChange}
-                        className="w-full px-4 py-3 rounded-md bg-near_black border border-light_purple/30 focus:border-bright_magenta focus:outline-none"
-                        required
-                      />
-                    </div>
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="p-6 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-xl">
+                    <h3 className="text-xl font-bold text-bright_magenta mb-4">Response Time</h3>
+                    <ul className="space-y-2 text-light_gray_text/80">
+                      <li>• <strong>Investment inquiries:</strong> 24-48 hours</li>
+                      <li>• <strong>Alpha access requests:</strong> 1-3 business days</li>
+                      <li>• <strong>Partnership discussions:</strong> 2-5 business days</li>
+                      <li>• <strong>General inquiries:</strong> 1 week</li>
+                    </ul>
                   </div>
                   
-                  <div className="mb-6">
-                    <label htmlFor="subject" className="block mb-2">Subject*</label>
-                    <input
-                      type="text"
-                      id="subject"
-                      name="subject"
-                      value={formState.subject}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 rounded-md bg-near_black border border-light_purple/30 focus:border-bright_magenta focus:outline-none"
-                      required
-                    />
+                  <div className="p-6 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-xl">
+                    <h3 className="text-xl font-bold text-tech_green mb-4">What We'll Provide</h3>
+                    <ul className="space-y-2 text-light_gray_text/80">
+                      <li>• Direct founder communication</li>
+                      <li>• Transparent timeline and next steps</li>
+                      <li>• Relevant demos or documentation</li>
+                      <li>• Clear follow-up commitments</li>
+                    </ul>
                   </div>
-                  
-                  <div className="mb-6">
-                    <label htmlFor="message" className="block mb-2">Message*</label>
-                    <textarea
-                      id="message"
-                      name="message"
-                      value={formState.message}
-                      onChange={handleChange}
-                      rows={6}
-                      className="w-full px-4 py-3 rounded-md bg-near_black border border-light_purple/30 focus:border-bright_magenta focus:outline-none resize-none"
-                      required
-                    ></textarea>
-                  </div>
-                  
-                  <div className="mb-6">
-                    <div className="flex items-start gap-2">
-                      <input
-                        type="checkbox"
-                        id="consent"
-                        name="consent"
-                        checked={formState.consent}
-                        onChange={handleCheckboxChange}
-                        className="mt-1"
-                        required
-                      />
-                      <label htmlFor="consent" className="text-sm text-light_gray_text/80">
-                        I agree to XEUR.AI's privacy policy and terms of service. I consent to being contacted about XEUR.AI products and services.
-                      </label>
-                    </div>
-                  </div>
-                  
-                  <button
-                    type="submit"
-                    disabled={isSubmitting}
-                    className="btn-primary flex items-center gap-2"
-                  >
-                    {isSubmitting ? "Sending..." : "Send Message"}
-                    <Send size={16} />
-                  </button>
-                </form>
+                </div>
+                
+                <div className="text-center mt-8">
+                  <p className="text-light_gray_text/70 italic">
+                    We believe in direct, honest communication. Every email gets a personal response from our founding team.
+                  </p>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
+          </section>
+        </main>
+        
+        <Footer />
       </div>
-      
-      {/* FAQ Section */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom max-w-4xl mx-auto">
-          <h2 className="text-3xl font-bold mb-8 text-center">
-            Frequently Asked Questions
-          </h2>
-          
-          <div className="space-y-6">
-            <div className="bg-medium_purple/30 rounded-lg p-6 border border-light_purple/30">
-              <h3 className="text-xl font-semibold mb-3">How quickly can I expect a response?</h3>
-              <p className="text-light_gray_text/80">We typically respond to all inquiries within 24-48 business hours. For urgent matters, please indicate so in the subject line.</p>
-            </div>
-            
-            <div className="bg-medium_purple/30 rounded-lg p-6 border border-light_purple/30">
-              <h3 className="text-xl font-semibold mb-3">I'm interested in partnering with XEUR.AI. Who should I contact?</h3>
-              <p className="text-light_gray_text/80">Please send your partnership proposals to partnerships@xeur.ai or use the form above and select "Partnership" as the subject. Our business development team will review your proposal and get back to you.</p>
-            </div>
-            
-            <div className="bg-medium_purple/30 rounded-lg p-6 border border-light_purple/30">
-              <h3 className="text-xl font-semibold mb-3">Where can I get technical support for my account?</h3>
-              <p className="text-light_gray_text/80">If you're already a customer, the fastest way to get support is through the Help Center in your XEUR.AI dashboard. Alternatively, you can email support@xeur.ai with your account details.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <Footer />
-    </div>
+    </>
   );
 };
 

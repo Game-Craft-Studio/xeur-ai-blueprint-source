@@ -1,261 +1,214 @@
-
-import React from "react";
-import Header from "../src/components/Header";
-import Footer from "../src/components/Footer";
-import Link from "next/link";
+import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Head from 'next/head';
 
 const About = () => {
   return (
-    <div className="bg-near_black min-h-screen">
-      <Header />
+    <>
+      <Head>
+        <title>About XEUR.AI - Turn Words Into Worlds | Alpha Platform</title>
+        <meta name="description" content="XEUR.AI founding story, vision, and team. Alpha platform validated by Microsoft, NVIDIA, and Google partnerships." />
+      </Head>
       
-      {/* Hero Section */}
-      <div className="pt-24 pb-16 bg-hero-pattern">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-center">
-              We're <span className="text-bright_magenta">Reimagining</span> Creation
-            </h1>
-            <p className="text-xl text-center text-light_gray_text/80 mb-8">
-              XEUR.AI was founded with a simple but powerful mission: to eliminate the technical barriers
-              to digital creation and democratize game development for everyone.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Our Story / Mission */}
-      <div className="py-16">
-        <div className="container-custom max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-            The Genesis of a <span className="text-bright_magenta">Revolution</span>
-          </h2>
-          
-          <div className="prose prose-lg prose-invert max-w-none">
-            <p>
-              In a world where content creation tools have evolved dramatically, game development
-              remained stubbornly inaccessible to most creators. While anyone could now easily
-              create professional-quality videos, images, or music with AI assistance,
-              making games still required extensive technical knowledge, expensive software,
-              and months or years of development time.
-            </p>
-            
-            <p>
-              We founded XEUR.AI to change that paradigm. Our founding team—composed of AI researchers,
-              game developers, and technology innovators—recognized that the same AI revolution
-              transforming other creative fields could be applied to game development, but
-              it would require a fundamentally new approach.
-            </p>
-            
-            <p>
-              After years of research and development, we built indigenous AI models specifically
-              designed to understand game mechanics, player psychology, visual design,
-              and the complex interplay between these elements.
-            </p>
-            
-            <p>
-              Today, XEUR.AI is the world's first platform allowing anyone to create
-              complete, playable games from simple text prompts—no coding required.
-              We're proud to be leading this revolution in game creation technology,
-              opening the doors to a new generation of creators.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Our Vision */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8 text-center">
-            The Future We're <span className="text-tech_green">Building</span>
-          </h2>
-          
-          <div className="prose prose-lg prose-invert max-w-none">
-            <p>
-              We believe we're at the beginning of a fundamental transformation in digital creation.
-              Our vision extends beyond simply making game development easier—we're creating an
-              entirely new paradigm where the gap between imagination and creation disappears.
-            </p>
-            
-            <p>
-              We envision a future where:
-            </p>
-            
-            <ul>
-              <li>
-                Anyone with a creative vision can bring interactive experiences to life,
-                regardless of their technical background or resources.
-              </li>
-              <li>
-                The diversity of games and interactive experiences expands dramatically,
-                as creators from all backgrounds and perspectives can participate.
-              </li>
-              <li>
-                Game development time shrinks from years to days or hours, allowing
-                for rapid experimentation, iteration, and innovation.
-              </li>
-              <li>
-                New categories of games emerge that weren't commercially viable under
-                traditional development models.
-              </li>
-              <li>
-                India becomes recognized as a global leader in AI-powered creative technology,
-                setting new standards for the industry worldwide.
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
-      
-      {/* Team Section - Updated with placeholder */}
-      <div className="py-16">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            The Minds Behind the <span className="text-bright_magenta">Magic</span>
-          </h2>
-          
-          {/* Team Information Update Notice */}
-          <div className="max-w-3xl mx-auto text-center mb-16">
-            <div className="bg-gradient-to-r from-bright_magenta/10 to-purple-400/10 rounded-2xl p-8 border border-bright_magenta/30">
-              <div className="text-5xl mb-4">🚀</div>
-              <h3 className="text-2xl font-bold mb-4 text-bright_magenta">Our Team is Growing</h3>
-              <p className="text-lg text-light_gray_text/80 leading-relaxed">
-                We're in the process of updating our team information to reflect our recent growth and organizational changes. 
-                Our leadership team brings together decades of experience in AI research, game development, and enterprise technology.
-              </p>
-              <div className="mt-6">
-                <Link 
-                  href="/contact?inquiry=team" 
-                  className="inline-flex items-center justify-center px-6 py-3 text-lg font-semibold text-white transition-all duration-300 bg-gradient-to-r from-bright_magenta to-purple-600 rounded-xl hover:scale-105 shadow-lg hover:shadow-xl"
-                >
-                  Get in Touch
-                </Link>
+      <div className="bg-near_black min-h-screen text-gray-100">
+        <Header />
+        
+        <main className="pt-24">
+          {/* Hero Section */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Turn Words Into Worlds
+                  </span>
+                </h1>
+                <p className="text-xl text-light_gray_text/80 mb-8">
+                  XEUR.AI is transforming game development through AI-powered automation. 
+                  From concept to playable game, our alpha platform reduces traditional development barriers.
+                </p>
               </div>
             </div>
-          </div>
+          </section>
 
-          {/* Leadership Highlights */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-medium_purple/30 rounded-lg p-8 border border-light_purple/30 text-center">
-              <div className="text-4xl mb-4">🧠</div>
-              <h3 className="text-xl font-bold mb-3 text-bright_magenta">AI Research Excellence</h3>
-              <p className="text-light_gray_text/80">
-                Our research team brings cutting-edge expertise in machine learning, 
-                computer vision, and generative AI technologies.
-              </p>
+          {/* Company Story */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  Our <span className="text-tech_green">Story</span>
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                  <div>
+                    <h3 className="text-2xl font-bold text-bright_magenta mb-6">The Problem We Saw</h3>
+                    <p className="text-light_gray_text/80 mb-6">
+                      Game development has remained fundamentally unchanged for decades. 
+                      Talented creators with amazing ideas face 18+ month development cycles, 
+                      $300K+ budgets, and technical barriers that kill innovation before it starts.
+                    </p>
+                    <p className="text-light_gray_text/80">
+                      We realized that AI could eliminate these barriers entirely, 
+                      democratizing game creation for millions of creators worldwide.
+                    </p>
+                  </div>
+                  
+                  <div>
+                    <h3 className="text-2xl font-bold text-tech_green mb-6">Our Solution</h3>
+                    <p className="text-light_gray_text/80 mb-6">
+                      XEUR.AI combines proven game engine technology (Unreal Engine) with 
+                      advanced AI integration (OpenAI) to create the first platform that 
+                      transforms text descriptions into complete, playable games.
+                    </p>
+                    <p className="text-light_gray_text/80">
+                      Our alpha platform is already demonstrating this vision, 
+                      validated by partnerships with Microsoft, NVIDIA, and Google.
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-medium_purple/30 rounded-lg p-8 border border-light_purple/30 text-center">
-              <div className="text-4xl mb-4">🎮</div>
-              <h3 className="text-xl font-bold mb-3 text-electric_blue">Game Industry Veterans</h3>
-              <p className="text-light_gray_text/80">
-                Seasoned professionals with experience at leading gaming companies, 
-                understanding both creative and technical aspects of game development.
-              </p>
+          </section>
+
+          {/* Founding Team */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Founding Team
+                  </span>
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Harshit */}
+                  <div className="text-center p-8 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-2xl">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-r from-bright_magenta to-purple-600 flex items-center justify-center text-white font-bold text-4xl mx-auto mb-6">H</div>
+                    <h3 className="text-2xl font-bold text-bright_magenta mb-2">Harshit Verma</h3>
+                    <p className="text-light_gray_text/80 mb-4">Co-Founder & Technical Lead</p>
+                    <p className="text-light_gray_text/70 mb-6">
+                      Technical architect behind the XEUR.AI platform. Expert in AI integration, 
+                      game engine development, and scalable platform architecture.
+                    </p>
+                    <div className="flex justify-center gap-4">
+                      <a 
+                        href="mailto:harshit@cpgplay.com"
+                        className="px-4 py-2 bg-bright_magenta/20 border border-bright_magenta/40 rounded-lg text-bright_magenta hover:bg-bright_magenta/30 transition-colors"
+                      >
+                        Email
+                      </a>
+                      <a 
+                        href="https://www.linkedin.com/in/indiahv/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-blue-500/20 border border-blue-500/40 rounded-lg text-blue-400 hover:bg-blue-500/30 transition-colors"
+                      >
+                        LinkedIn
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Rishav */}
+                  <div className="text-center p-8 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-2xl">
+                    <div className="w-24 h-24 rounded-full bg-gradient-to-r from-tech_green to-cyan-400 flex items-center justify-center text-white font-bold text-4xl mx-auto mb-6">R</div>
+                    <h3 className="text-2xl font-bold text-tech_green mb-2">Rishav Goyal</h3>
+                    <p className="text-light_gray_text/80 mb-4">Co-Founder & Business Development</p>
+                    <p className="text-light_gray_text/70 mb-6">
+                      Strategic partnerships and business development lead. Architect of our 
+                      validation strategy with Microsoft, NVIDIA, and Google partnerships.
+                    </p>
+                    <div className="flex justify-center gap-4">
+                      <a 
+                        href="mailto:rishav@cpgplay.com"
+                        className="px-4 py-2 bg-tech_green/20 border border-tech_green/40 rounded-lg text-tech_green hover:bg-tech_green/30 transition-colors"
+                      >
+                        Email
+                      </a>
+                      <a 
+                        href="https://www.linkedin.com/in/bunnygoyal/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-2 bg-blue-500/20 border border-blue-500/40 rounded-lg text-blue-400 hover:bg-blue-500/30 transition-colors"
+                      >
+                        LinkedIn
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className="bg-medium_purple/30 rounded-lg p-8 border border-light_purple/30 text-center">
-              <div className="text-4xl mb-4">🏢</div>
-              <h3 className="text-xl font-bold mb-3 text-tech_green">Enterprise Leadership</h3>
-              <p className="text-light_gray_text/80">
-                Business leaders with proven track records in scaling technology companies 
-                and building global partnerships.
-              </p>
+          </section>
+
+          {/* Company Info */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-8">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Company Information
+                  </span>
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  <div className="p-6 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-xl">
+                    <h3 className="text-xl font-bold text-bright_magenta mb-4">Legal Entity</h3>
+                    <p className="text-light_gray_text/80">XEUR.AI by CPG Play</p>
+                    <p className="text-light_gray_text/70 text-sm mt-2">
+                      NETCO Office Space, PK 28, Block L-4<br/>
+                      Neechi Mangali, Ludhiana, Punjab - 141123, India
+                    </p>
+                  </div>
+                  
+                  <div className="p-6 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-xl">
+                    <h3 className="text-xl font-bold text-tech_green mb-4">Stage & Status</h3>
+                    <p className="text-light_gray_text/80">Alpha Platform Development</p>
+                    <p className="text-light_gray_text/70 text-sm mt-2">
+                      Series A fundraising with institutional validation<br/>
+                      from Microsoft, NVIDIA, and Google partnerships
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
-        </div>
+          </section>
+
+          {/* Contact CTA */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Ready to <span className="text-tech_green">Connect</span>?
+                </h2>
+                <p className="text-xl text-light_gray_text/80 mb-8">
+                  Direct founder access. No gatekeepers, no sales process.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="https://www.youtube.com/watch?v=XtI4AndkV24"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-gradient-to-r from-bright_magenta to-purple-600 text-white font-bold rounded-lg hover:from-purple-600 hover:to-bright_magenta transition-all duration-300 transform hover:scale-105"
+                  >
+                    🎬 Watch Platform Demo
+                  </a>
+                  
+                  <a
+                    href="mailto:harshit@cpgplay.com"
+                    className="px-8 py-4 border-2 border-tech_green text-tech_green hover:bg-tech_green/10 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  >
+                    ✉️ Contact Founders
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+        
+        <Footer />
       </div>
-      
-      {/* Made in India, for the World */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom max-w-4xl mx-auto text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-8">
-            <span className="text-tech_green">Made in India</span>, for the <span className="text-electric_blue">World</span>
-          </h2>
-          
-          <div className="prose prose-lg prose-invert max-w-none text-center mb-8">
-            <p>
-              XEUR.AI is proudly developed in India, combining our rich heritage of innovation
-              and creativity with cutting-edge artificial intelligence. We're building not just
-              a product, but a testament to India's growing leadership in the global technology landscape.
-            </p>
-            
-            <p>
-              Our team brings together India's best AI researchers, game developers, and creative
-              technologists to build something that will change how the world creates interactive experiences.
-            </p>
-          </div>
-          
-          <div className="bg-rich_gold/10 rounded-lg p-6 border border-rich_gold/30 inline-block">
-            <p className="text-lg italic">
-              "AI is transforming every aspect of our lives. India, with its vast talent pool and innovative spirit,
-              has the opportunity to lead this revolution."
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Company Values */}
-      <div className="py-16">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Our <span className="text-bright_magenta">Core Values</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="text-center">
-              <div className="text-5xl mb-4">🎯</div>
-              <h3 className="text-xl font-semibold mb-3 text-bright_magenta">Innovation First</h3>
-              <p className="text-light_gray_text/70">
-                We push the boundaries of what's possible with AI and game development technology.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl mb-4">🤝</div>
-              <h3 className="text-xl font-semibold mb-3 text-tech_green">Democratization</h3>
-              <p className="text-light_gray_text/70">
-                Making advanced technology accessible to creators regardless of technical background.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl mb-4">🌟</div>
-              <h3 className="text-xl font-semibold mb-3 text-purple-400">Excellence</h3>
-              <p className="text-light_gray_text/70">
-                Every product and feature we deliver meets the highest standards of quality.
-              </p>
-            </div>
-            <div className="text-center">
-              <div className="text-5xl mb-4">🌍</div>
-              <h3 className="text-xl font-semibold mb-3 text-cyan-400">Global Impact</h3>
-              <p className="text-light_gray_text/70">
-                Building technology that empowers creators worldwide to share their stories.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      {/* CTA */}
-      <div className="py-16 bg-cta-gradient">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Join the Revolution
-          </h2>
-          <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Be part of the future of game creation. Whether you're a creator, investor, or potential team member,
-            we'd love to connect with you.
-          </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <Link href="/signup" className="btn-primary">
-              Start Creating
-            </Link>
-            <Link href="/contact" className="btn-secondary">
-              Contact Us
-            </Link>
-          </div>
-        </div>
-      </div>
-      
-      <Footer />
-    </div>
+    </>
   );
 };
 

@@ -1,188 +1,199 @@
-
-import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Link from "next/link";
-import { Code, Cpu, Globe, Lock, Server, Zap } from "lucide-react";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import PlatformStatus from '@/components/PlatformStatus';
+import Head from 'next/head';
 
 const Platform = () => {
-  const features = [
-    {
-      icon: <Cpu size={24} className="text-electric_blue" />,
-      name: "Advanced AI Models",
-      description: "Proprietary deep learning models specifically designed for game creation, understanding context and intent."
-    },
-    {
-      icon: <Globe size={24} className="text-electric_blue" />,
-      name: "Cross-Platform Output",
-      description: "Export games to web, mobile, desktop and console platforms with automatic optimization."
-    },
-    {
-      icon: <Zap size={24} className="text-electric_blue" />,
-      name: "Real-Time Generation",
-      description: "Watch your game take shape in minutes, with instant feedback and iteration capabilities."
-    },
-    {
-      icon: <Code size={24} className="text-electric_blue" />,
-      name: "Code & Asset Access",
-      description: "Full access to generated game code and assets for customization and advanced tweaking."
-    },
-    {
-      icon: <Server size={24} className="text-electric_blue" />,
-      name: "Cloud Infrastructure",
-      description: "Powerful cloud rendering and computation eliminates the need for expensive hardware."
-    },
-    {
-      icon: <Lock size={24} className="text-electric_blue" />,
-      name: "IP Protection",
-      description: "All your creations and ideas remain 100% yours, with robust privacy controls."
-    }
-  ];
-
-  const exportPlatforms = [
-    "Web (HTML5)",
-    "iOS",
-    "Android",
-    "Windows",
-    "macOS",
-    "Linux",
-    "Unity Integration",
-    "Unreal Engine Integration"
-  ];
-
   return (
-    <div className="bg-near_black min-h-screen">
-      <Header />
+    <>
+      <Head>
+        <title>XEUR.AI Platform - Alpha Development & Roadmap</title>
+        <meta name="description" content="XEUR.AI platform capabilities: Live alpha with Unreal Engine + OpenAI integration. Series A roadmap for proprietary AI development." />
+      </Head>
       
-      {/* Hero Section */}
-      <div className="pt-24 pb-16 bg-hero-pattern">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              The Powerhouse Behind <span className="text-electric_blue">Your Creations</span>
-            </h1>
-            <p className="text-xl text-light_gray_text/80 mb-8">
-              Explore the advanced AI and technology that makes XEUR.AI revolutionary.
-              We've built the most powerful game creation platform ever—so you don't have to.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Core Technology */}
-      <div className="py-16">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Our Indigenous <span className="text-bright_magenta">AI Models</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <Card className="bg-deep_purple border-light_purple/30 shadow-xl card-hover">
-              <CardHeader>
-                <CardTitle className="text-2xl text-light_gray_text">Eureka Engine</CardTitle>
-                <CardDescription className="text-light_gray_text/70">
-                  Game Logic and Gameplay Generation
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-light_gray_text/80">
-                <p className="mb-4">
-                  The heart of XEUR.AI, Eureka understands game mechanics, physics, rules, and 
-                  player interactions. It transforms natural language descriptions into 
-                  fully functional game logic and code.
+      <div className="bg-near_black min-h-screen text-gray-100">
+        <Header />
+        
+        <main className="pt-24">
+          {/* Hero Section */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Platform Overview
+                  </span>
+                </h1>
+                <p className="text-xl text-light_gray_text/80 mb-8">
+                  AI-powered game development with proven technology foundation 
+                  and clear roadmap for Series A acceleration.
                 </p>
-                <p>
-                  Built on a foundation of over 10,000 game patterns and mechanics, Eureka can 
-                  generate everything from simple puzzles to complex strategy systems.
-                </p>
-              </CardContent>
-            </Card>
-            
-            <Card className="bg-deep_purple border-light_purple/30 shadow-xl card-hover">
-              <CardHeader>
-                <CardTitle className="text-2xl text-light_gray_text">Galileo World Builder</CardTitle>
-                <CardDescription className="text-light_gray_text/70">
-                  Visual Asset and Environment Generator
-                </CardDescription>
-              </CardHeader>
-              <CardContent className="text-light_gray_text/80">
-                <p className="mb-4">
-                  Galileo specializes in creating cohesive visual styles and assets for your game. 
-                  From characters and environments to UI elements, it ensures a consistent 
-                  aesthetic throughout your creation.
-                </p>
-                <p>
-                  With advanced understanding of art styles, color theory, and visual storytelling,
-                  Galileo generates assets that perfectly match your game's mood and theme.
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-          
-          <div className="mt-12 bg-medium_purple/30 rounded-lg p-8 border border-light_purple/30">
-            <h3 className="text-2xl font-bold mb-4 text-electric_blue">Indigenous Technology</h3>
-            <p className="text-lg text-light_gray_text/90 mb-4">
-              Built in India for the world, our AI models represent cutting-edge innovation in game creation technology.
-              We've developed proprietary architectures specifically for understanding and generating interactive experiences.
-            </p>
-            <p className="text-lg text-light_gray_text/90">
-              Unlike general-purpose AI, our models are trained specifically for game development,
-              understanding game mechanics, player psychology, and visual design principles.
-            </p>
-          </div>
-        </div>
-      </div>
-      
-      {/* Key Features */}
-      <div id="features" className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
-            Unprecedented <span className="text-tech_green">Capabilities</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {features.map((feature, index) => (
-              <div key={index} className="bg-medium_purple/30 rounded-lg p-6 border border-light_purple/30 card-hover">
-                <div className="mb-4">
-                  {feature.icon}
+              </div>
+            </div>
+          </section>
+
+          {/* Platform Status Component */}
+          <PlatformStatus />
+
+          {/* How It Works */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  How <span className="text-tech_green">It Works</span>
+                </h2>
+                
+                <div className="grid md:grid-cols-4 gap-6">
+                  <div className="text-center p-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-bright_magenta to-purple-600 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">1</div>
+                    <h3 className="text-xl font-bold text-bright_magenta mb-3">Describe Your Game</h3>
+                    <p className="text-light_gray_text/80">Natural language description of your game concept, mechanics, and vision.</p>
+                  </div>
+                  
+                  <div className="text-center p-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-purple-600 to-blue-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">2</div>
+                    <h3 className="text-xl font-bold text-purple-400 mb-3">AI Processing</h3>
+                    <p className="text-light_gray_text/80">Advanced AI analyzes your description and generates game architecture, assets, and logic.</p>
+                  </div>
+                  
+                  <div className="text-center p-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-tech_green flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">3</div>
+                    <h3 className="text-xl font-bold text-blue-400 mb-3">Unreal Engine Build</h3>
+                    <p className="text-light_gray_text/80">Professional game engine creates playable, production-ready game output.</p>
+                  </div>
+                  
+                  <div className="text-center p-6">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-tech_green to-cyan-400 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-4">4</div>
+                    <h3 className="text-xl font-bold text-tech_green mb-3">Play & Deploy</h3>
+                    <p className="text-light_gray_text/80">Instant playtesting with iterative refinement and multi-platform deployment options.</p>
+                  </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">{feature.name}</h3>
-                <p className="text-light_gray_text/80">{feature.description}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
-      
-      {/* Output & Export */}
-      <div id="technology" className="py-16">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6 text-center">
-            Production-Ready, <span className="text-bright_magenta">Cross-Platform</span>
-          </h2>
-          <p className="text-center text-xl mb-12 max-w-3xl mx-auto">
-            Create once, deploy everywhere. XEUR.AI generates games that work seamlessly
-            across multiple platforms with automatic optimizations.
-          </p>
-          
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-12">
-            {exportPlatforms.map((platform, index) => (
-              <div key={index} className="bg-medium_purple/30 rounded-lg p-4 text-center border border-light_purple/30 card-hover">
-                <p>{platform}</p>
+            </div>
+          </section>
+
+          {/* Technical Architecture */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Technical Architecture
+                  </span>
+                </h2>
+                
+                <div className="grid md:grid-cols-3 gap-8">
+                  {/* AI Layer */}
+                  <div className="p-8 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-bright_magenta mb-6">AI Processing Layer</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-bright_magenta pl-4">
+                        <h4 className="font-semibold">Current: OpenAI Integration</h4>
+                        <p className="text-sm text-light_gray_text/70">Advanced language models for content generation</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-bright_magenta/50 pl-4">
+                        <h4 className="font-semibold">Roadmap: Proprietary XEUR LLM</h4>
+                        <p className="text-sm text-light_gray_text/70">Custom training on 78K+ game dataset</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-bright_magenta/50 pl-4">
+                        <h4 className="font-semibold">Roadmap: Specialized Models</h4>
+                        <p className="text-sm text-light_gray_text/70">Domain-specific AI for different game genres</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Engine Layer */}
+                  <div className="p-8 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-tech_green mb-6">Game Engine Layer</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Unreal Engine 5</h4>
+                        <p className="text-sm text-light_gray_text/70">Industry-standard professional game engine</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Real-Time Compilation</h4>
+                        <p className="text-sm text-light_gray_text/70">Instant game building and testing</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Asset Pipeline</h4>
+                        <p className="text-sm text-light_gray_text/70">Automated asset generation and integration</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Platform Layer */}
+                  <div className="p-8 bg-gradient-to-b from-purple-400/20 to-transparent border border-purple-400/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-purple-400 mb-6">Platform Layer</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-purple-400 pl-4">
+                        <h4 className="font-semibold">Web-Based Interface</h4>
+                        <p className="text-sm text-light_gray_text/70">Cloud-native development environment</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-purple-400/50 pl-4">
+                        <h4 className="font-semibold">Roadmap: Mobile Platform</h4>
+                        <p className="text-sm text-light_gray_text/70">iOS and Android application support</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-purple-400/50 pl-4">
+                        <h4 className="font-semibold">Roadmap: Enterprise API</h4>
+                        <p className="text-sm text-light_gray_text/70">B2B integration and white-label solutions</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            ))}
-          </div>
-          
-          <div className="text-center">
-            <Link href="/pricing" className="btn-primary">
-              View Pricing Plans
-            </Link>
-          </div>
-        </div>
+            </div>
+          </section>
+
+          {/* Demo CTA */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                  Ready to Experience the <span className="text-tech_green">Platform</span>?
+                </h2>
+                <p className="text-xl text-light_gray_text/80 mb-8">
+                  See our alpha platform in action or request direct access for hands-on testing.
+                </p>
+                
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <a
+                    href="https://www.youtube.com/watch?v=XtI4AndkV24"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-8 py-4 bg-gradient-to-r from-bright_magenta to-purple-600 text-white font-bold rounded-lg hover:from-purple-600 hover:to-bright_magenta transition-all duration-300 transform hover:scale-105"
+                  >
+                    🎬 Watch Live Demo
+                  </a>
+                  
+                  <a
+                    href="mailto:harshit@cpgplay.com?subject=Alpha Platform Access Request"
+                    className="px-8 py-4 border-2 border-tech_green text-tech_green hover:bg-tech_green/10 rounded-lg transition-all duration-300 transform hover:scale-105"
+                  >
+                    🚀 Request Alpha Access
+                  </a>
+                </div>
+                
+                <p className="text-sm text-light_gray_text/60 mt-6">
+                  Direct founder access • No sales process • Real platform testing
+                </p>
+              </div>
+            </div>
+          </section>
+        </main>
+        
+        <Footer />
       </div>
-      
-      <Footer />
-    </div>
+    </>
   );
 };
 
