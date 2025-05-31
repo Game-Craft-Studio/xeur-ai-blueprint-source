@@ -1,7 +1,7 @@
 {
-  "name": "@gamecraftstudio/xeur-ai-platform",
-  "description": "Revolutionary AI-powered game development platform - Create complete, production-ready games with simple text prompts. Transform ideas into multi-platform games in ~1 hour vs traditional 1+ years.",
-  "version": "1.3.0",
+  "name": "@cpg-xeur-ai/xeur-ai-platform",
+  "description": "XEUR.AI - Turn Words Into Worlds. AI-powered game development platform in alpha. Validated by Microsoft, NVIDIA, and Google partnerships.",
+  "version": "2.0.0",
   "private": true,
   "homepage": "https://xeur.ai",
   "repository": {
@@ -10,44 +10,41 @@
   },
   "bugs": {
     "url": "https://github.com/cpg-xeur-ai/xeur-ai-blueprint-source/issues",
-    "email": "support@xeur.ai"
+    "email": "harshit@cpgplay.com"
   },
   "author": {
-    "name": "XEUR.AI (Craft Production Group)",
-    "email": "hello@xeur.ai",
+    "name": "XEUR.AI by CPG Play",
+    "email": "harshit@cpgplay.com",
     "url": "https://xeur.ai"
   },
   "contributors": [
     {
       "name": "Harshit Verma",
-      "email": "harshit@xeur.ai",
-      "role": "CEO & Co-Founder"
+      "email": "harshit@cpgplay.com",
+      "role": "Co-Founder & Technical Lead"
     },
     {
       "name": "Rishav Goyal",
-      "email": "rishav@xeur.ai",
-      "role": "COO & Co-Founder"
+      "email": "rishav@cpgplay.com",
+      "role": "Co-Founder & Business Development"
     }
   ],
   "keywords": [
     "ai",
     "artificial-intelligence",
     "game-development",
-    "game-creation",
-    "llm",
+    "alpha-platform",
+    "unreal-engine",
+    "openai",
     "next.js",
     "typescript",
     "react",
     "xeur",
-    "no-code",
-    "shadcn-ui",
-    "multi-platform",
-    "web3",
-    "blockchain",
-    "creator-economy",
+    "microsoft-for-startups",
     "nvidia-inception",
-    "alpha-beta",
-    "seed-funding"
+    "google-for-startups",
+    "series-a",
+    "cpg-play"
   ],
   "license": "UNLICENSED",
   "scripts": {
@@ -193,7 +190,7 @@
   },
   "funding": {
     "type": "venture",
-    "url": "https://xeur.ai/investors"
+    "url": "mailto:harshit@cpgplay.com"
   },
   "os": [
     "darwin",
