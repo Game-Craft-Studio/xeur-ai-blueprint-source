@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { MessageSquarePlus, Cpu, Play, Share2, Clock, TrendingUp, Users, Zap, CheckCircle, ArrowRight } from "lucide-react";
+import { MessageSquarePlus, Cpu, Play, Share2, Clock, Users, CheckCircle, ArrowRight } from "lucide-react";
 import BetaSignupModal from './BetaSignupModal';
 
 const HowItWorks = () => {
@@ -206,17 +206,17 @@ const HowItWorks = () => {
                     <h4 className="text-xl font-bold mb-4 text-tech_green">Creator Input:</h4>
                     <div className="bg-near_black/60 border border-tech_green/30 rounded-lg p-4 mb-4">
                       <code className="text-tech_green text-lg">
-                        {realExamples[currentExample].prompt}
+                        {realExamples[currentExample]?.prompt}
                       </code>
                     </div>
                     <div className="flex items-center gap-4 text-sm text-light_gray_text/70">
                       <span className="flex items-center gap-1">
                         <Clock size={16} />
-                        {realExamples[currentExample].time}
+                        {realExamples[currentExample]?.time}
                       </span>
                       <span className="flex items-center gap-1">
                         <Users size={16} />
-                        {realExamples[currentExample].creator}
+                        {realExamples[currentExample]?.creator}
                       </span>
                     </div>
                   </div>
@@ -225,8 +225,8 @@ const HowItWorks = () => {
                   <div>
                     <h4 className="text-xl font-bold mb-4 text-bright_magenta">XEUR Output:</h4>
                     <div className="bg-gradient-to-r from-bright_magenta/10 to-purple-600/10 border border-bright_magenta/30 rounded-lg p-4 mb-4">
-                      <div className="text-lg font-semibold mb-2">{realExamples[currentExample].result}</div>
-                      <div className="text-sm text-light_gray_text/70">Genre: {realExamples[currentExample].genre}</div>
+                      <div className="text-lg font-semibold mb-2">{realExamples[currentExample]?.result}</div>
+                      <div className="text-sm text-light_gray_text/70">Genre: {realExamples[currentExample]?.genre}</div>
                     </div>
                     <div className="flex items-center gap-2">
                       <CheckCircle size={16} className="text-tech_green" />

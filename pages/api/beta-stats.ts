@@ -28,18 +28,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     
     // Calculate today's signups
     const today = new Date().toISOString().split('T')[0];
-    const todaySignups = signups.filter(signup => 
+    const todaySignups = signups.filter((signup: { timestamp: { startsWith: (arg0: string | undefined) => any; }; }) => 
       signup.timestamp.startsWith(today)
     ).length;
 
     // Calculate this week's signups
     const weekAgo = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString();
-    const weekSignups = signups.filter(signup => 
-      signup.timestamp >= weekAgo
+    const weekSignups = signups.filter((signup: { timestamp: string; }) => 
+      new Date(signup.timestamp) >= new Date(weekAgo)
     ).length;
 
     // Calculate growth rate
-    const lastWeekSignups = signups.filter(signup => {
+    const lastWeekSignups = signups.filter((signup: { timestamp: string | number | Date; }) => {
       const signupDate = new Date(signup.timestamp);
       const twoWeeksAgo = new Date(Date.now() - 14 * 24 * 60 * 60 * 1000);
       return signupDate >= twoWeeksAgo && signupDate < new Date(Date.now() - 7 * 24 * 60 * 60 * 1000);

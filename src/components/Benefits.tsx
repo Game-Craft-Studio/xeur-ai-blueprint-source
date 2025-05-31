@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Clock, Globe, Infinity, Palette, Terminal, Zap, TrendingUp, Users, DollarSign, Star, Quote } from "lucide-react";
+import { Clock, Globe, Infinity, Terminal, Zap, TrendingUp, Users, DollarSign, Star, Quote } from "lucide-react";
 import BetaSignupModal from './BetaSignupModal';
 import InvestorModal from './InvestorModal';
 

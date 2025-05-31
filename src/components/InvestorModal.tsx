@@ -1,6 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 
+// This TypeScript declaration is fine, it just tells TypeScript about the global gtag
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
+// REMOVE THIS LINE: const gtag = window.gtag;
+
 interface InvestorModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -33,14 +42,20 @@ const InvestorModal: React.FC<InvestorModalProps> = ({ isOpen, onClose }) => {
       setError('');
     }
 
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
+    // This part is already client-side safe due to being in useEffect
+    if (typeof window !== 'undefined' && window.document && window.document.body) {
+      if (isOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'unset';
+      }
     }
 
+    // Cleanup function
     return () => {
-      document.body.style.overflow = 'unset';
+      if (typeof window !== 'undefined' && window.document && window.document.body) {
+        document.body.style.overflow = 'unset';
+      }
     };
   }, [isOpen]);
 
@@ -67,8 +82,9 @@ const InvestorModal: React.FC<InvestorModalProps> = ({ isOpen, onClose }) => {
       setSubmitted(true);
 
       // Track successful investor inquiry
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'investor_inquiry_submitted', {
+      // MODIFIED: Access window.gtag directly and conditionally
+      if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+        window.gtag('event', 'investor_inquiry_submitted', {
           event_category: 'investment',
           event_label: 'investor_modal',
           value: 1
@@ -89,21 +105,33 @@ const InvestorModal: React.FC<InvestorModalProps> = ({ isOpen, onClose }) => {
     }
   };
 
-  const handleEscapeKey = (e: React.KeyboardEvent) => {
-    if (e.key === 'Escape') {
-      onClose();
-    }
-  };
+  // Consider adding onKeyDown to the modal container if you want this to work
+  // when the modal itself is focused, not just any element on the page.
+  // For now, this will only work if the component or its children are focused.
+  // useEffect(() => {
+  //   const handleEsc = (event: KeyboardEvent) => {
+  //     if (event.key === 'Escape') {
+  //       onClose();
+  //     }
+  //   };
+  //   if (isOpen) {
+  //     document.addEventListener('keydown', handleEsc);
+  //   }
+  //   return () => {
+  //     document.removeEventListener('keydown', handleEsc);
+  //   };
+  // }, [isOpen, onClose]);
+
 
   if (!isOpen) {
     return null;
   }
 
+
   return (
     <div
       className='fixed inset-0 bg-near_black/90 backdrop-blur-sm flex items-center justify-center z-50 p-4 transition-opacity duration-300 ease-in-out'
       onClick={handleBackdropClick}
-      onKeyDown={handleEscapeKey}
       role="dialog"
       aria-modal="true"
       aria-labelledby="modal-title"
@@ -379,3 +407,4 @@ const InvestorModal: React.FC<InvestorModalProps> = ({ isOpen, onClose }) => {
 };
 
 export default InvestorModal;
+

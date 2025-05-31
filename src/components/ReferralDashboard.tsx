@@ -16,6 +16,7 @@ interface UserReferralData {
   conversionRate: number;
   shareUrl: string;
   createdAt: string;
+  email: string;
 }
 
 interface LeaderboardEntry {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BetaSignupModal from './BetaSignupModal';
 import InvestorModal from './InvestorModal';
-import Link from 'next/link';
+
 
 const Hero = () => {
   const [isBetaModalOpen, setIsBetaModalOpen] = useState(false);

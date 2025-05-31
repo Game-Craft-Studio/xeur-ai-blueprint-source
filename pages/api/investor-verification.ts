@@ -73,7 +73,11 @@ function generateVerificationCode(): string {
 }
 
 function getCompanyDomain(email: string): string {
-  return email.split('@')[1].toLowerCase();
+  const parts = email.split('@');
+  if (parts.length < 2 || !parts[1]) {
+    throw new Error('Invalid email format');
+  }
+  return parts[1].toLowerCase();
 }
 
 function isKnownInvestorDomain(domain: string): boolean {
@@ -84,31 +88,6 @@ async function sendVerificationEmail(investor: VerifiedInvestor) {
   // In production, integrate with your email service
   console.log(`Verification email would be sent to ${investor.email}`);
   console.log(`Verification code: ${investor.verificationCode}`);
-  
-  // Template for verification email:
-  const emailTemplate = `
-    Subject: Verify your investor access to XEUR.AI updates
-    
-    Dear ${investor.title} at ${investor.company},
-    
-    Thank you for your interest in receiving XEUR.AI investor updates.
-    
-    To verify your company email and ensure you receive our exclusive investor communications, 
-    please use this verification code: ${investor.verificationCode}
-    
-    Or click this link: https://xeur.ai/verify-investor?code=${investor.verificationCode}&email=${encodeURIComponent(investor.email)}
-    
-    Once verified, you'll receive:
-    • Monthly progress reports with key metrics
-    • Partnership announcements and validation updates  
-    • Funding milestone notifications
-    • Product development insights
-    • Industry analysis and market positioning updates
-    
-    Best regards,
-    Harshit Verma
-    CEO, XEUR.AI
-  `;
   
   // Implement actual email sending here
 }

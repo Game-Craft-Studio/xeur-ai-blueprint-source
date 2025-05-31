@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import { X } from 'lucide-react';
 
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
 interface BetaSignupModalProps {
   isOpen: boolean;
   onClose: () => void;
@@ -75,8 +81,8 @@ const BetaSignupModal: React.FC<BetaSignupModalProps> = ({ isOpen, onClose }) =>
       setSubmitted(true);
 
       // Track successful signup
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'beta_signup_completed', {
+      if (typeof window.gtag !== 'undefined') {
+        window.gtag('event', 'beta_signup_completed', {
           event_category: 'engagement',
           event_label: 'beta_modal',
           value: data.position

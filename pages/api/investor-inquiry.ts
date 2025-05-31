@@ -11,9 +11,9 @@ interface InvestorInquiry {
   timeline: string;
   interest: string;
   timestamp: string;
-  ip?: string;
-  userAgent?: string;
-  referrer?: string;
+  ip: string | undefined;
+  userAgent: string | undefined;
+  referrer: string | undefined;
   status: 'new' | 'contacted' | 'follow_up' | 'qualified' | 'not_qualified';
 }
 
@@ -114,11 +114,10 @@ async function sendInvestorAutoResponse(inquiry: InvestorInquiry) {
   // Log for now - replace with actual email service
   console.log(`Auto-response would be sent to ${inquiry.email} from ${inquiry.company}`);
   
-  // Template for immediate response:
-  const responseTemplate = `
-    Subject: Thank you for your interest in XEUR.AI - Let's schedule a call
+  // In production, send actual email here using the template below
+  return `Subject: Thank you for your interest in XEUR.AI - Let's schedule a call
 
-    Dear ${inquiry.title ? inquiry.title + ' ' : ''}Team at ${inquiry.company},
+    Dear ${inquiry.title ? `${inquiry.title} ` : ''}Team at ${inquiry.company},
 
     Thank you for your interest in XEUR.AI's $2.5M seed round at $25M pre-money.
 
@@ -133,10 +132,7 @@ async function sendInvestorAutoResponse(inquiry: InvestorInquiry) {
     Best regards,
     Harshit Verma
     CEO & Co-Founder
-    XEUR.AI
-  `;
-  
-  // In production, send actual email here
+    XEUR.AI`;
 }
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {

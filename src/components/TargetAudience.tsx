@@ -163,17 +163,17 @@ const TargetAudience = () => {
 
             {/* Active Audience Deep Dive */}
             <div className="max-w-6xl mx-auto">
-              <div className={`bg-gradient-to-r ${audiences[activeAudience].color} border ${audiences[activeAudience].borderColor} rounded-xl p-8`}>
+              <div className={`bg-gradient-to-r ${audiences[activeAudience]?.color ?? 'from-gray-500/20 to-gray-600/20'} border ${audiences[activeAudience]?.borderColor ?? 'border-gray-500/30'} rounded-xl p-8`}>
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   {/* Audience Profile */}
                   <div>
                     <div className="flex items-center mb-6">
                       <div className="bg-near_black/30 backdrop-blur-sm p-4 rounded-full mr-4">
-                        {audiences[activeAudience].icon}
+                        {audiences[activeAudience]?.icon}
                       </div>
                       <div>
-                        <h4 className="text-3xl font-bold">{audiences[activeAudience].name}</h4>
-                        <p className="text-lg text-light_gray_text/80">{audiences[activeAudience].subtitle}</p>
+                        <h4 className="text-3xl font-bold">{audiences[activeAudience]?.name}</h4>
+                        <p className="text-lg text-light_gray_text/80">{audiences[activeAudience]?.subtitle}</p>
                       </div>
                     </div>
 
@@ -182,7 +182,7 @@ const TargetAudience = () => {
                       <h5 className="text-lg font-semibold mb-4 text-bright_magenta">Market Reality:</h5>
                       <div className="grid grid-cols-2 gap-4 mb-4">
                         <div>
-                          <div className="text-2xl font-bold text-tech_green">{audiences[activeAudience].marketSize}</div>
+                          <div className="text-2xl font-bold text-tech_green">{audiences[activeAudience]?.marketSize}</div>
                           <div className="text-sm text-light_gray_text/70">Total Addressable Market</div>
                         </div>
                         <div>
@@ -191,7 +191,7 @@ const TargetAudience = () => {
                         </div>
                       </div>
                       <p className="text-light_gray_text/90 italic">
-                        **Pain Point:** {audiences[activeAudience].painPoint}
+                        **Pain Point:** {audiences[activeAudience]?.painPoint}
                       </p>
                     </div>
 
@@ -199,22 +199,22 @@ const TargetAudience = () => {
                     <div className="mb-6">
                       <h5 className="text-lg font-semibold mb-3 text-tech_green">XEUR.AI Solution:</h5>
                       <p className="text-light_gray_text/90 leading-relaxed">
-                        {audiences[activeAudience].description}
+                        {audiences[activeAudience]?.description}
                       </p>
                     </div>
 
                     {/* Evidence Metrics */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <div className="text-center">
-                        <div className="text-xl font-bold text-tech_green">{audiences[activeAudience].evidenceMetrics.success}</div>
+                        <div className="text-xl font-bold text-tech_green">{audiences[activeAudience]?.evidenceMetrics.success}</div>
                         <div className="text-xs text-light_gray_text/70">Success Rate</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xl font-bold text-bright_magenta">{audiences[activeAudience].evidenceMetrics.revenue}</div>
+                        <div className="text-xl font-bold text-bright_magenta">{audiences[activeAudience]?.evidenceMetrics.revenue}</div>
                         <div className="text-xs text-light_gray_text/70">Revenue Impact</div>
                       </div>
                       <div className="text-center">
-                        <div className="text-xl font-bold text-yellow-400">{audiences[activeAudience].evidenceMetrics.time}</div>
+                        <div className="text-xl font-bold text-yellow-400">{audiences[activeAudience]?.evidenceMetrics.time}</div>
                         <div className="text-xs text-light_gray_text/70">Time to Market</div>
                       </div>
                     </div>
@@ -233,16 +233,16 @@ const TargetAudience = () => {
                         <div className="flex items-start gap-3 mb-4">
                           <Quote size={20} className="text-tech_green mt-1 shrink-0" />
                           <p className="text-lg italic text-light_gray_text/90 leading-relaxed">
-                            "{audiences[activeAudience].testimonial.quote}"
+                            "{audiences[activeAudience]?.testimonial.quote}"
                           </p>
                         </div>
                         <div className="flex items-center justify-between">
                           <div>
-                            <div className="font-semibold text-white">{audiences[activeAudience].testimonial.author}</div>
-                            <div className="text-sm text-light_gray_text/70">{audiences[activeAudience].testimonial.role}</div>
+                            <div className="font-semibold text-white">{audiences[activeAudience]?.testimonial.author}</div>
+                            <div className="text-sm text-light_gray_text/70">{audiences[activeAudience]?.testimonial.role}</div>
                           </div>
                           <div className="text-right">
-                            <div className="text-xl font-bold text-tech_green">{audiences[activeAudience].testimonial.result}</div>
+                            <div className="text-xl font-bold text-tech_green">{audiences[activeAudience]?.testimonial.result}</div>
                             <div className="text-xs text-light_gray_text/70">Achievement</div>
                           </div>
                         </div>
@@ -254,15 +254,15 @@ const TargetAudience = () => {
                         <div className="space-y-3">
                           <div className="flex items-center gap-3">
                             <div className="w-3 h-3 bg-warning_red rounded-full"></div>
-                            <span className="text-sm">Before: {audiences[activeAudience].caseStudy.before}</span>
+                            <span className="text-sm">Before: {audiences[activeAudience]?.caseStudy.before}</span>
                           </div>
                           <div className="flex items-center gap-3">
                             <Clock size={16} className="text-bright_magenta" />
-                            <span className="text-sm font-semibold text-bright_magenta">{audiences[activeAudience].caseStudy.timeframe}</span>
+                            <span className="text-sm font-semibold text-bright_magenta">{audiences[activeAudience]?.caseStudy.timeframe}</span>
                           </div>
                           <div className="flex items-center gap-3">
                             <div className="w-3 h-3 bg-tech_green rounded-full"></div>
-                            <span className="text-sm">After: {audiences[activeAudience].caseStudy.after}</span>
+                            <span className="text-sm">After: {audiences[activeAudience]?.caseStudy.after}</span>
                           </div>
                         </div>
                       </div>
@@ -274,13 +274,13 @@ const TargetAudience = () => {
                         onClick={openBetaModal}
                         className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-300 bg-gradient-to-r from-bright_magenta to-purple-600 rounded-xl hover:from-purple-600 hover:to-bright_magenta transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-bright_magenta/50 mb-4"
                       >
-                        <span className="relative z-10">{audiences[activeAudience].ctaText}</span>
+                        <span className="relative z-10">{audiences[activeAudience]?.ctaText}</span>
                         <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-bright_magenta to-purple-600 blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
                       </button>
                       
                       <div className="flex items-center justify-center gap-4 text-sm text-light_gray_text/70">
-                        <Link 
-                          href={audiences[activeAudience].link}
+                        <Link
+                          href={audiences[activeAudience]?.link || '#'}
                           className="flex items-center gap-2 hover:text-tech_green transition-colors"
                         >
                           Learn more <ArrowRight size={16} />

@@ -15,18 +15,18 @@ interface ReferralData {
   conversionRate: number;
 }
 
-interface BetaSignup {
-  id: string;
-  email: string;
-  subscribe: boolean;
-  source: string;
-  timestamp: string;
-  referralCode?: string;
-  referrerEmail?: string;
-}
+// interface _BetaSignup {
+//   id: string;
+//   email: string;
+//   subscribe: boolean;
+//   source: string;
+//   timestamp: string;
+//   referralCode?: string;
+//   referrerEmail?: string;
+// }
 
 const REFERRALS_FILE = path.join(process.cwd(), 'data', 'referrals.json');
-const BETA_SIGNUPS_FILE = path.join(process.cwd(), 'data', 'beta-signups.json');
+// const BETA_SIGNUPS_FILE = path.join(process.cwd(), 'data', 'beta-signups.json');
 
 function ensureDataDirectory() {
   const dataDir = path.dirname(REFERRALS_FILE);
@@ -58,17 +58,6 @@ function writeReferrals(referrals: ReferralData[]) {
   }
 }
 
-function readBetaSignups(): BetaSignup[] {
-  try {
-    if (fs.existsSync(BETA_SIGNUPS_FILE)) {
-      const data = fs.readFileSync(BETA_SIGNUPS_FILE, 'utf8');
-      return JSON.parse(data);
-    }
-  } catch (error) {
-    console.error('Error reading beta signups:', error);
-  }
-  return [];
-}
 
 function generateReferralCode(email: string): string {
   // Generate unique 8-character code based on email and timestamp

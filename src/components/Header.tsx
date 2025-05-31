@@ -179,7 +179,8 @@ const Header = () => {
                     role="menu"
                     aria-label={`${link.title} submenu`}
                   >
-                    <div className="bg-near_black/98 backdrop-blur-md rounded-xl shadow-2xl shadow-deep_purple/50 overflow-hidden border border-light_purple/30">
+                    {/* MODIFIED LINE BELOW: bg-black (fully opaque), backdrop-blur-sm, border-neutral-700 */}
+                    <div className="bg-black backdrop-blur-sm rounded-xl shadow-2xl shadow-deep_purple/50 overflow-hidden border border-neutral-700">
                       {link.children.map((child) => (
                         <Link
                           key={child.title}
@@ -260,7 +261,8 @@ const Header = () => {
         <div 
           id="mobile-menu"
           className={cn(
-            "lg:hidden fixed top-[121px] left-0 w-full bg-near_black/98 backdrop-blur-md shadow-2xl z-50 transition-all duration-300 border-t border-light_purple/30", 
+            // MODIFIED LINE BELOW: bg-black (fully opaque), backdrop-blur-sm, border-t-neutral-700
+            "lg:hidden fixed top-[121px] left-0 w-full bg-black backdrop-blur-sm shadow-2xl z-50 transition-all duration-300 border-t border-neutral-700", 
             mobileMenuOpen 
               ? "max-h-[calc(100vh-121px)] overflow-y-auto opacity-100" 
               : "max-h-0 overflow-hidden opacity-0"

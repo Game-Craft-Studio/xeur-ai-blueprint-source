@@ -11,11 +11,11 @@ interface BetaSignup {
   subscribe: boolean;
   source: string;
   timestamp: string;
-  ip?: string;
-  userAgent?: string;
-  referrer?: string;
-  referralCode?: string;
-  referrerEmail?: string;
+  ip?: string | undefined;
+  userAgent?: string | undefined;
+  referrer?: string | undefined;
+  referralCode?: string | undefined;
+  referrerEmail?: string | undefined;
 }
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'beta-signups.json');
@@ -68,7 +68,7 @@ async function validateReferralCode(referralCode: string) {
 }
 
 // Process referral after successful signup
-async function processReferral(newSignupEmail: string, referralCode: string, referrerEmail: string) {
+async function processReferral(newSignupEmail: string, referralCode: string, _referrerEmail: string) {
   try {
     // Import the helper function
     const { processReferralSignup } = await import('./referrals');

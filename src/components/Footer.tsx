@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { Linkedin, Twitter, Youtube, Mail, Shield, Clock, TrendingUp, Users, Star, ArrowRight } from "lucide-react";
+import { Linkedin, Twitter, Youtube, Shield, Clock, Star } from "lucide-react";
 import BetaSignupModal from './BetaSignupModal';
 import InvestorModal from './InvestorModal';
 
