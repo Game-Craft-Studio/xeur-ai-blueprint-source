@@ -1,399 +1,285 @@
-import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Link from "next/link";
-import { Check, Code, Zap, Settings, Link as LinkIcon, Database, BookOpen, Users, Rocket } from "lucide-react";
+import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Head from 'next/head';
 
 const XeurAPI = () => {
-  const apiFeatures = [
-    {
-      icon: <Code className="w-10 h-10 text-tech_green" />,
-      title: "Game Generation API",
-      description: "Complete game creation from text prompts with programmatic access to all 8 specialized AI models.",
-      features: [
-        "RESTful endpoints for all game creation functions",
-        "Real-time generation status and progress tracking", 
-        "Customizable AI model parameters",
-        "Batch processing for multiple games"
-      ]
-    },
-    {
-      icon: <Settings className="w-10 h-10 text-bright_magenta" />,
-      title: "Asset Generation API",
-      description: "Standalone access to AI-powered 3D models, textures, audio, and animation generation.",
-      features: [
-        "High-fidelity 3D asset creation",
-        "Style-consistent texture generation",
-        "Procedural audio and music creation", 
-        "Animation and rigging automation"
-      ]
-    },
-    {
-      icon: <Rocket className="w-10 h-10 text-cyan-400" />,
-      title: "Deployment API", 
-      description: "Programmatic access to XEUR Xport for automated multi-platform game deployment.",
-      features: [
-        "Multi-platform compilation endpoints",
-        "Store metadata generation",
-        "Automated optimization profiles",
-        "Deployment status monitoring"
-      ]
-    },
-    {
-      icon: <LinkIcon className="w-10 h-10 text-purple-400" />,
-      title: "Web3 Integration API",
-      description: "Blockchain game deployment with NFT integration and smart contract generation.",
-      features: [
-        "Multi-chain deployment support", 
-        "Automated smart contract generation",
-        "NFT asset tokenization",
-        "Wallet integration helpers"
-      ]
-    }
-  ];
-
-  const codeExample = `// Initialize XEUR API client
-const xeur = new XEURClient({
-  apiKey: 'your-api-key',
-  environment: 'production'
-});
-
-// Create a game from text prompt
-const gameResponse = await xeur.createGame({
-  prompt: "Create a 2D platformer with a robot protagonist collecting energy crystals",
-  style: "cyberpunk",
-  complexity: "intermediate",
-  platforms: ["web", "mobile"]
-});
-
-// Monitor generation progress
-const status = await xeur.getGameStatus(gameResponse.gameId);
-
-// Deploy to multiple platforms
-if (status.completed) {
-  const deployment = await xeur.deployGame({
-    gameId: gameResponse.gameId,
-    platforms: ["ios", "android", "web"],
-    optimization: "performance"
-  });
-}`;
-
-  const pricingTiers = [
-    {
-      name: "Developer",
-      price: "$99",
-      period: "/month",
-      description: "Perfect for individual developers and small projects",
-      features: [
-        "1,000 API calls per month",
-        "Basic game generation endpoints", 
-        "Standard rate limits",
-        "Community support",
-        "Web deployment only",
-        "Basic documentation access"
-      ],
-      ctaText: "Start Developing",
-      ctaLink: "/signup?plan=api-developer",
-      highlighted: false
-    },
-    {
-      name: "Professional", 
-      price: "$499",
-      period: "/month",
-      description: "Most popular for growing teams and businesses",
-      features: [
-        "10,000 API calls per month",
-        "Full API suite access",
-        "Multi-platform deployment",
-        "Priority support",
-        "Webhook integrations",
-        "Advanced documentation",
-        "Usage analytics dashboard",
-        "SLA guarantees"
-      ],
-      ctaText: "Go Professional",
-      ctaLink: "/signup?plan=api-professional", 
-      highlighted: true
-    },
-    {
-      name: "Enterprise",
-      price: "Custom",
-      period: " pricing",
-      description: "Tailored solutions for large organizations",
-      features: [
-        "Unlimited API calls",
-        "Custom model training",
-        "White-label solutions",
-        "Dedicated infrastructure", 
-        "24/7 premium support",
-        "Custom integrations",
-        "On-premise deployment",
-        "Custom SLA agreements"
-      ],
-      ctaText: "Contact Sales",
-      ctaLink: "/contact?service=api-enterprise",
-      highlighted: false
-    }
-  ];
-
-  const integrationUseCases = [
-    {
-      icon: <BookOpen className="w-8 h-8 text-bright_magenta" />,
-      title: "Educational Platforms",
-      description: "Integrate game creation into learning management systems for interactive educational content."
-    },
-    {
-      icon: <Users className="w-8 h-8 text-tech_green" />,
-      title: "Enterprise Training", 
-      description: "Create branded training games and simulations for employee development programs."
-    },
-    {
-      icon: <Code className="w-8 h-8 text-cyan-400" />,
-      title: "App Development",
-      description: "Add game creation capabilities to your existing mobile or web applications."
-    },
-    {
-      icon: <Settings className="w-8 h-8 text-purple-400" />,
-      title: "Creative Tools",
-      description: "Enhance design platforms with AI-powered interactive content generation."
-    },
-    {
-      icon: <Database className="w-8 h-8 text-pink-400" />,
-      title: "E-commerce",
-      description: "Create product showcase games and interactive marketing experiences."
-    },
-    {
-      icon: <Zap className="w-8 h-8 text-yellow-400" />,
-      title: "Entertainment",
-      description: "Power content creation platforms with instant game generation capabilities."
-    }
-  ];
-
-  const developerResources = [
-    { icon: <BookOpen className="w-8 h-8 text-tech_green" />, title: "API Documentation", desc: "Complete endpoint reference with examples" },
-    { icon: <Code className="w-8 h-8 text-bright_magenta" />, title: "SDKs & Libraries", desc: "JavaScript, Python, PHP, and more" },
-    { icon: <Zap className="w-8 h-8 text-cyan-400" />, title: "Quick Start Guides", desc: "Get up and running in minutes" },
-    { icon: <Settings className="w-8 h-8 text-purple-400" />, title: "Code Examples", desc: "Real-world implementation samples" },
-    { icon: <LinkIcon className="w-8 h-8 text-pink-400" />, title: "Integration Guides", desc: "Platform-specific tutorials" },
-    { icon: <Database className="w-8 h-8 text-yellow-400" />, title: "API Console", desc: "Interactive testing environment" }
-  ];
-
   return (
-    <div className="bg-near_black min-h-screen">
-      <Header />
+    <>
+      <Head>
+        <title>XEUR API - Development Roadmap | AI Game Development Platform</title>
+        <meta name="description" content="XEUR API development roadmap for enterprise integration and developer platform. Series A acceleration target with Microsoft, NVIDIA, Google validation." />
+      </Head>
       
-      {/* Hero Section */}
-      <div className="pt-24 pb-16">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <h1 className="text-4xl md:text-6xl font-bold">
-                <span className="text-tech_green">XEUR.AI</span>
-                <span className="text-light_gray_text mx-4">×</span>
-                <span className="text-cyan-400">API</span>
-              </h1>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Power Your <span className="text-bright_magenta">Platform</span>
-            </h2>
-            <p className="text-xl text-light_gray_text/80 max-w-4xl mx-auto mb-8">
-              Integrate revolutionary AI game creation into your applications. Enterprise-grade API access to XEUR.AI's 
-              complete game generation engine - from simple prototyping to white-label solutions.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* API Features */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Complete <span className="text-bright_magenta">API Suite</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {apiFeatures.map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-medium_purple/30 rounded-xl p-8 border border-light_purple/30 hover:border-bright_magenta/50 transition-all duration-300"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="bg-medium_purple/50 rounded-lg p-3 mr-4">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-bright_magenta">{feature.title}</h3>
-                </div>
-                <p className="text-light_gray_text/80 mb-6">{feature.description}</p>
-                <ul className="space-y-2">
-                  {feature.features.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start text-sm">
-                      <Zap size={16} className="text-tech_green mr-2 shrink-0 mt-1" />
-                      <span className="text-light_gray_text/70">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Code Example */}
-      <div className="py-16">
-        <div className="container-custom">
-          <div className="max-w-4xl mx-auto">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-cyan-400">Quick Start Example</h2>
-              <span className="bg-cyan-400/20 px-4 py-2 rounded-full text-cyan-400 text-sm">JavaScript</span>
-            </div>
-            <div className="bg-near_black/80 border border-light_purple/30 rounded-lg p-6 overflow-x-auto">
-              <pre className="text-sm">
-                <code className="text-light_gray_text">
-                  {codeExample}
-                </code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Pricing Tiers */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            <Database className="inline-block w-10 h-10 text-purple-400 mr-2" />
-            API Pricing Tiers
-          </h2>
-          <p className="text-xl text-center text-light_gray_text/80 mb-12 max-w-3xl mx-auto">
-            Scalable pricing that grows with your application and user base
-          </p>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {pricingTiers.map((tier, index) => (
-              <div 
-                key={index}
-                className={`rounded-xl p-8 border transition-all duration-300 hover:scale-105 ${
-                  tier.highlighted 
-                    ? 'bg-purple-gradient border-bright_magenta shadow-lg shadow-bright_magenta/20' 
-                    : 'bg-medium_purple/20 border-light_purple/30'
-                }`}
-              >
-                {tier.highlighted && (
-                  <div className="text-center mb-4">
-                    <span className="bg-tech_green text-near_black font-bold py-1 px-4 rounded-full text-sm">
-                      MOST POPULAR
-                    </span>
-                  </div>
-                )}
+      <div className="bg-near_black min-h-screen text-gray-100">
+        <Header />
+        
+        <main className="pt-24">
+          {/* Hero Section */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    XEUR API
+                  </span>
+                </h1>
+                <p className="text-xl text-light_gray_text/80 mb-8">
+                  Enterprise API Development Roadmap • Series A Acceleration Priority
+                </p>
                 
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{tier.name}</h3>
-                  <div className="text-3xl font-bold text-bright_magenta mb-1">
-                    {tier.price}<span className="text-lg text-light_gray_text/70">{tier.period}</span>
+                <div className="bg-gradient-to-r from-yellow-400/20 to-orange-400/20 border border-yellow-400/30 rounded-xl p-4 mb-8 max-w-2xl mx-auto">
+                  <p className="text-yellow-400 font-semibold text-sm">
+                    🚀 DEVELOPMENT ROADMAP: API platform in Series A development pipeline. Alpha platform foundation proven.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Technology Foundation */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  Technology <span className="text-tech_green">Foundation</span>
+                </h2>
+                
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Current Capabilities */}
+                  <div className="p-8 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-tech_green mb-6">✅ Current Capabilities (Alpha Platform)</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Unreal Engine 5 Integration</h4>
+                        <p className="text-sm text-light_gray_text/70">Production-ready game engine foundation</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">OpenAI API Integration</h4>
+                        <p className="text-sm text-light_gray_text/70">Advanced AI-powered content generation</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Web-Based Platform</h4>
+                        <p className="text-sm text-light_gray_text/70">Cloud-native development environment</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Real-Time Game Generation</h4>
+                        <p className="text-sm text-light_gray_text/70">Working alpha demonstration available</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-light_gray_text/70">{tier.description}</p>
+
+                  {/* Development Roadmap */}
+                  <div className="p-8 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-bright_magenta mb-6">🚀 Development Roadmap (Series A Acceleration)</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-bright_magenta pl-4">
+                        <h4 className="font-semibold">XEUR API Platform</h4>
+                        <p className="text-sm text-light_gray_text/70">Enterprise integration and developer platform</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-bright_magenta pl-4">
+                        <h4 className="font-semibold">Proprietary XEUR LLM</h4>
+                        <p className="text-sm text-light_gray_text/70">Custom training on 78K+ game dataset</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-bright_magenta pl-4">
+                        <h4 className="font-semibold">White-Label Solutions</h4>
+                        <p className="text-sm text-light_gray_text/70">Enterprise customization and branding</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-bright_magenta pl-4">
+                        <h4 className="font-semibold">Multi-Platform Export</h4>
+                        <p className="text-sm text-light_gray_text/70">Mobile, console, and VR deployment</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Partnership Validation */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Triple Tech Giant Validation
+                  </span>
+                </h2>
+                
+                <div className="grid md:grid-cols-3 gap-8">
+                  {/* Microsoft */}
+                  <div className="text-center p-8 bg-gradient-to-b from-blue-500/20 to-transparent border border-blue-500/30 rounded-2xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">M</div>
+                    <h3 className="text-2xl font-bold text-blue-400 mb-4">Microsoft for Startups</h3>
+                    <p className="text-light_gray_text/80 mb-4">
+                      <strong>The Signal:</strong> Microsoft bet on our infrastructure before we had customers.
+                    </p>
+                    <p className="text-light_gray_text/70 text-sm">
+                      <strong>The Leverage:</strong> Azure cloud access + enterprise sales channels
+                    </p>
+                  </div>
+
+                  {/* NVIDIA */}
+                  <div className="text-center p-8 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-2xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">N</div>
+                    <h3 className="text-2xl font-bold text-tech_green mb-4">NVIDIA Inception</h3>
+                    <p className="text-light_gray_text/80 mb-4">
+                      <strong>The Signal:</strong> NVIDIA sees us as future of AI-powered creation.
+                    </p>
+                    <p className="text-light_gray_text/70 text-sm">
+                      <strong>The Leverage:</strong> DGX computing access + AI development acceleration
+                    </p>
+                  </div>
+
+                  {/* Google */}
+                  <div className="text-center p-8 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-2xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-red-500 to-yellow-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">G</div>
+                    <h3 className="text-2xl font-bold text-bright_magenta mb-4">Google for Startups</h3>
+                    <p className="text-light_gray_text/80 mb-4">
+                      <strong>The Signal:</strong> Graduated from Google's exclusive accelerator program.
+                    </p>
+                    <p className="text-light_gray_text/70 text-sm">
+                      <strong>The Leverage:</strong> Cloud infrastructure + proven go-to-market playbook
+                    </p>
+                  </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
-                  {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <Check size={18} className="text-tech_green mr-3 shrink-0 mt-1" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div className="text-center mt-12">
+                  <p className="text-xl text-light_gray_text/80 italic">
+                    When three tech giants independently validate your startup, that's not partnership - that's prophecy.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* API Development Timeline */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    API Development Timeline
+                  </span>
+                </h2>
                 
-                <Link 
-                  href={tier.ctaLink}
-                  className={`block w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
-                    tier.highlighted 
-                      ? 'bg-bright_magenta text-light_gray_text hover:bg-bright_magenta/90' 
-                      : 'bg-medium_purple text-light_gray_text hover:bg-medium_purple/80'
-                  }`}
-                >
-                  {tier.ctaText}
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Integration Use Cases */}
-      <div className="py-16">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            <LinkIcon className="inline-block w-10 h-10 text-pink-400 mr-2" />
-            Integration Use Cases
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {integrationUseCases.map((useCase, index) => (
-              <div 
-                key={index}
-                className="bg-medium_purple/30 rounded-xl p-6 border border-light_purple/30 hover:border-bright_magenta/50 transition-all duration-300 text-center"
-              >
-                <div className="flex justify-center mb-4">
-                  {useCase.icon}
+                <div className="grid md:grid-cols-3 gap-8">
+                  <div className="text-center p-6 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-xl">
+                    <h3 className="text-xl font-bold text-tech_green mb-4">Q2-Q3 2025</h3>
+                    <p className="text-light_gray_text/80 mb-4"><strong>Alpha API</strong></p>
+                    <ul className="text-sm text-light_gray_text/70 space-y-2">
+                      <li>• Basic game generation endpoints</li>
+                      <li>• Developer documentation</li>
+                      <li>• Authentication system</li>
+                      <li>• Rate limiting infrastructure</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="text-center p-6 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-xl">
+                    <h3 className="text-xl font-bold text-bright_magenta mb-4">Q4 2025 - Q1 2026</h3>
+                    <p className="text-light_gray_text/80 mb-4"><strong>Production API</strong></p>
+                    <ul className="text-sm text-light_gray_text/70 space-y-2">
+                      <li>• Full feature parity</li>
+                      <li>• Enterprise SLA guarantees</li>
+                      <li>• White-label customization</li>
+                      <li>• Advanced analytics dashboard</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="text-center p-6 bg-gradient-to-b from-purple-400/20 to-transparent border border-purple-400/30 rounded-xl">
+                    <h3 className="text-xl font-bold text-purple-400 mb-4">2026+</h3>
+                    <p className="text-light_gray_text/80 mb-4"><strong>Ecosystem Platform</strong></p>
+                    <ul className="text-sm text-light_gray_text/70 space-y-2">
+                      <li>• Marketplace integration</li>
+                      <li>• Third-party plugins</li>
+                      <li>• Advanced AI models</li>
+                      <li>• Global scaling infrastructure</li>
+                    </ul>
+                  </div>
                 </div>
-                <h3 className="text-lg font-semibold mb-3">{useCase.title}</h3>
-                <p className="text-sm text-light_gray_text/70">{useCase.description}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
+            </div>
+          </section>
 
-      {/* Developer Resources */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            <BookOpen className="inline-block w-10 h-10 text-tech_green mr-2" />
-            Developer Resources
-          </h2>
-          <p className="text-xl text-center text-light_gray_text/80 mb-12 max-w-3xl mx-auto">
-            Comprehensive documentation, SDKs, and support to get you building quickly
-          </p>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {developerResources.map((resource, index) => (
-              <div 
-                key={index}
-                className="bg-medium_purple/30 rounded-lg p-6 border border-light_purple/30 hover:border-tech_green/50 transition-all duration-300 text-center cursor-pointer hover:scale-105"
-              >
-                <div className="flex justify-center mb-3">
-                  {resource.icon}
+          {/* Investment Opportunity */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Series A Development Priority
+                  </span>
+                </h2>
+                
+                <div className="bg-gradient-to-r from-bright_magenta/20 to-tech_green/20 border border-bright_magenta/30 rounded-2xl p-8 mb-8">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-6">Enterprise API: The Platform Play</h3>
+                    <p className="text-xl text-light_gray_text/80 mb-6">
+                      Alpha platform validation + Series A acceleration = Enterprise API domination. 
+                      First-mover advantage with proven technology foundation.
+                    </p>
+                    
+                    <div className="grid md:grid-cols-3 gap-6 text-center">
+                      <div>
+                        <h4 className="text-xl font-bold text-bright_magenta mb-2">$28M+</h4>
+                        <p className="text-light_gray_text/80">Year 3 API Revenue Target</p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-tech_green mb-2">18+ Months</h4>
+                        <p className="text-light_gray_text/80">First-Mover Advantage</p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-purple-400 mb-2">Platform</h4>
+                        <p className="text-light_gray_text/80">Winner-Take-All Market</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <h4 className="font-semibold mb-2 text-sm">{resource.title}</h4>
-                <p className="text-xs text-light_gray_text/70">{resource.desc}</p>
+                
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-6">Direct Founder Access</h3>
+                  <p className="text-light_gray_text/80 mb-8">
+                    No gatekeepers, no sales process. Direct access to decision-makers.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a
+                      href="https://www.youtube.com/watch?v=XtI4AndkV24"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-4 bg-gradient-to-r from-bright_magenta to-purple-600 text-white font-bold rounded-lg hover:from-purple-600 hover:to-bright_magenta transition-all duration-300 transform hover:scale-105"
+                    >
+                      🎬 Watch Platform Demo
+                    </a>
+                    
+                    <a
+                      href="mailto:harshit@cpgplay.com?cc=rishav@cpgplay.com&subject=Enterprise API Development Discussion"
+                      className="px-8 py-4 border-2 border-tech_green text-tech_green hover:bg-tech_green/10 rounded-lg transition-all duration-300 transform hover:scale-105"
+                    >
+                      💼 Discuss Enterprise API
+                    </a>
+                  </div>
+                  
+                  <p className="text-sm text-light_gray_text/60 mt-6">
+                    Alpha platform proven • Series A acceleration ready • First-mover advantage
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </section>
+        </main>
+        
+        <Footer />
       </div>
-
-      {/* CTA Section */}
-      <div className="py-16 bg-gradient-to-r from-tech_green/20 to-cyan-400/20">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready to Build the <span className="text-bright_magenta">Future?</span>
-          </h2>
-          <p className="text-xl text-light_gray_text/80 mb-8 max-w-3xl mx-auto">
-            Join leading companies using XEUR API to power their creative platforms. Start building with AI game generation today.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup?plan=api" className="btn-primary">
-              Get API Key
-            </Link>
-            <Link href="/demo?service=api" className="btn-secondary">
-              Schedule Demo
-            </Link>
-          </div>
-        </div>
-      </div>
-      
-      <Footer />
-    </div>
+    </>
   );
 };
 

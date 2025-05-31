@@ -1,437 +1,290 @@
-import React from "react";
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
-import Link from "next/link";
-import { Check, Coins, Shield, Zap, Users, Gamepad2, Star, Trophy, Gem } from "lucide-react";
+import React from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import Head from 'next/head';
 
 const XeurConnect = () => {
-  const blockchains = [
-    { name: "Ethereum", icon: "⟠", desc: "Layer 1 & L2 scaling solutions" },
-    { name: "Polygon", icon: "⬣", desc: "Low-cost, fast transactions" },
-    { name: "Solana", icon: "◈", desc: "High-throughput gaming" },
-    { name: "BSC", icon: "◉", desc: "Binance Smart Chain integration" },
-    { name: "Avalanche", icon: "⟡", desc: "Subnet deployment ready" },
-    { name: "Arbitrum", icon: "◊", desc: "Optimized Layer 2 scaling" }
-  ];
-
-  const web3Features = [
-    {
-      icon: <Gamepad2 className="w-10 h-10 text-purple-400" />,
-      title: "NFT Game Generation",
-      description: "Create complete blockchain games with integrated NFT mechanics from simple text prompts.",
-      features: [
-        "Automated smart contract generation",
-        "In-game asset tokenization", 
-        "Play-to-earn mechanics",
-        "Cross-chain NFT compatibility"
-      ]
-    },
-    {
-      icon: <Star className="w-10 h-10 text-yellow-400" />,
-      title: "Integrated Marketplace",
-      description: "Built-in NFT marketplace with automated trading, royalties, and cross-game asset utility.",
-      features: [
-        "Automated royalty distribution",
-        "Cross-game asset interoperability",
-        "Decentralized trading protocols",
-        "Creator revenue sharing"
-      ]
-    },
-    {
-      icon: <Zap className="w-10 h-10 text-cyan-400" />,
-      title: "Multi-Chain Deployment",
-      description: "Deploy your games simultaneously across multiple blockchains with optimized performance.",
-      features: [
-        "One-click multi-chain deployment",
-        "Gas optimization algorithms",
-        "Cross-chain bridge integration", 
-        "Network-specific optimizations"
-      ]
-    },
-    {
-      icon: <Shield className="w-10 h-10 text-tech_green" />,
-      title: "Wallet Integration",
-      description: "Seamless wallet connectivity with support for all major Web3 wallets and authentication.",
-      features: [
-        "MetaMask & WalletConnect support",
-        "Social login integration",
-        "Gasless transaction options",
-        "Mobile wallet optimization"
-      ]
-    },
-    {
-      icon: <Gem className="w-10 h-10 text-pink-400" />,
-      title: "Advanced Tokenomics",
-      description: "Sophisticated token economics with staking, governance, and utility mechanisms.",
-      features: [
-        "Custom token creation",
-        "Staking and yield farming",
-        "DAO governance integration",
-        "Dynamic pricing algorithms"
-      ]
-    },
-    {
-      icon: <Users className="w-10 h-10 text-bright_magenta" />,
-      title: "Analytics & Insights",
-      description: "Comprehensive blockchain analytics with player behavior and economic performance tracking.",
-      features: [
-        "On-chain analytics dashboard",
-        "Player engagement metrics",
-        "Economic performance tracking",
-        "Predictive modeling"
-      ]
-    }
-  ];
-
-  const nftFeatures = [
-    {
-      icon: "🖼️",
-      title: "Asset Tokenization",
-      description: "Automatically convert game assets (characters, items, skins) into unique NFTs with metadata and provenance."
-    },
-    {
-      icon: "🔄", 
-      title: "Cross-Game Utility",
-      description: "Enable NFTs to work across multiple games in your ecosystem, increasing value and player engagement."
-    },
-    {
-      icon: "💰",
-      title: "Dynamic Pricing",
-      description: "AI-powered pricing algorithms that adjust NFT values based on rarity, demand, and in-game utility."
-    },
-    {
-      icon: "🏆",
-      title: "Achievement NFTs", 
-      description: "Automatically mint achievement and milestone NFTs as players progress, creating lasting value."
-    }
-  ];
-
-  const tokenomicsModels = [
-    {
-      icon: "🎯",
-      title: "Play-to-Earn",
-      description: "Players earn tokens through gameplay, creating sustainable gaming economies with real-world value."
-    },
-    {
-      icon: "🏦",
-      title: "Stake-to-Play",
-      description: "Players stake tokens to access premium content, creating token utility and reducing sell pressure."
-    },
-    {
-      icon: "🗳️",
-      title: "Governance Gaming",
-      description: "Token holders vote on game development decisions, creating community-driven gaming experiences."
-    },
-    {
-      icon: "🔄",
-      title: "Hybrid Models",
-      description: "Combine multiple tokenomics approaches for sophisticated gaming economies tailored to your audience."
-    }
-  ];
-
-  const pricingPlans = [
-    {
-      name: "Blockchain Starter",
-      price: "$199",
-      period: "/month",
-      description: "Perfect for first Web3 game projects",
-      features: [
-        "Single blockchain deployment",
-        "Basic NFT integration",
-        "Up to 1,000 NFTs",
-        "Standard smart contracts",
-        "Basic wallet integration",
-        "Community support"
-      ],
-      ctaText: "Start Web3 Journey",
-      ctaLink: "/signup?plan=web3-starter",
-      highlighted: false
-    },
-    {
-      name: "Multi-Chain Pro",
-      price: "$799",
-      period: "/month", 
-      description: "Most popular for serious Web3 developers",
-      features: [
-        "Multi-blockchain deployment",
-        "Advanced NFT marketplace",
-        "Unlimited NFT creation",
-        "Custom tokenomics",
-        "Cross-chain bridges",
-        "Priority support",
-        "Analytics dashboard",
-        "White-label options"
-      ],
-      ctaText: "Go Multi-Chain",
-      ctaLink: "/signup?plan=web3-pro",
-      highlighted: true
-    },
-    {
-      name: "Enterprise Web3", 
-      price: "Custom",
-      period: " pricing",
-      description: "Tailored blockchain solutions for enterprises",
-      features: [
-        "Custom blockchain solutions",
-        "Dedicated infrastructure",
-        "Custom smart contracts",
-        "Advanced security audits",
-        "Regulatory compliance",
-        "24/7 premium support",
-        "Custom integrations",
-        "Revenue sharing models"
-      ],
-      ctaText: "Contact Web3 Team",
-      ctaLink: "/contact?service=web3-enterprise",
-      highlighted: false
-    }
-  ];
-
   return (
-    <div className="bg-near_black min-h-screen">
-      <Header />
+    <>
+      <Head>
+        <title>XEUR Connect - Web3 Gaming Vision | Future Development Roadmap</title>
+        <meta name="description" content="XEUR Connect Web3 gaming platform vision. Long-term roadmap for blockchain integration and NFT marketplace development." />
+      </Head>
       
-      {/* Hero Section */}
-      <div className="pt-24 pb-16">
-        <div className="container-custom">
-          <div className="text-center mb-12">
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <h1 className="text-4xl md:text-6xl font-bold">
-                <span className="text-purple-400">XEUR.AI</span>
-                <span className="text-light_gray_text mx-4">×</span>
-                <span className="text-yellow-400">CONNECT</span>
-              </h1>
+      <div className="bg-near_black min-h-screen text-gray-100">
+        <Header />
+        
+        <main className="pt-24">
+          {/* Hero Section */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto text-center">
+                <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    XEUR Connect
+                  </span>
+                </h1>
+                <p className="text-xl text-light_gray_text/80 mb-8">
+                  Web3 Gaming Platform Vision • Long-term Development Roadmap
+                </p>
+                
+                <div className="bg-gradient-to-r from-purple-400/20 to-yellow-400/20 border border-purple-400/30 rounded-xl p-4 mb-8 max-w-2xl mx-auto">
+                  <p className="text-purple-400 font-semibold text-sm">
+                    🔮 FUTURE VISION: Web3 integration planned for post-Series A development. Alpha platform foundation proven.
+                  </p>
+                </div>
+              </div>
             </div>
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              <span className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-                Web3 Gaming Revolution
-              </span>
-            </h2>
-            <p className="text-xl text-light_gray_text/80 max-w-4xl mx-auto mb-8">
-              Bridge traditional gaming with blockchain technology. Create, deploy, and monetize NFT-enabled games 
-              across multiple blockchains with seamless integration and powerful tokenomics.
-            </p>
-          </div>
-        </div>
-      </div>
+          </section>
 
-      {/* Blockchain Showcase */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Multi-Chain <span className="text-bright_magenta">Deployment</span>
-          </h2>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {blockchains.map((blockchain, index) => (
-              <div 
-                key={index}
-                className="bg-medium_purple/30 rounded-xl p-6 border border-light_purple/30 hover:border-purple-400/50 transition-all duration-300 hover:scale-105 text-center group"
-              >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">
-                  {blockchain.icon}
-                </div>
-                <h3 className="font-semibold mb-2 group-hover:text-purple-400 transition-colors">
-                  {blockchain.name}
-                </h3>
-                <p className="text-sm text-light_gray_text/70">{blockchain.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Web3 Features */}
-      <div className="py-16">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            Complete <span className="text-bright_magenta">Web3 Gaming Suite</span>
-          </h2>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {web3Features.map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-medium_purple/30 rounded-xl p-8 border border-light_purple/30 hover:border-purple-400/50 transition-all duration-300"
-              >
-                <div className="flex items-center mb-6">
-                  <div className="bg-medium_purple/50 rounded-lg p-3 mr-4">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-purple-400">{feature.title}</h3>
-                </div>
-                <p className="text-light_gray_text/80 mb-6">{feature.description}</p>
-                <ul className="space-y-2">
-                  {feature.features.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start text-sm">
-                      <Coins size={16} className="text-yellow-400 mr-2 shrink-0 mt-1" />
-                      <span className="text-light_gray_text/70">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* NFT Marketplace */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-6">
-            <span className="bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">
-              Integrated NFT Ecosystem
-            </span>
-          </h2>
-          <p className="text-xl text-center text-light_gray_text/80 mb-12 max-w-3xl mx-auto">
-            Transform every game asset into tradeable NFTs with our comprehensive marketplace infrastructure
-          </p>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {nftFeatures.map((feature, index) => (
-              <div 
-                key={index}
-                className="bg-pink-400/10 rounded-xl p-6 border border-pink-400/20 hover:border-pink-400/50 transition-all duration-300 text-center"
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-lg font-semibold mb-3 text-pink-400">{feature.title}</h3>
-                <p className="text-sm text-light_gray_text/70">{feature.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Tokenomics Models */}
-      <div className="py-16">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-            <Trophy className="inline-block w-10 h-10 text-tech_green mr-2" />
-            Flexible Tokenomics Models
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {tokenomicsModels.map((model, index) => (
-              <div 
-                key={index}
-                className="bg-tech_green/10 rounded-xl p-6 border border-tech_green/20 hover:border-tech_green/50 transition-all duration-300 text-center"
-              >
-                <div className="text-4xl mb-4">{model.icon}</div>
-                <h3 className="text-lg font-semibold mb-3 text-tech_green">{model.title}</h3>
-                <p className="text-sm text-light_gray_text/70">{model.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* Pricing Section */}
-      <div className="py-16 bg-deep_purple">
-        <div className="container-custom">
-          <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">
-            <Gem className="inline-block w-10 h-10 text-purple-400 mr-2" />
-            Web3 Pricing Models
-          </h2>
-          <p className="text-xl text-center text-light_gray_text/80 mb-12 max-w-3xl mx-auto">
-            Transparent pricing for blockchain gaming with no hidden fees
-          </p>
-          
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {pricingPlans.map((plan, index) => (
-              <div 
-                key={index}
-                className={`rounded-xl p-8 border transition-all duration-300 hover:scale-105 ${
-                  plan.highlighted 
-                    ? 'bg-purple-gradient border-purple-400 shadow-lg shadow-purple-400/20' 
-                    : 'bg-medium_purple/20 border-light_purple/30'
-                }`}
-              >
-                {plan.highlighted && (
-                  <div className="text-center mb-4">
-                    <span className="bg-tech_green text-near_black font-bold py-1 px-4 rounded-full text-sm">
-                      MOST POPULAR
-                    </span>
-                  </div>
-                )}
+          {/* Technology Foundation */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  Foundation & <span className="text-purple-400">Vision</span>
+                </h2>
                 
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-                  <div className="text-3xl font-bold text-purple-400 mb-1">
-                    {plan.price}<span className="text-lg text-light_gray_text/70">{plan.period}</span>
+                <div className="grid md:grid-cols-2 gap-8">
+                  {/* Current Foundation */}
+                  <div className="p-8 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-tech_green mb-6">✅ Current Alpha Platform</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Game Creation Foundation</h4>
+                        <p className="text-sm text-light_gray_text/70">Working AI-powered game development platform</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Unreal Engine Integration</h4>
+                        <p className="text-sm text-light_gray_text/70">Production-ready game engine foundation</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">User-Generated Content</h4>
+                        <p className="text-sm text-light_gray_text/70">Creator-owned game assets and properties</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-tech_green pl-4">
+                        <h4 className="font-semibold">Platform Ecosystem</h4>
+                        <p className="text-sm text-light_gray_text/70">Foundation for marketplace development</p>
+                      </div>
+                    </div>
                   </div>
-                  <p className="text-light_gray_text/70">{plan.description}</p>
+
+                  {/* Web3 Vision */}
+                  <div className="p-8 bg-gradient-to-b from-purple-400/20 to-transparent border border-purple-400/30 rounded-2xl">
+                    <h3 className="text-2xl font-bold text-purple-400 mb-6">🔮 Web3 Gaming Vision</h3>
+                    
+                    <div className="space-y-4">
+                      <div className="border-l-4 border-purple-400 pl-4">
+                        <h4 className="font-semibold">Blockchain Integration (Vision)</h4>
+                        <p className="text-sm text-light_gray_text/70">Multi-chain game asset tokenization</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-purple-400 pl-4">
+                        <h4 className="font-semibold">NFT Marketplace (Future)</h4>
+                        <p className="text-sm text-light_gray_text/70">Creator-owned game asset trading</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-purple-400 pl-4">
+                        <h4 className="font-semibold">Play-to-Earn Mechanics (Concept)</h4>
+                        <p className="text-sm text-light_gray_text/70">Token-based creator economy</p>
+                      </div>
+                      
+                      <div className="border-l-4 border-purple-400 pl-4">
+                        <h4 className="font-semibold">Cross-Game Assets (Long-term)</h4>
+                        <p className="text-sm text-light_gray_text/70">Interoperable game asset ecosystem</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Partnership Foundation */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Partnership Foundation for Web3
+                  </span>
+                </h2>
+                
+                <div className="grid md:grid-cols-3 gap-8">
+                  {/* Microsoft */}
+                  <div className="text-center p-8 bg-gradient-to-b from-blue-500/20 to-transparent border border-blue-500/30 rounded-2xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-blue-500 to-blue-600 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">M</div>
+                    <h3 className="text-2xl font-bold text-blue-400 mb-4">Microsoft Azure</h3>
+                    <p className="text-light_gray_text/80 mb-4">
+                      Cloud infrastructure foundation for scalable Web3 gaming platform development.
+                    </p>
+                    <p className="text-light_gray_text/70 text-sm">
+                      Enterprise blockchain services + global scaling capabilities
+                    </p>
+                  </div>
+
+                  {/* NVIDIA */}
+                  <div className="text-center p-8 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-2xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-green-500 to-green-600 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">N</div>
+                    <h3 className="text-2xl font-bold text-tech_green mb-4">NVIDIA Omniverse</h3>
+                    <p className="text-light_gray_text/80 mb-4">
+                      Advanced AI and metaverse technology stack for next-generation gaming experiences.
+                    </p>
+                    <p className="text-light_gray_text/70 text-sm">
+                      Metaverse development tools + AI-powered asset generation
+                    </p>
+                  </div>
+
+                  {/* Google */}
+                  <div className="text-center p-8 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-2xl">
+                    <div className="w-16 h-16 rounded-full bg-gradient-to-r from-red-500 to-yellow-500 flex items-center justify-center text-white font-bold text-2xl mx-auto mb-6">G</div>
+                    <h3 className="text-2xl font-bold text-bright_magenta mb-4">Google Cloud</h3>
+                    <p className="text-light_gray_text/80 mb-4">
+                      Blockchain node infrastructure and global content delivery for Web3 gaming.
+                    </p>
+                    <p className="text-light_gray_text/70 text-sm">
+                      Web3 development tools + global scaling infrastructure
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Development Timeline */}
+          <section className="py-20 bg-gradient-to-b from-deep_purple to-near_black">
+            <div className="container-custom">
+              <div className="max-w-6xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Web3 Development Timeline
+                  </span>
+                </h2>
+                
+                <div className="grid md:grid-cols-4 gap-6">
+                  <div className="text-center p-6 bg-gradient-to-b from-tech_green/20 to-transparent border border-tech_green/30 rounded-xl">
+                    <h3 className="text-lg font-bold text-tech_green mb-4">2025 (Current)</h3>
+                    <p className="text-light_gray_text/80 mb-4"><strong>Alpha Platform</strong></p>
+                    <ul className="text-sm text-light_gray_text/70 space-y-2">
+                      <li>• Working game creation</li>
+                      <li>• User-owned assets</li>
+                      <li>• Platform foundation</li>
+                      <li>• Creator economy basics</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="text-center p-6 bg-gradient-to-b from-bright_magenta/20 to-transparent border border-bright_magenta/30 rounded-xl">
+                    <h3 className="text-lg font-bold text-bright_magenta mb-4">2026 (Roadmap)</h3>
+                    <p className="text-light_gray_text/80 mb-4"><strong>Web3 Foundation</strong></p>
+                    <ul className="text-sm text-light_gray_text/70 space-y-2">
+                      <li>• Blockchain integration</li>
+                      <li>• Basic NFT support</li>
+                      <li>• Wallet connectivity</li>
+                      <li>• Token experiments</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="text-center p-6 bg-gradient-to-b from-purple-400/20 to-transparent border border-purple-400/30 rounded-xl">
+                    <h3 className="text-lg font-bold text-purple-400 mb-4">2027 (Vision)</h3>
+                    <p className="text-light_gray_text/80 mb-4"><strong>NFT Marketplace</strong></p>
+                    <ul className="text-sm text-light_gray_text/70 space-y-2">
+                      <li>• Asset marketplace</li>
+                      <li>• Creator royalties</li>
+                      <li>• Cross-game assets</li>
+                      <li>• Play-to-earn pilots</li>
+                    </ul>
+                  </div>
+                  
+                  <div className="text-center p-6 bg-gradient-to-b from-yellow-400/20 to-transparent border border-yellow-400/30 rounded-xl">
+                    <h3 className="text-lg font-bold text-yellow-400 mb-4">2028+ (Future)</h3>
+                    <p className="text-light_gray_text/80 mb-4"><strong>Web3 Ecosystem</strong></p>
+                    <ul className="text-sm text-light_gray_text/70 space-y-2">
+                      <li>• Full metaverse integration</li>
+                      <li>• DAO governance</li>
+                      <li>• Global asset economy</li>
+                      <li>• Platform tokenomics</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* Current Focus */}
+          <section className="py-20">
+            <div className="container-custom">
+              <div className="max-w-4xl mx-auto">
+                <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-bright_magenta to-tech_green">
+                    Current Focus: Platform Foundation
+                  </span>
+                </h2>
+                
+                <div className="bg-gradient-to-r from-tech_green/20 to-purple-400/20 border border-tech_green/30 rounded-2xl p-8 mb-8">
+                  <div className="text-center">
+                    <h3 className="text-2xl font-bold mb-6">Series A Priority: Core Platform Excellence</h3>
+                    <p className="text-xl text-light_gray_text/80 mb-6">
+                      Before Web3 integration, we're perfecting the foundation: AI-powered game creation that works. 
+                      Web3 features will build on proven platform technology.
+                    </p>
+                    
+                    <div className="grid md:grid-cols-3 gap-6 text-center">
+                      <div>
+                        <h4 className="text-xl font-bold text-tech_green mb-2">Alpha Platform</h4>
+                        <p className="text-light_gray_text/80">Working Technology</p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-bright_magenta mb-2">Series A Focus</h4>
+                        <p className="text-light_gray_text/80">Platform Excellence</p>
+                      </div>
+                      <div>
+                        <h4 className="text-xl font-bold text-purple-400 mb-2">Future Vision</h4>
+                        <p className="text-light_gray_text/80">Web3 Integration</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <Check size={18} className="text-tech_green mr-3 shrink-0 mt-1" />
-                      <span className="text-sm">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                
-                <Link 
-                  href={plan.ctaLink}
-                  className={`block w-full py-3 px-6 rounded-lg font-semibold text-center transition-all duration-300 ${
-                    plan.highlighted 
-                      ? 'bg-purple-400 text-light_gray_text hover:bg-purple-400/90' 
-                      : 'bg-medium_purple text-light_gray_text hover:bg-medium_purple/80'
-                  }`}
-                >
-                  {plan.ctaText}
-                </Link>
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-6">Experience the Foundation</h3>
+                  <p className="text-light_gray_text/80 mb-8">
+                    See our current alpha platform in action. Web3 features will build on this proven foundation.
+                  </p>
+                  
+                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a
+                      href="https://www.youtube.com/watch?v=XtI4AndkV24"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-8 py-4 bg-gradient-to-r from-bright_magenta to-purple-600 text-white font-bold rounded-lg hover:from-purple-600 hover:to-bright_magenta transition-all duration-300 transform hover:scale-105"
+                    >
+                      🎬 Watch Alpha Platform Demo
+                    </a>
+                    
+                    <a
+                      href="mailto:rishav@cpgplay.com?subject=Web3 Gaming Vision Discussion"
+                      className="px-8 py-4 border-2 border-purple-400 text-purple-400 hover:bg-purple-400/10 rounded-lg transition-all duration-300 transform hover:scale-105"
+                    >
+                      🔮 Discuss Web3 Vision
+                    </a>
+                  </div>
+                  
+                  <p className="text-sm text-light_gray_text/60 mt-6">
+                    Current platform proven • Web3 roadmap planned • Future-ready foundation
+                  </p>
+                </div>
               </div>
-            ))}
-          </div>
-        </div>
+            </div>
+          </section>
+        </main>
+        
+        <Footer />
       </div>
-
-      {/* Coming Soon - XEUR Token */}
-      <div className="py-16">
-        <div className="container-custom">
-          <div className="bg-gradient-to-r from-purple-400/20 to-pink-400/20 rounded-xl p-8 border border-purple-400/30 text-center">
-            <h3 className="text-2xl font-bold mb-4">
-              <Coins className="inline-block w-8 h-8 text-purple-400 mr-2" />
-              Coming Soon: XEUR Token
-            </h3>
-            <p className="text-light_gray_text/80 mb-6 max-w-2xl mx-auto">
-              Native platform token for governance, staking, and ecosystem rewards. Early adopters get 
-              preferential access and bonus allocations.
-            </p>
-            <Link 
-              href="/signup?waitlist=xeur-token" 
-              className="bg-purple-400 text-light_gray_text font-semibold py-3 px-8 rounded-lg hover:bg-purple-400/90 transition-colors inline-block"
-            >
-              Join Waitlist
-            </Link>
-          </div>
-        </div>
-      </div>
-
-      {/* CTA Section */}
-      <div className="py-16 bg-gradient-to-r from-purple-400/20 to-yellow-400/20">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Ready for <span className="text-bright_magenta">Web3 Gaming?</span>
-          </h2>
-          <p className="text-xl text-light_gray_text/80 mb-8 max-w-3xl mx-auto">
-            Join the next evolution of gaming with blockchain integration, NFT economies, and decentralized ownership. 
-            Create games that players truly own.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/signup?plan=web3" className="btn-primary">
-              Launch Web3 Game
-            </Link>
-            <Link href="/demo?service=web3" className="btn-secondary">
-              View Web3 Demo
-            </Link>
-          </div>
-        </div>
-      </div>
-      
-      <Footer />
-    </div>
+    </>
   );
 };
 
