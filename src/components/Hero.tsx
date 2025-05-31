@@ -6,9 +6,7 @@ const Hero = () => {
   const [isBetaModalOpen, setIsBetaModalOpen] = useState(false);
   const [isInvestorModalOpen, setIsInvestorModalOpen] = useState(false);
 
-  const openBetaModal = () => setIsBetaModalOpen(true);
   const closeBetaModal = () => setIsBetaModalOpen(false);
-  const openInvestorModal = () => setIsInvestorModalOpen(true);
   const closeInvestorModal = () => setIsInvestorModalOpen(false);
 
   return (
